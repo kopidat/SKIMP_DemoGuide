@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/mobile_style.css" >
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+
+
+
+<header id="header" data-header="quick">
+	<button type="button" onclick="return false;" data-button="back" class="btn_back" id="btn_back">이전</button>
+	<h1>설정</h1>
+</header>
+
+<div id="setArea01" class="setInfo">
+	<h2>화면 설정</h2>
+	<ul class="list">
+		<li class="setStyle">
+			<p> 토글 스위치</p>
+			<div class="onoffBox">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider"></span>
+				</label>
+			</div>
+		</li>
+		<li class="setStyle">
+			<p> 토글 스위치</p>
+			<div class="onoffBox">
+				<label class="switch">
+					<input type="checkbox">
+					<span class="slider"></span>
+				</label>
+			</div>
+		</li>
+		<li class="setStyle">
+			<p>업데이트</p>
+			<button class="btnUpdate" data-press>업데이트</button>
+		</li>
+	</ul>
+	<h2>개인 정보 설정</h2>
+	<ul  class="list">
+		<li><button class="btn-setting" onclick="location.href='s12_setting_mobile2.html'" >간편로그인 설정</button></li>
+		<li><button class="btn-setting">로그아웃</button></li>
+	</ul>
+	<h2>기타</h2>
+	<dl>
+		<dt>버전정보</dt>
+		<dd>1.0.0</dd>
+	</dl>
+</div>
+
+<footer id="footer" data-footer="">
+</footer>
+
+<script type="text/javascript">
+M.onReady(function(evt){
+	// uikit 링크
+	$("[data-instance-class='menu-info']").click(function(){
+		var stackInfo = M.info.stack();
+		if(stackInfo.length > 1 && stackInfo[stackInfo.length-2].key.indexOf('view_content3.html') > -1){
+			M.page.back();
+		}else{
+			M.page.html("../uikit/view_content3.html",{
+				action : "NEW_SCR",
+				orient : "PORT"
+			});
+		}
+	});
+	
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+}).onRestore(function(evt){
+	
+}).onHide(function(evt){
+	
+}).onResume(function(evt){
+	
+}).onPause(function(evt){
+	
+}).onDestroy(function(evt){
+	
+}).onBack(function(evt){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

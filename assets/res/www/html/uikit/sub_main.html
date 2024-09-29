@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header id="header">
+			<h1>UI Kit</h1>
+			<button type="button" class="tbtn_l tbtn_prev" title="Home">Home</button>
+			<button type="button" class="tbtn_home" title="홈">홈</button>
+		</header>
+
+		<section class="content bge" id="content"> 
+			<div class="submain">
+				<!-- scroll 영역 -->
+		
+					<ul class="sub_menu">
+						<li data-list-name="view_layout2.html">
+							<button type="button"><span>레이아웃</span></button>
+						</li>
+						<li data-list-name="list_navi.html">
+							<button type="button"><span>네비게이션</span></button>
+						</li>
+						<li data-list-name="list_conView.html">
+							<button type="button"><span>컨텐츠뷰</span></button>
+						</li>
+					</ul>
+					<ul class="sub_menu">
+						<li data-list-name="list_control.html">
+							<button type="button"><span>컨트롤</span></button>
+						</li>
+						<li data-list-name="list_media.html">
+							<button type="button"><span>미디어</span></button>
+						</li>
+						<li data-list-name="list_popup.html">
+							<button type="button"><span>팝업</span></button>
+						</li>
+					</ul>
+		
+				<!--// scroll 영역 -->
+				</div>
+		</section>
+	</div>
+
+
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + "px");
+	$('.sub_menu>li').css('height', $('.sub_menu>li').width() + "px");
+	
+	// 페이지 이동
+	$("[data-list-name]").click(function(){
+		var $this = $(this);
+		$this.addClass('on');
+		setTimeout(function(){
+// 			if($this.attr('data-list-name') == "list_media.html"){
+// 				$this.removeClass('on');
+// 				alert("기능 구현 중입니다.")
+// 				return;
+// 			}
+			
+			$this.removeClass('on');
+			M.page.html($this.attr('data-list-name'),{
+				action:"NEW_SCR",
+				orient:"PORT"
+			});
+		}, 200);
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+</script>
+</body>
+</html>

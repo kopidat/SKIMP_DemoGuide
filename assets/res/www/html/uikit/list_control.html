@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>컨트롤</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<ul class="sub_list">
+				<li class="down">
+					<button type="button" data-instance-class="accordion-handler">입력 박스</button>
+					<ul class="sub_list_menu" data-instance-class="accordion-content">
+						<li data-list-name="view_control1.html"><button type="button">기본 입력박스</button></li>
+						<li data-list-name="view_control4.html"><button type="button">패스워드 입력박스</button></li>
+					</ul>
+				</li>
+				<li data-list-name="view_button1.html">
+					<button type="button">버튼</button>
+					<!-- <ul class="sub_list_menu" data-instance-class="accordion-content">
+						<li data-list-name="view_button1.html"><button type="button">텍스트버튼</button></li>
+						<li data-list-name="view_button2.html"><button type="button">아이콘버튼</button></li>
+						<li data-list-name="view_button3.html"><button type="button">위/아래버튼</button></li>
+					</ul> -->
+				</li>
+				<li data-list-name="view_button6.html"><button type="button">라디오버튼</button></li>
+				<li data-list-name="view_button7.html"><button type="button">체크박스</button></li>
+				<li data-list-name="view_button5.html"><button type="button">온/오프버튼</button></li>
+				<li data-list-name="view_button4.html"><button type="button">슬라이더+스핀 컨트롤</button></li>
+				<li data-list-name="view_button8.html"><button type="button">Spinner</button></li>
+				<li class="down">
+					<button type="button" data-instance-class="accordion-handler">로딩</button>
+					<ul class="sub_list_menu" data-instance-class="accordion-content">
+						<li data-list-name="view_loading1.html"><button type="button">로딩 아이콘</button></li>
+						<li data-list-name="view_loading2.html"><button type="button">프로그래스 바</button></li>
+						<li data-list-name="view_loading3.html"><button type="button">리스트 더보기 버튼</button></li>
+					</ul>
+				</li>
+				<!-- <li class="down">
+					<button type="button" data-instance-class="accordion-handler">인디케이터</button>
+					<ul class="sub_list_menu" data-instance-class="accordion-content">
+						<li data-list-name="view_indicator1.html"><button type="button">인뎁스 인디케이터</button></li>
+						<li data-list-name="view_indicator2.html"><button type="button">페이지 인디케이터</button></li>
+					</ul>
+				</li> -->
+				<li  class="down">
+					<button type="button" data-instance-class="accordion-handler">페이지네이션</button>
+					<ul class="sub_list_menu" data-instance-class="accordion-content">
+						<li data-list-name="view_paging.html"><button type="button">숫자형</button></li>
+						<li data-list-name="view_indicator2.html"><button type="button">돗트형</button></li>
+					</ul>
+				</li>
+			</ul>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + "px");
+
+	// accordian 적용
+	var tmpArr = [];
+	var tmpSelected = null;
+	$("[data-instance-class='accordion-handler']").next().each(function(index, element){
+		tmpArr.push($(element).height() + 'px');
+		$(element).css('height', '0px');
+		$(element).addClass('animated');
+		$(element).parent().removeClass('on');
+	});
+
+	$("[data-instance-class='accordion-handler']").click(function(){
+		$("[data-instance-class='accordion-handler']").next().each(function(index, element){
+			$(element).css('height', '0px');
+		});
+
+		if(tmpSelected != $("[data-instance-class='accordion-handler']").index(this)){
+			$(this).next().css({
+				'height': tmpArr[$("[data-instance-class='accordion-handler']").index(this)]
+			});
+			$("[data-instance-class='accordion-handler']").next().each(function(index, element){
+				$(element).parent().addClass('down');
+			});
+			$(this).parent().removeClass('down');
+			$(this).parent().addClass('on');
+			tmpSelected = $("[data-instance-class='accordion-handler']").index(this);
+		}else{
+			$(this).next().css({
+				'height': '0px'
+			});
+			$(this).parent().removeClass('on');
+			$(this).parent().addClass('down');
+			tmpSelected = null;
+		}
+	});
+
+	// 페이지 이동
+	$("[data-list-name]").click(function(){
+		M.page.html($(this).attr('data-list-name'),{
+			action:"NEW_SCR",
+			orient:"PORT"
+		});
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header id="header">
+			<h1>그룹 리스트 뷰</h1>
+			<button type="button" class="tbtn_l tbtn_prev">이전</button>
+			<button type="button" class="tbtn_home" title="홈">홈</button>
+		</header>
+		<section class="content bge" id="content">
+			<div id="view_con3">
+				<div class="group_menu">
+					<h2>그룹1</h2>
+					<ul>
+						<li><button type="button">그룹1 리스트 1</button></li>
+						<li><button type="button">그룹1 리스트 2</button></li>
+						<li><button type="button">그룹1 리스트 3</button></li>
+					</ul>
+					<h2>그룹2</h2>
+					<ul>
+						<li><button type="button">그룹2 리스트 1</button></li>
+						<li><button type="button">그룹2 리스트 2</button></li>
+						<li><button type="button">그룹2 리스트 3</button></li>
+					</ul>
+		
+					<h2>그룹3</h2>
+					<ul>
+						<li><button type="button">그룹3 리스트 1</button></li>
+						<li><button type="button">그룹3 리스트 2</button></li>
+						<li><button type="button">그룹3 리스트 3</button></li>
+					</ul>
+		
+					<h2>그룹4</h2>
+					<ul>
+						<li><button type="button">그룹4 리스트 1</button></li>
+						<li><button type="button">그룹4 리스트 2</button></li>
+						<li><button type="button">그룹4 리스트 3</button></li>
+						<li><button type="button">그룹4 리스트 4</button></li>
+						<li><button type="button">그룹4 리스트 5</button></li>
+						<li><button type="button">그룹4 리스트 6</button></li>
+						<li><button type="button">그룹4 리스트 7</button></li>
+						<li><button type="button">그룹4 리스트 8</button></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

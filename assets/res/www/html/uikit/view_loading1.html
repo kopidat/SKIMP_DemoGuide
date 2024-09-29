@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		#control{width:100%;height:100%;background:#ff6600;}
+		#control .txt_con{display:block;width:100%;height:100%;padding:1rem;color:#fff;font-size:1.5rem;background:#ff6600;}
+		#popWrap2 .loading{text-align:center;}
+		#popWrap2 .loading img{margin:50% auto;text-align:center;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>로딩 아이콘</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+	<!-- scroll 영역 -->
+
+			<div id="control">
+				<div class="txt_con">
+					본문내용이 들어가는 곳입니다.
+				</div>
+				<div id="popWrap2"><p class="full_loding"></p></div>
+			</div>
+
+	<!--// scroll 영역 -->
+	</section>
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').height($('body').height()- $('#header').height())
+
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+
+</body>
+</html>

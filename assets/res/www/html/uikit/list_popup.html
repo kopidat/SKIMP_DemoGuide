@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<header id="header">
+			<h1>팝업</h1>
+			<button type="button" class="tbtn_l tbtn_prev">이전</button>
+			<button type="button" class="tbtn_home" title="홈">홈</button>
+		</header>
+		<section class="content bge" id="content">
+			<div>
+				<ul class="sub_list">
+					<li data-list-name="view_popup1.html"><button type="button">네이티브 팝업</button></li>
+					<li data-list-name="view_popup2.html"><button type="button">커스텀 팝업</button></li>
+					<li data-list-name="view_popup3.html"><button type="button">풀 팝업</button></li>
+					<li data-list-name="view_popup4.html"><button type="button">토스트 팝업</button></li>
+				</ul>
+	
+			</div>
+		</section>
+	</div>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>팝업</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + "px");
+	
+	// 페이지 이동
+	$("[data-list-name]").click(function(){
+		M.page.html($(this).attr('data-list-name'),{
+			action:"NEW_SCR",
+			orient:"PORT"
+		});
+	});
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

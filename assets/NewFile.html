@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="res/www/css/morpheus-style.css" />
+	<link rel="stylesheet" href="res/www/css/swiper.min.css" />
+	<link rel="stylesheet" href="res/www/css/muikit.css" />
+</head>
+<body>
+
+<div class="wrapper">
+	<header class="header">
+		<div class="side-bg">
+			사이드메뉴 화면백그라운드
+			<!-- show : class="none" 삭제 -->
+		</div>
+		<aside class="side-wrap type-a open">
+			<!-- show : class="open" 추가 -->
+			<div class="side-cont" style="width:80%;">
+				<!-- width값 퍼센트로 조절 -->
+				<div class="side-top">
+					<div class="profile-wrap pd-b60">
+						<div class="profile">
+							<p>
+								<img src="../img/temp-img-profile.png" alt="프로필 사진"/>
+							</p>
+						</div>
+						<h2>
+							<em>
+								김에듀
+							</em>
+							님 환영합니다.
+						</h2>
+					</div>
+					<ul class="info-box-blue">
+						<li>
+							<p>
+								6,500
+							</p>
+							<span>
+								포인트
+							</span>
+						</li>
+						<li>
+							<p>
+								6
+							</p>
+							<span>
+								보유쿠폰
+							</span>
+						</li>
+						<li>
+							<p>
+								23
+							</p>
+							<span>
+								장바구니
+							</span>
+						</li>
+					</ul>
+				</div>
+				<div class="side-scroll">
+					<table class="tbl-menu-box">
+						<colgroup>
+							<col class="width:33.333%"/>
+							<col class="width:33.333%"/>
+							<col class="width:33.333%"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-01.png" alt="" style="width:2rem"/>
+										<p>
+											교육상품
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-02.png" alt="" style="width:2.3rem"/>
+										<p>
+											내교육
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-03.png" alt="" style="width:1.9rem"/>
+										<p>
+											교육뉴스
+										</p>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-04.png" alt="" style="width:2.8rem"/>
+										<p>
+											일정관리
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-05.png" alt="" style="width:3.5rem"/>
+										<p>
+											전문가 칼럼
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-06.png" alt="" style="width:2.5rem"/>
+										<p>
+											공지사항
+										</p>
+									</button>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-07.png" alt="" style="width:1.9rem"/>
+										<p>
+											이벤트
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-08.png" alt="" style="width:2.5rem"/>
+										<p>
+											1:1 상담
+										</p>
+									</button>
+								</td>
+								<td>
+									<button type="button">
+										<img src="../img/ico-menu-09.png" alt="" style="width:2rem"/>
+										<p>
+											설정
+										</p>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="side-btm">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="../img/img-add.png" alt="보카 콘서트:영어단어의 유래와 어원 이강사 칼럼니스트"/>
+							</div>
+							<div class="swiper-slide">
+								Slide 2
+							</div>
+							<div class="swiper-slide">
+								Slide 3
+							</div>
+							<div class="swiper-pagination wit"/>
+						</div>
+					</div>
+					<button class="button" class="btn-side-close po-l">
+						닫기
+					</button>
+					<button class="button" class="btn-alarm r-fix wit">
+						알림
+						<span class="badge sky">
+							3
+						</span>
+					</button>
+				</div>
+			</div>
+		</aside>
+	</header>
+	<div class="container">
+		<!-- 화면 소스 위치 -->
+	</div>
+</div>
+<script type="text/javascript">
+	var mySwiper = new Swiper('.swiper-container', {
+		pagination: {
+		el: '.swiper-pagination',
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+	});
+</script>
+</body>
+	<script src="res/www/js/jquery-2.1.4.min.js"></script>
+	<script src="res/www/js/swiper.min.js"></script>
+	<script src="res/www/js/muikit-1.0.0.min.js"></script>
+	<script src="res/www/js/ui.js"></script>
+</html>

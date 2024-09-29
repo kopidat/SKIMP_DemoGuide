@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>암호 입력박스</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div id="control" class="control_5">
+				<h3>암호 입력박스</h3>
+				<p class="input_desc">암호를 입력하세요</p>
+				<p class="ta_c">
+					<input type="password" class="text" maxLength=1 style="width: 4.2rem;"  />
+					<input type="password" class="text" maxLength=1 style="width: 4.2rem;" />
+					<input type="password" class="text" maxLength=1 style="width: 4.2rem;" />
+					<input type="password" class="text" maxLength=1 style="width: 4.2rem;" />
+				</p>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

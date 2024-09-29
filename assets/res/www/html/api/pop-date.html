@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Guide App</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <script type="text/javascript" src="../../js/mcore.min.js"></script>
+    <script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+<button data-function>날짜 선택 Popup (HM12)</button>
+<pre>
+M.pop.date({
+    type      : 'HM12',
+    initDate  : '1130PM'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (HM12+Interval)</button>
+<pre>
+M.pop.date({
+    type      : 'HM12',
+    initDate  : '1130PM',
+    interval  : 6
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (HM24)</button>
+<pre>
+M.pop.date({
+    type      : 'HM24',
+    initDate  : '2330'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (HM12+Interval)</button>
+<pre>
+M.pop.date({
+    type      : 'HM12',
+    initDate  : '1130PM',
+    interval  : 30
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (MMYYY)</button>
+<pre>
+M.pop.date({
+    type      : 'MMYYYY',
+    initDate  : '072013'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (YYYY)</button>
+<pre>
+M.pop.date({
+    type      : 'YYYY',
+    initDate  : '2013'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (MM)</button>
+<pre>
+M.pop.date({
+    type      : 'MM',
+    initDate  : '07'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (DD)</button>
+<pre>
+M.pop.date({
+    type      : 'DD',
+    initDate  : '12'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (YMD)</button>
+<pre>
+M.pop.date({
+    type      : 'YMD',
+    initDate  : '20130723',
+    startDate : '19790101',
+    endDate   : '21001231'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+<button data-function>날짜 선택 Popup (YM)</button>
+<pre>
+M.pop.date({
+    type      : 'YM',
+    initDate  : '201307',
+    startDate : '197901',
+    endDate   : '210012'
+}, function(result, setting) {
+    M.tool.log( result );
+    alert( JSON.stringify( result ));
+});
+</pre>
+
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

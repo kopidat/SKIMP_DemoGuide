@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nhlife_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script>
+		$(window).ready(function(event){
+			// 공지사항
+			var allAccordion = $('.notice-list > dl > dd').hide();
+			$('.notice-list > dl > dt').click(function() {
+				if($(this).next().css('display') != 'block'){			
+					allAccordion.slideUp();
+					$(this).next().slideDown();
+					$(this).addClass('active').parent().siblings('dl').find('dt.active').removeClass('active');
+				}else {
+					$(this).next().slideUp();
+					$(this).removeClass('active');
+				}
+				return false;
+			});
+
+			/* 네비게이션 */	
+			var $btnNavi = $('.side-menu'),
+				$allMenu = $('.all_menu'),
+				allMenuW = $allMenu.width(), 
+				$menuClose = $('.menu_close'),
+				menu_1dep = $('.menu_1dep > li'),
+				$menu_1depA = menu_1dep.find('>a');
+			
+			$btnNavi.on('click', function(){
+				$allMenu.show().stop().animate({'left':0});
+				$('body').append('<div class="dimm100"></div>');
+				$('html, body').css('overflow-y','hidden');
+				$menuClose.on('click', function(){
+					$allMenu.stop().animate({'left':-allMenuW+'px'}, function(){
+						$allMenu.hide();
+						$('body .dimm100').remove();
+						$('html, body').css('overflow-y','auto');
+					});
+				});
+			});
+
+			$menu_1depA.on('click', function(){
+				var $this = $(this);
+				var swich = false;
+				if(!($this.parent().hasClass('on'))){
+					menu_1dep.removeClass('on');
+					$this.parent().addClass('on');
+					swich = true;
+				}else{
+					$this.parent().removeClass('on');
+					swich = false;
+				}
+			});
+
+			/* 네비게이션 안에 메뉴 */
+			$(".all_menu .menu > li > button").click(function(){
+			$(this).addClass('on');
+			$(this).parent().siblings().children('button').removeClass('on');
+			});
+
+		
+		});
+
+	</script>
+</head>
+<body>
+	<header id="header">
+		<button type="button" id="tbtn_prev" class="btn_back" data-instance-class="btnPrev">목록</button>
+		<h1>공지사항</h1>
+	</header>
+
+<!-- content_wrap -->
+<div id="con_wrap">
+	
+
+	<!-- container -->
+	<div id="wrapper">
+		<div class="container scroller">
+		<!-- iscroll_area -->
+
+		<div class="content" id="content" style="padding: 0;">
+            <div class="app-total">전체<span>1,002</span></div>
+            <div class="app-search">
+                <input type="text" class="input01" title="검색어" placeholder="검색어를 입력하세요.">
+                <button class="btn-search"></button>
+            </div>
+            <div class="notice-list" style="background-color: #fff;background-image:none;margin-top: 0;">
+                <dl>
+                    <dt>
+                        <h3 class="file">공지사항 제목입니다.</h3>
+                        <p class="date">2021.04.19</p>
+                    </dt>
+                    <dd>
+                        <div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+                        <div class="btn-list">
+                            <button class="btn-file w100p"><span><em>바로보기</em>붙임1.첨부파일 명은 1줄만 노출합니다.pdf</span></button>
+                            <button class="btn-file w100p"><span><em>바로보기</em>붙임2.첨부파일 명은 1줄만 노출합니다 첨부파일 명은 1줄만 노출합니다.pdf</span></button>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <h3 class="file">공지사항 제목입니다. 공지사항 제목입니다. 공지사항 제목입니다.</h3>
+                        <p class="date">2021.04.19</p>
+                    </dt>
+                    <dd>
+                        <div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+                        <div class="btn-list">
+                            <button class="btn-file w100p"><span><em>바로보기</em>붙임1.첨부파일 명은 1줄만 노출합니다.pdf</span></button>
+                            <button class="btn-file w100p"><span><em>바로보기</em>붙임2.첨부파일 명은 1줄만 노출합니다 첨부파일 명은 1줄만 노출합니다.pdf</span></button>
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <h3>공지사항 제목입니다.</h3>
+                        <p class="date">2021.04.19</p>
+                    </dt>
+                    <dd>
+                        <div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+                        <div class="btn-list">
+                            <button class="btn-file w100p"><span><em>바로보기</em>붙임1.첨부파일 명은 1줄만 노출합니다.pdf</span></button>
+                            <button class="btn-file w100p"><span><em>바로보기</em>붙임2.첨부파일 명은 1줄만 노출합니다 첨부파일 명은 1줄만 노출합니다.pdf</span></button>
+                        </div>
+                    </dd>
+                </dl>
+            </div>            
+            
+        </div>
+				<!-- [D:btn]목록이 한페이지 이상인 경우 -->
+			<div class="btn_area"><button type="button" class="btn_more">더보기</button></div>
+
+		<!--// iscroll_area -->
+		</div>
+	</div>
+</div>
+<!--// content_wrap -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	// uikit 링크
+	$("[data-instance-class='menu-info']").click(function(){
+		var stackInfo = M.info.stack();
+		if(stackInfo.length > 1 && stackInfo[stackInfo.length-2].key.indexOf('view_content1.html') > -1){
+			M.page.back();
+		}else{
+			M.page.html("../uikit/view_content1.html",{
+				action : "NEW_SCR",
+				orient : "PORT"
+			});
+		}
+	});
+	
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+	
+	$("[data-instance-class='goDetail']>li").click(function(){
+		// 페이지 이동
+		M.page.html("s10_noticeView_nhlife.html",{
+			action:"NEW_SCR",
+			orient:"PORT"
+		});
+	})
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

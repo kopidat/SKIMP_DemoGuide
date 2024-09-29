@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Guide App</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <script type="text/javascript" src="../../js/mcore.min.js"></script>
+    <script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+<button data-function>HTTP 통신 (기본 옵션)</button>
+<pre>
+M.net.http.send({
+	server:	'DEMO_SERVER',
+    path:	'api/msp/sample/test',
+    method:	'POST',
+    data:	{
+        'deploy' : '0',
+        'version': '000000',
+        'rsp' : '0b3235695f40f279ba3bda96497b894eb457ce73f8dcd6ec4d2c39d1fa622dac7b8e4c52f9b477e759343f07969bfe1d'
+    },
+    onSuccess:	function(recevedData, setting) {
+    	M.tool.log( "onSuccess", recevedData );
+    	alert( "onSuccess, " + JSON.stringify(recevedData) );
+    },
+    "onError":	function(errorCode, errorMessage, setting) {
+        M.tool.log( "onError", errorCode, errorMessage );
+    	alert( "onError, " + errorCode + ", " + errorMessage );
+    }
+});
+</pre>
+
+<button data-function>HTTP 통신 (기본 옵션 without Indicator)</button>
+<pre>
+M.net.http.send({
+	server:	'DEMO_SERVER',
+    path:	'api/msp/sample/test',
+    method:	'POST',
+    indicator: {
+    	show: false
+    },
+    data:	{
+        'deploy' : '0',
+        'version': '000000',
+        'rsp' : '0b3235695f40f279ba3bda96497b894eb457ce73f8dcd6ec4d2c39d1fa622dac7b8e4c52f9b477e759343f07969bfe1d'
+    },
+    onSuccess:	function(recevedData, setting) {
+    	M.tool.log( "onSuccess", recevedData );
+    	alert( "onSuccess, " + JSON.stringify(recevedData) );
+    },
+    "onError":	function(errorCode, errorMessage, setting) {
+        M.tool.log( "onError", errorCode, errorMessage );
+    	alert( "onError, " + errorCode + ", " + errorMessage );
+    }
+});
+</pre>
+
+<button data-function>HTTP 통신 (모든 옵션)</button>
+<pre>
+M.net.http.send({
+	server:	'DEMO_SERVER',
+    path:	'api/msp/sample/test',
+    method:	'POST',
+    timeout: '1000',
+    dummy: false,
+	secure: false,
+	message: 'Loading..',
+	cancelable: false,
+    data:	{
+        'deploy' : '0',
+        'version': '000000',
+        'rsp' : '0b3235695f40f279ba3bda96497b894eb457ce73f8dcd6ec4d2c39d1fa622dac7b8e4c52f9b477e759343f07969bfe1d'
+    },
+    onSuccess:	function(recevedData, setting) {
+    	M.tool.log( "onSuccess", recevedData );
+    	alert( "onSuccess, " + JSON.stringify(recevedData) );
+    },
+    "onError":	function(errorCode, errorMessage, setting) {
+        M.tool.log( "onError", errorCode, errorMessage );
+    	alert( "onError, " + errorCode + ", " + errorMessage );
+    }
+});
+</pre>
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

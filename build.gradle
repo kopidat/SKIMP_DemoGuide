@@ -1,0 +1,140 @@
+buildscript {
+	repositories {
+		maven {url "https://maven.google.com"}
+		maven {url "https://jcenter.bintray.com"}
+	}
+	
+	dependencies {
+		classpath 'com.android.tools.build:gradle:3.5.0'
+		classpath 'com.github.ksoichiro:gradle-eclipse-aar-plugin:+'
+	}
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.github.ksoichiro.eclipse.aar'
+
+repositories {
+	maven {url "https://maven.google.com"}
+	maven {url "https://jcenter.bintray.com"}
+}
+
+eclipseAar {
+	androidTarget = 'android-28'
+	aarDependenciesDir = 'aarDependencies'
+	cleanLibsDirectoryEnabled = false
+	andmore = true
+}
+
+
+def assetDir = "assets"
+def Properties properties = new Properties()
+if (project.rootProject.file('local.properties').exists()) {
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    assetDir = properties.getProperty("asset.dir", "assets")
+}
+
+
+android {
+	compileSdkVersion 28
+	buildToolsVersion "28.0.3"
+	useLibrary 'org.apache.http.legacy'
+
+	defaultConfig {
+		minSdkVersion 14
+		targetSdkVersion 28
+
+		applicationId "mcore.edu.demoGuide"
+		versionCode 1
+		versionName "1.0.0"
+		//
+	}
+
+	sourceSets {
+		main {
+			manifest.srcFile 'AndroidManifest.xml'
+			java.srcDirs = ['src']
+			resources.srcDirs = ['src']
+			aidl.srcDirs = ['src']
+			renderscript.srcDirs = ['src']
+			res.srcDirs = ['res']
+			assets.srcDirs = [assetDir]
+			jniLibs {
+				srcDir 'libs'
+			}
+		}
+		
+		androidTest.setRoot('tests')
+		debug.setRoot('build-types/debug')
+		release.setRoot('build-types/release')
+	}
+	
+	dexOptions {
+		preDexLibraries = false
+	}
+
+	packagingOptions {
+		exclude "META-INF/LICENSE"
+		exclude "META-INF/DEPENDENCIES"
+	}	
+	lintOptions {
+		checkReleaseBuilds false
+		abortOnError false
+	}
+	
+	if (KEYSTORE_PATH?.trim()) {
+		signingConfigs{
+			releaseWithSignedKey {
+				storeFile file(KEYSTORE_PATH)
+				storePassword KEYSTORE_PW
+				keyAlias KEYSTORE_ALIAS
+				keyPassword KEYSTORE_ALIAS_PW
+			}
+		}
+	}
+	
+	buildTypes {
+		release {
+			//minifyEnabled true
+			//proguardFiles getDefaultProguardFile('proguard-android.txt'), 'morpheus_proguard-project.txt'
+			if (KEYSTORE_PATH?.trim()) {
+				signingConfig signingConfigs.releaseWithSignedKey
+			}
+		}
+	}
+}
+
+//추가
+repositories {
+    flatDir {
+        dirs 'libs', 'mcoreLibs'
+    }
+}
+
+
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: '*.jar')
+	implementation fileTree(dir: 'mcoreLibs', include: '*.jar', excludes: ['android-support-v4.jar', 'recyclerview-v7-22.1.1.jar'])
+
+	/**
+	* ==========================================
+	* 외부라이브러리 적용시  [example.aar file]
+	* ==========================================
+	* implementation name: 'example-release', ext: 'aar'
+	*/
+	//
+	// 간편인증(핀)
+	implementation 'androidx.recyclerview:recyclerview:1.1.0'
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+
+task  AppRunDebug (type: Exec, dependsOn: 'installDebug') {
+	if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+		commandLine 'cmd', '/c', android.getAdbExe().toString(), 'shell', 'am', 'start', '-n', 'mcore.edu.demoGuide/.Startup'
+	}
+	else if (Os.isFamily(Os.FAMILY_MAC)) {
+		commandLine android.getAdbExe().toString(), "shell", 'am', 'start', '-n', 'mcore.edu.demoGuide/.Startup'
+	}
+}
+

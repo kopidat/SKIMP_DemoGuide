@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+
+<button data-function>화면 바꾸기</button>
+<pre>
+M.page.replace('page-replace-terminal.html');
+</pre>
+
+<button data-function>화면 바꾸기 (URL)</button>
+<pre>
+M.page.replace('http://m.naver.com');
+</pre>
+
+<button data-function>화면 바꾸기 with 매게변수</button>
+<pre>
+M.page.replace('page-replace-terminal.html', {
+	'param': {
+		'a':'1',
+		'b':'2',
+		'c':'3'
+	}
+});
+</pre>
+
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		.tab_updown{width:100%;margin:0;padding:0;}
+		.tab_updownMenu{overflow:hidden;width:100%;}
+		.tab_updownMenu li{float:left;width:20%;height:5.5rem;border-left:1px solid #d7d7d7;border-right:1px solid #fff;border-top:1px solid #d7d7d7;}
+		.tab_updownMenu li button{display:block;width:100%;height:100%;line-height:5.5rem;color:#7b7b7b;font-size:1.2rem;text-align:center;text-shadow:0 1px #fff;line-height:4.08em;background:#f0f0f0;}
+		.tab_updownMenu li.default button{background:#00b0f0;}
+		.tab_updownMenu li.default{box-shadow:inset 0 0 3px rgba(0,0,0,0.75);background:#cecece;}
+		.tab_updownMenu li.default button{color:#7b7b7b;background:none;}
+		.tab_updownMenu li.on{position:relative;}
+		.tab_updownMenu li.on:after{content:"";position:absolute;bottom:0;width:100%;height:0.3em;background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0,#a81217), color-stop(1,#ed1c24));}
+		.tab_updownMenu li.on button{color:#393939;}
+		.animated{-webkit-transition: all 500ms;}
+		h3.tab_tit{visibility:hidden;overflow:hidden;position:absolute;left:-1000em;width:0;height:0;font-size:0;line-height:0;}
+		.tab_con{display:none;width:100%;height:15rem;margin-top:10rem;font-size:1.4rem;text-align:center;border:0 none !important;box-shadow:none !important;background:transparent !important;}
+		.tab_con.on{display:block;}
+		.tab_updown .btn, .tab_updown .btn_tab{position:relative;display:block;width:100%;height:1.5rem;font-size:1.3rem;text-indent:-20000px;text-align:center;border:0 none;outline:0 none;box-shadow:inset 0 -1px #f0d9da, inset 0 -2px #fff, 0 1px 3px rgba(0,0,0,0.23) !important;border-top:1px solid #d7d7d7;border-bottom:1px solid #d7d7d7;background:transparent;}
+		.tab_updown .btn_tab:before{content:"";position:absolute;top:.2rem;left:0;display:inline-block;height:0.6em;width:1.3em;margin:0 48%;background:url("../../img/sample_mobile/arr_tab2.png") no-repeat 0 0;background-size:2.6em 0.6em;}
+		.tab_updown .btn:before{content:"";position:absolute;top:.2rem;left:0;display:inline-block;height:0.6em;width:1.3em;margin:0 48%;background:url("../../img/sample_mobile/arr_tab2.png") no-repeat -1.7rem 0;background-size:2.6em 0.6em;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>펼침/닫힘 탭</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<div id="scroll">
+	<!-- scroll 영역 -->
+
+		<div class="tab_updown">
+			<ul class="tab_updownMenu" data-instance-class="tab_wrap">
+				<li class="on"><button type="button">탭메뉴 1</button></li>
+				<li><button type="button">탭메뉴 2</button></li>
+				<li><button type="button">탭메뉴 3</button></li>
+				<li><button type="button">탭메뉴 4</button></li>
+				<li><button type="button">탭메뉴 5</button></li>
+				<li><button type="button">탭메뉴 6</button></li>
+				<li><button type="button">탭메뉴 7</button></li>
+				<li><button type="button">탭메뉴 8</button></li>
+				<li><button type="button">탭메뉴 9</button></li>
+				<li><button type="button">탭메뉴 10</button></li>
+			</ul>
+			<button type="button" class="btn" data-instance-class="tab_btn">닫기</button>
+			<!-- <button type="button" class="btn_tab">열기</button> -->
+		</div>
+
+		<p class="cbtn_r" style="display:none">
+			<button type="button" class="cbtn_info" data-instance-class="info-btn">도움말보기</button>
+		</p>
+
+		<!-- tab 클릭 시 class="on" 추가 해당 컨텐츠 보여짐 -->
+		<div class="tab_con on">
+			<h3 class="tab_tit">탭메뉴 1</h3>
+			컨텐츠 내용 1
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 2</h3>
+			컨텐츠 내용 2
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 3</h3>
+			컨텐츠 내용 3
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 4</h3>
+			컨텐츠 내용 4
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 5</h3>
+			컨텐츠 내용 5
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 6</h3>
+			컨텐츠 내용 6
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 7</h3>
+			컨텐츠 내용 7
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 8</h3>
+			컨텐츠 내용 8
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 9</h3>
+			컨텐츠 내용 9
+		</div>
+		<div class="tab_con">
+			<h3 class="tab_tit">탭메뉴 10</h3>
+			컨텐츠 내용 10
+		</div>
+
+	<!--// scroll 영역 -->
+	</div>
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>펼침/닫힘 탭</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>제공되는 탭의 개수가 많은 경우, [펼침/닫힘]버튼을 통해 숨겨진 탭 메뉴를 볼 수 있습니다. 현재 위치한 화면과 선택된 탭을 일치 시킬 경우 사용됩니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript">
+var $tapwrap,
+	$tapbtn,
+	idx = 0,
+	isOpen = true,
+	tapHeight;
+M.onReady(function(){
+	$("#container").css('height', $('body').height() - $("#header").height() + 'px');
+	$tapwrap = $("[data-instance-class='tab_wrap']"),
+	$tapbtn = $("[data-instance-class='tab_btn']"),
+	tapHeight = $tapwrap.height();
+	$tapwrap.css('height', tapHeight + "px");
+
+	$('.cbtn_r').css('top', $('.tab_updown').height() + 10);
+	$('.cbtn_r').css('display', 'block');
+	
+	$tapbtn.click(function(){
+		$tapwrap.addClass('animated');
+		if(isOpen == true){
+			$(this).removeClass("btn");
+			$(this).addClass("btn_tab");
+			$tapbtn.html("열기");
+			$tapwrap.css('height', "0px");
+			isOpen = false;
+		}else{
+			$(this).removeClass("btn_tab");
+			$(this).addClass("btn");
+			$tapbtn.html("닫기");
+			$tapwrap.css('height', tapHeight + "px");
+			isOpen = true;
+		}
+	});
+
+	$("[data-instance-class='tab_wrap']>li").click(function(){
+		$("[data-instance-class='tab_wrap']>li:eq(" + idx + ")").removeClass('on');
+		$(".tab_con:eq(" + idx +")").removeClass('on')
+		$("[data-instance-class='tab_wrap']>li:eq(" + $(this).index() + ")").addClass('on');
+		$(".tab_con:eq(" + $(this).index() +")").addClass('on')
+		idx = $(this).index();
+		$tapbtn.click();
+	});
+
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

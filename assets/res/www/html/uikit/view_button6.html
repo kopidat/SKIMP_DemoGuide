@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>라디오 버튼</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<p class="cbtn_r">
+		<button type="button" class="cbtn_menu" data-instance-class="sample-btn">샘플보기</button>
+	</p>
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div class="radioCon">
+				<ul class="board_list">
+					<li>
+						<label for="radio1" class="radio-box"><input type="radio" class="radio" name="radio1"  id="radio1" checked /><span>선택1</span></label>
+					</li>
+					<li>
+						<label for="radio2" class="radio-box"><input type="radio" class="radio" name="radio1" id="radio2" /><span>선택2</span></label>
+					</li>
+					<li>
+						<label for="radio3" class="radio-box"><input type="radio" class="radio" name="radio1" id="radio3" /><span>선택3</span></label>
+					</li>
+					<li>
+						<label for="radio4" class="radio-box"><input type="radio" class="radio" name="radio1" id="radio4" /><span>선택4</span></label>
+					</li>
+					<li>
+						<label for="radio5" class="radio-box"><input type="radio" class="radio" name="radio1" id="radio5" /><span>선택5</span></label>
+					</li>
+					<li>
+						<label for="radio6" class="radio-box"><input type="radio" class="radio" name="radio1" id="radio6" /><span>선택6</span></label>
+					</li>
+					<li>
+						<label class="radio-box"><input type="radio" class="radio" name="radio1" disabled="disabled" checked  /><span>선택 불가능</span></label>
+					</li>
+				</ul>
+			</div>
+
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+	
+	$(".board_list li").bind("click", function( event ) {
+		var $element = $(this);
+		var $input = $element.find("input").first();
+		$input.get(0).checked = true;
+	});
+
+	// 샘플페이지 링크
+	$("[data-instance-class='sample-btn']").click(function(){
+		M.page.html('../sample/s08_customerInput.html',{
+			action:"NEW_SCR",
+			orient:"PORT",
+			param: {"page":"navigation"}
+		})
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+<button data-function>Folder 생성</button>
+<pre>
+var result = M.file.create({
+	'type': 'DIR',
+	'path': 'doc://temp'
+});
+
+M.tool.log(result);
+alert(JSON.stringify(result));
+</pre>
+
+<button data-function>File 생성</button>
+<pre>
+var result = M.file.create({
+	type: 'FILE',
+	path: 'doc://temp/hello.txt'
+});
+
+M.tool.log(result);
+alert(JSON.stringify(result));
+</pre>
+
+<button data-function>File 쓰기</button>
+<pre>
+M.file.write({
+	path: 'doc://temp/hello.txt',
+	data: '안녕하세요.'
+}, function(result){
+	M.tool.log(result);
+	alert(JSON.stringify(result));
+});
+</pre>
+
+<button data-function>File 읽기</button>
+<pre>
+M.file.read({
+	path: 'doc://temp/hello.txt'
+}, function(result){
+	M.tool.log(result);
+	alert(JSON.stringify(result));
+});
+</pre>
+
+<button data-function>File 복사</button>
+<pre>
+M.file.copy({
+	type: 'FILE',
+	source: 'doc://temp/hello.txt',
+	destination: 'doc://temp/hello1.txt',
+	progress: function(total, current, setting ){
+		M.tool.log(total, current);
+	}
+}, function(result){
+	M.tool.log(result);
+	alert(JSON.stringify(result));
+});
+</pre>
+
+<button data-function>File 이동</button>
+<pre>
+M.file.move({
+	type: 'FILE',
+	source: 'doc://temp/hello1.txt',
+	destination: 'doc://temp/hello2.txt',
+	progress: function(total, current, setting ){
+		M.tool.log(total, current);
+	}
+}, function(result){
+	M.tool.log(result);
+	alert(JSON.stringify(result));
+});
+</pre>
+
+<button data-function>File 정보 반환</button>
+<pre>
+var result = M.file.info({
+	type: 'FILE',
+	path: 'doc://temp/hello.txt'
+});
+
+M.tool.log(result);
+alert(JSON.stringify(result));
+</pre>
+
+<button data-function>File 목록</button>
+<pre>
+var result = M.file.info({
+	path: 'doc://temp/'
+});
+
+M.tool.log(result);
+alert(JSON.stringify(result));
+</pre>
+
+<button data-function>File 삭제</button>
+<pre>
+var result = M.file.remove({
+	type: 'FILE',
+	path: 'doc://temp/hello.txt'
+});
+
+M.tool.log(result);
+alert(JSON.stringify(result));
+</pre>
+
+<button data-function>Folder 삭제</button>
+<pre>
+var result = M.file.remove({
+	type: 'DIR',
+	path: 'doc://temp/'
+});
+
+M.tool.log(result);
+alert(JSON.stringify(result));
+</pre>
+
+
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

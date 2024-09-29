@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nds_salesmng_morpheus_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script>
+		$(window).ready(function(event){
+			// 공지사항
+			var allAccordion = $('.notice-list > dl > dd').hide();
+			$('.notice-list > dl > dt').click(function() {
+				if($(this).next().css('display') != 'block'){			
+					allAccordion.slideUp();
+					$(this).next().slideDown();
+					$(this).addClass('active').parent().siblings('dl').find('dt.active').removeClass('active');
+				}else {
+					$(this).next().slideUp();
+					$(this).removeClass('active');
+				}
+				return false;
+			});
+
+			/* 네비게이션 */	
+			var $btnNavi = $('.side-menu'),
+				$allMenu = $('.all_menu'),
+				allMenuW = $allMenu.width(), 
+				$menuClose = $('.menu_close'),
+				menu_1dep = $('.menu_1dep > li'),
+				$menu_1depA = menu_1dep.find('>a');
+			
+			$btnNavi.on('click', function(){
+				$allMenu.show().stop().animate({'left':0});
+				$('body').append('<div class="dimm100"></div>');
+				$('html, body').css('overflow-y','hidden');
+				$menuClose.on('click', function(){
+					$allMenu.stop().animate({'left':-allMenuW+'px'}, function(){
+						$allMenu.hide();
+						$('body .dimm100').remove();
+						$('html, body').css('overflow-y','auto');
+					});
+				});
+			});
+
+			$menu_1depA.on('click', function(){
+				var $this = $(this);
+				var swich = false;
+				if(!($this.parent().hasClass('on'))){
+					menu_1dep.removeClass('on');
+					$this.parent().addClass('on');
+					swich = true;
+				}else{
+					$this.parent().removeClass('on');
+					swich = false;
+				}
+			});
+
+			/* 네비게이션 안에 메뉴 */
+			$(".all_menu .menu > li > button").click(function(){
+			$(this).addClass('on');
+			$(this).parent().siblings().children('button').removeClass('on');
+			});
+
+		
+		});
+
+	</script>
+</head>
+<body>
+	<section class="home_box flex innovation" id="fullmenu">
+		<div class="home-logo">
+			<h1>
+				<span class="logo">SK innovation</span>
+				<span class="app-title">모바일서비스</span>
+			</h1>
+			<button class="side-menu"><span>&nbsp;</span></button>
+		</div>
+		<div class="innovation-content">
+			
+			<div class="main-btn">
+				<button class="work-permit">작업하가<br>시스템</button>
+				<button class="heat-tracking">열교환기<br>추적시스템</button>
+				<button class="app-push">APP<br>알림 서비스</button>
+			</div>
+			<div class="notice-list">
+				<h3 class="notice-title">공지사항</h3>
+				<dl>
+					<dt>
+						<h3 class="file">공지사항 제목입니다.</h3>
+						<p class="date">2021.04.19</p>
+					</dt>
+					<dd>
+						<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+						<div class="btn-list">
+							<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+							<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+						</div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<h3 class="file">공지사항 제목입니다. 공지사항 제목입니다. 공지사항 제목입니다.</h3>
+						<p class="date">2021.04.19</p>
+					</dt>
+					<dd>
+						<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+						<div class="btn-list">
+							<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+							<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+						</div>
+					</dd>
+				</dl>
+				<dl>
+					<dt>
+						<h3>공지사항 제목입니다.</h3>
+						<p class="date">2021.04.19</p>
+					</dt>
+					<dd>
+						<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+						<div class="btn-list">
+							<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+							<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+						</div>
+					</dd>
+				</dl>
+				
+			</div>
+		</div>
+		<div class="btn-footer">
+			<button class="btn-work-application">작업요청</button>
+			<button class="btn-matters-progress">진행사항</button>
+			<button class="btn-permission-breakdown">허가내역</button>
+		</div>
+	</section>
+	
+	
+	<p class="cbtn_r innovation2">
+		<button type="button" class="cbtn_close innovation2" data-instance-class="menu-close">메뉴닫기</button>
+	</p>
+
+	<!-- 사이드메뉴 -->
+<div class="all_menu">
+	<div class="menu_top">
+		<span class="txt">로그인</span>
+		<button class="setting"></button>
+		<button class="menu_close">닫기</button>
+	</div>
+	<div class="side-animate">               
+		
+		<ul class="menu">
+			<li>
+				<button class="on">Level 1</button>
+				<ul>
+					<li><button>Level 1-1</button></li>
+					<li><button>Level 1-2</button></li>
+					<li><button>Level 1-3</button></li>
+					<li><button>Level 1-4</button></li>
+					<li><button>Level 1-5</button></li>
+					<li><button>Level 1-6</button></li>
+					<li><button>Level 1-7</button></li>
+					<li><button>Level 1-7</button></li>
+					<li><button>Level 1-8</button></li>
+					<li><button>Level 1-9</button></li>
+					<li><button>Level 1-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 2</button>
+				<ul>
+					<li><button>Level 2-1</button></li>
+					<li><button>Level 2-2</button></li>
+					<li><button>Level 2-3</button></li>
+					<li><button>Level 2-4</button></li>
+					<li><button>Level 2-5</button></li>
+					<li><button>Level 2-6</button></li>
+					<li><button>Level 2-7</button></li>
+					<li><button>Level 2-7</button></li>
+					<li><button>Level 2-8</button></li>
+					<li><button>Level 2-9</button></li>
+					<li><button>Level 2-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 3</button>
+				<ul>
+					<li><button>Level 3-1</button></li>
+					<li><button>Level 3-2</button></li>
+					<li><button>Level 3-3</button></li>
+					<li><button>Level 3-4</button></li>
+					<li><button>Level 3-5</button></li>
+					<li><button>Level 3-6</button></li>
+					<li><button>Level 3-7</button></li>
+					<li><button>Level 3-7</button></li>
+					<li><button>Level 3-8</button></li>
+					<li><button>Level 3-9</button></li>
+					<li><button>Level 3-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 4</button>
+				<ul>
+					<li><button>Level 4-1</button></li>
+					<li><button>Level 4-2</button></li>
+					<li><button>Level 4-3</button></li>
+					<li><button>Level 4-4</button></li>
+					<li><button>Level 4-5</button></li>
+					<li><button>Level 4-6</button></li>
+					<li><button>Level 4-7</button></li>
+					<li><button>Level 4-7</button></li>
+					<li><button>Level 4-8</button></li>
+					<li><button>Level 4-9</button></li>
+					<li><button>Level 4-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 5</button>
+				<ul>
+					<li><button>Level 5-1</button></li>
+					<li><button>Level 5-2</button></li>
+					<li><button>Level 5-3</button></li>
+					<li><button>Level 5-4</button></li>
+					<li><button>Level 5-5</button></li>
+					<li><button>Level 5-6</button></li>
+					<li><button>Level 5-7</button></li>
+					<li><button>Level 5-7</button></li>
+					<li><button>Level 5-8</button></li>
+					<li><button>Level 5-9</button></li>
+					<li><button>Level 5-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 6</button>
+				<ul>
+					<li><button>Level 6-1</button></li>
+					<li><button>Level 6-2</button></li>
+					<li><button>Level 6-3</button></li>
+					<li><button>Level 6-4</button></li>
+					<li><button>Level 6-5</button></li>
+					<li><button>Level 6-6</button></li>
+					<li><button>Level 6-7</button></li>
+					<li><button>Level 6-7</button></li>
+					<li><button>Level 6-8</button></li>
+					<li><button>Level 6-9</button></li>
+					<li><button>Level 6-10</button></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+M.onReady(function(event) {
+    // TODO : ready event handle code here
+    
+    // 정보보기
+	$("[data-instance-class='menu-info']").click(function(){
+		var stackInfo = M.info.stack();
+		if( event.param.page == "main" ){
+			if(stackInfo.length > 1 && stackInfo[stackInfo.length-2].key.indexOf('view_navigation1.html') > -1){
+				M.page.back();
+			}else{
+				M.page.html("../uikit/view_navigation1.html",{
+					action : "NEW_SCR",
+					orient : "PORT"
+				});
+			}
+		}else{
+			if(stackInfo.length > 1 && stackInfo[stackInfo.length-2].key.indexOf('view_navigation3.html') > -1){
+				M.page.back();
+			}else{
+				M.page.html("../uikit/view_navigation3.html",{
+					action : "NEW_SCR",
+					orient : "PORT"
+				});
+			}
+		}
+	});
+	
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+    
+    if( event.param.page == "navigation"){
+		leftMenuFlag = true;
+		$('#home').css('left', (home.clientWidth * 0.75) + 'px');
+		fullmenu.style.marginRight = home.clientWidth * 0.25 + 'px';
+    }
+
+}).onRestore(function(event) {
+    // TODO : restore event handle code here
+
+}).onHide(function(event) {
+    // TODO : hide event handle code here
+
+}).onResume(function(event) {
+    // TODO : resume event handle code here
+
+}).onDestroy(function(event) {
+    // TODO : destroy event handle code here
+
+}).onBack(function() {
+    // TODO : back event handle code here
+    M.page.back();
+}).onKey(function(event) {
+    // TODO : key event handle code here(android only)
+
+});
+
+/**
+ * 개발 영역
+ */
+var btn_menu = document.querySelector('#btn_menu'),	// 좌측 메뉴 버튼
+	home = document.querySelector('#home'),					// 메인 화면
+	fullmenu = document.querySelector('#fullmenu'),			// 전체 메뉴
+	leftMenuFlag = false;														// 좌측 메뉴 클릭시 flag
+
+// 좌측 버튼 클릭시
+$("#btn_menu").click(function () {
+	$('#btn_menu').addClass("on");
+	setTimeout(function(){
+		$('#btn_menu').removeClass("on");
+		leftToggleFunc();
+	}, 200);
+});
+
+function leftToggleFunc(){
+	if(leftMenuFlag == false){	// 설정 열기
+		leftMenuFlag = true;
+		$('#home').animate({
+			left : (home.clientWidth * 0.75) + 'px'
+			,time : '0.2s'
+		});
+		fullmenu.style.marginRight = home.clientWidth * 0.25 + 'px';
+	}else{						// 설정 닫기
+		leftMenuFlag = false;
+		$('#home').animate({
+			left : '0px'
+			,time : '0.2s'
+		})
+	}
+}
+</script>
+</body>
+</html>

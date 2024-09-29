@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1 class="fs_small">리스트 더보기 버튼</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div id="list">
+		<!-- scroll 영역 -->
+		
+
+			<ul class="main_list" data-instance-class="listWrap">
+				<li>
+					<h4>제목(타이틀)-1</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-2</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-3</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-4</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-5</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-6</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-7</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-8</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-9</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)-10</h4>
+					<p>모피어스 컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				
+				
+			</ul>
+			
+			
+			
+			<!-- [D:btn]목록이 한페이지 이상인 경우 -->
+			
+			<div class="btn_area">
+				<button type="button" id="btn_more" class="btn_more" data-instance-class="more">더보기</button><!-- 로드중일 경우는 class="btn_ing" 로 변경한다. -->
+			</div>
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript" src="../../js/libs/jquery/plugins/jquery.plugin.mpui-drag.js"></script>
+<script type="text/javascript">
+var bottomHeight,
+	listIdx = 11;
+	
+M.onReady(function(){
+	$('#scroll').height($('body').height()- $('#header').height());
+	$("#btn_more").bind('click', listMore);
+	
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+var __timeout = null;
+var _moreButton = $("[data-instance-class='more']");
+var _listView = $("[data-instance-class='listWrap']");
+
+function listMore(e){
+	_moreButton.removeClass("btn_more");
+	_moreButton.addClass("btn_ing");
+	_moreButton.html('리스트 받아오는 중');
+	
+	if ( __timeout ) {
+		clearTimeout( __timeout );
+	}
+	
+	__timeout = setTimeout(function(){
+		_moreButton.removeClass("btn_ing");
+		_moreButton.addClass("btn_more");
+		_moreButton.html('더보기');
+		
+		var addText = '';
+		
+		for(var i=0; i<5; i++){
+			addText += '<li>';
+			addText += '<h4>제목(타이틀)-' + listIdx + '</h4><p>모피어스 컨텐츠가 들어가는 영역입니다.</p>';
+			addText += '</li>';
+			listIdx++;
+		}
+		
+		_listView.append( addText );
+		
+		addText = '';
+		
+		
+		
+		__timeout = null;
+	}, 1000);
+	
+	return true;
+}
+</script>
+</body>
+</html>

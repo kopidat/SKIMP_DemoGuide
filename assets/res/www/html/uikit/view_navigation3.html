@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script>
+		$(window).ready(function(event){
+			// 공지사항
+			var allAccordion = $('.notice-list > dl > dd').hide();
+			$('.notice-list > dl > dt').click(function() {
+				if($(this).next().css('display') != 'block'){			
+					allAccordion.slideUp();
+					$(this).next().slideDown();
+					$(this).addClass('active').parent().siblings('dl').find('dt.active').removeClass('active');
+				}else {
+					$(this).next().slideUp();
+					$(this).removeClass('active');
+				}
+				return false;
+			});
+
+			/* 네비게이션 */	
+			var $btnNavi = $('.side-menu'),
+				$allMenu = $('.all_menu'),
+				allMenuW = $allMenu.width(), 
+				$menuClose = $('.menu_close'),
+				menu_1dep = $('.menu_1dep > li'),
+				$menu_1depA = menu_1dep.find('>a');
+			
+			$btnNavi.on('click', function(){
+				$allMenu.show().stop().animate({'right':0});
+				$('body').append('<div class="dimm100"></div>');
+				$('html, body').css('overflow-y','hidden');
+				$menuClose.on('click', function(){
+					$allMenu.stop().animate({'right':-allMenuW+'px'}, function(){
+						$allMenu.hide();
+						$('body .dimm100').remove();
+						$('html, body').css('overflow-y','auto');
+					});
+				});
+			});
+
+			$menu_1depA.on('click', function(){
+				var $this = $(this);
+				var swich = false;
+				if(!($this.parent().hasClass('on'))){
+					menu_1dep.removeClass('on');
+					$this.parent().addClass('on');
+					swich = true;
+				}else{
+					$this.parent().removeClass('on');
+					swich = false;
+				}
+			});
+
+			/* 네비게이션 안에 메뉴 */
+			$(".all_menu .menu > li > button").click(function(){
+			$(this).addClass('on');
+			$(this).parent().siblings().children('button').removeClass('on');
+			});
+
+		
+		});
+
+	</script>
+</head>
+<body class="view-navigation3">
+
+<!-- Header Start -->
+<!-- <header id="header">
+	<h1>사이드 메뉴</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+	</p>
+</header> -->
+<!--// Header End -->
+<div id="container" class="main-innovation">
+
+	<!-- container -->
+	<div id="scroller">
+		<div>
+		<!-- iscroll_area -->
+
+			<div class="fullmenu" id="fullmenu">
+				<ul>
+					<li class="active"><p><span class="none">Home</span></p></li>
+					<li><p><span class="none">메뉴1</span></p></li>
+					<li><p><span class="none">메뉴2</span></p></li>
+					<li><p><span class="none">메뉴3</span></p></li>
+					<li><p><span class="none">메뉴4</span></p></li>
+					<li><p><span class="none">설정</span></p></li>
+				</ul>
+				<div class="btm_bar">
+					<button type="button" class="btn_end"><span class="none">종료</span></button>
+					<button type="button" class="btn_set"><span class="none">설정</span></button>
+				</div>
+			</div>
+			<div class="home vbox cc" id="home">
+
+
+				<section class="home_box flex innovation">
+					<div class="home-logo">
+						<h1 class="right">
+							<span class="logo">SK innovation</span>
+							<span class="app-title">모바일서비스</span>
+						</h1>
+						<button class="side-menu right"><span>&nbsp;</span></button>
+					</div>
+					<div class="innovation-content">
+						
+						<div class="main-btn">
+							<button class="work-permit">작업하가<br>시스템</button>
+							<button class="heat-tracking">열교환기<br>추적시스템</button>
+							<button class="app-push">APP<br>알림 서비스</button>
+						</div>
+						<div class="notice-list">
+							<h3 class="notice-title">공지사항</h3>
+							<dl>
+								<dt>
+									<h3 class="file">공지사항 제목입니다.</h3>
+									<p class="date">2021.04.19</p>
+								</dt>
+								<dd>
+									<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+									<div class="btn-list">
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+									</div>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<h3 class="file">공지사항 제목입니다. 공지사항 제목입니다. 공지사항 제목입니다.</h3>
+									<p class="date">2021.04.19</p>
+								</dt>
+								<dd>
+									<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+									<div class="btn-list">
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+									</div>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<h3>공지사항 제목입니다.</h3>
+									<p class="date">2021.04.19</p>
+								</dt>
+								<dd>
+									<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+									<div class="btn-list">
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+									</div>
+								</dd>
+							</dl>
+							
+						</div>
+					</div>
+					<div class="btn-footer">
+						<button class="btn-work-application">작업요청</button>
+						<button class="btn-matters-progress">진행사항</button>
+						<button class="btn-permission-breakdown">허가내역</button>
+					</div>
+				</section>
+			</div>
+
+
+<!--// iscroll_area -->
+		</div>
+	</div>
+	<!--// container -->
+
+</div>
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>사이드 메뉴</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>메뉴를 전면에 노출시키지 않고, 어떤 화면에서든 원하는 메뉴로 빠르게 이동할 수 있도록  버튼 선택 시, 사이드 되는 메뉴 네비게이션입니다.  </p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+
+<!-- 사이드메뉴 -->
+<div class="all_menu right">
+	<div class="menu_top">
+		<span class="txt">로그인</span>
+		<button class="setting"></button>
+		<button class="menu_close">닫기</button>
+	</div>
+	<div class="side-animate">
+		<ul class="menu">
+			<li><button>Level 1</button></li>
+			<li><button>Level 2</button></li>
+			<li><button>Level 3</button></li>
+			<li><button>Level 4</button></li>
+			<li><button>Level 5</button></li>
+			<li><button>Level 6</button></li>
+			<li><button>Level 7</button></li>
+		</ul>
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+M.onReady(function(){
+	$("#scroller").css('height', $('body').height() - $("#header").height() + 'px');
+	
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+
+	// 샘플페이지 링크
+	$("[data-instance-class='sample-btn']").click(function(){
+		M.page.html('../sample/s0304_main_nds.html',{
+			action:"NEW_SCR",
+			orient:"PORT",
+			param: {"page":"navigation"}
+		})
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nds_salesmng_morpheus_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+	<header id="header">
+		<h1>간편인증 로그인 설정 </h1> 
+	</header>
+	<p class="cbtn_r">
+		<button type="button" class="cbtn_close innovation2" data-instance-class="menu-close">메뉴보기</button>
+	</p>
+	<div class="wrapper simple-login">          
+        <div class="content" id="content">
+
+            <div class="simple-cert">
+                <button class="btn-body"><span>생체인증</span></button>
+                <button class="btn-pattern"><span>패턴인증</span></button>
+                <button class="btn-pin"><span>PIN번호</span></button>
+            </div>
+            <div class="use-info">
+                <h3>이용안내</h3>
+                <div class="use-txt">
+                    <ul>
+                        <li>재설치하거나 스마트기기에 등록된 생체인증 정보가 변경된 경우 재등록이 필요합니다.</li>
+                        <li>간편인증 등록은 1계정 1단말기의  스마트 기기에서만 등록이 가능합니다.</li>
+                    </ul>
+                </div>
+                <button class="btn-skip w100p">건너뛰기</button>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../../js/ui/sample/iscroll.js"></script>
+<script type="text/javascript">
+var pageHeight;
+M.onReady(function(evt){
+	pageHeight = window.innerHeight;
+	
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+	
+	loaded();
+}).onRestore(function(evt){
+	
+}).onHide(function(evt){
+	
+}).onResume(function(evt){
+	
+}).onPause(function(evt){
+	
+}).onDestroy(function(evt){
+	
+}).onBack(function(evt){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+/**
+ * 스크롤 객체 생성
+ */
+var myScroll;
+function loaded() {
+	bodyHeightSet();
+	if(myScroll == undefined || myScroll == ""){
+		myScroll = new iScroll('wrapper');
+	}else{
+		myScroll.refresh();
+	}
+}
+
+/**
+ * 스크롤 높이 계산
+ */
+ 
+function bodyHeightSet() {
+	var scrollObj = document.getElementById("wrapper");
+	var header = document.getElementById("header");
+	var headerHeight = 0; // 해더 높이
+	var finalHeight = 0; // 최종적인 스크롤 영역 높이
+
+	if (header != undefined)
+		headerHeight = header.clientHeight;
+	
+	finalHeight = pageHeight - headerHeight
+	scrollObj.style.height = finalHeight + "px";
+}
+
+// 이전 페이지로 이동
+$("#btn_back").click(function () {
+	$('#btn_back').addClass("on");
+	setTimeout(function(){
+		$('#btn_back').removeClass("on");
+		M.page.back();
+	}, 200);
+});
+</script>
+</body>
+</html>

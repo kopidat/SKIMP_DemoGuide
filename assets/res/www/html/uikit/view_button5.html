@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		.radioCon{font-size:1.2rem;}
+		.radioCon .board_list li{font-size:1.2rem;background:none;}
+		.radioCon label{display:block;overflow:hidden;width:100%;vertical-align:middle;}
+		.radioCon label span{display:block;float:left;width:50%;line-height:2;vertical-align:middle;}
+		.radioCon label input{float:right;vertical-align:middle;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>온/오프 버튼</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div class="switch-list">
+				<ul class="">
+					<li>
+						<span>설정1 </span>
+						<label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+					</li>
+					<li>
+						<span>설정2 </span>
+						<label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+					</li>
+					<li>
+						<span>설정3 </span>
+						<label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+					</li>
+					<li>
+						<span>설정4 </span>
+						<label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+					</li>
+				</ul>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

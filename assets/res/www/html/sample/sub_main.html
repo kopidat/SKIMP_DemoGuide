@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body class="bg_submain">
+
+<!-- Header Start -->
+<header id="header">
+	<h1>Sample</h1>
+	<button type="button" class="tbtn_l tbtn_prev">Home</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container" class="submain">
+	<!-- scroll 영역 -->
+	<section id="scroll">
+		<div id="scrollcon">
+
+			<ul class="sub_menu">
+				<li data-list-name="s01_intro.html">
+					<button type="button"><span>인트로</span></button>
+				</li>
+				<li data-list-name="s02_login.html">
+					<button type="button"><span>로그인</span></button>
+				</li>
+				<li data-list-name="s07_customerView.html">
+					<button type="button"><span>간편로그인</span></button>
+				</li>				
+			</ul>
+			<ul class="sub_menu">
+				<li data-list-name="s0304_main_nds.html">
+					<button type="button"><span>메인1</span></button>
+				</li>
+				<li data-list-name="s05_sitemap_nhlife.html">
+					<button type="button"><span>메인2</span></button>
+				</li>				
+				<li data-list-name="s06_customerSearch.html">
+					<button type="button"><span>조회</span></button>
+				</li>
+			</ul>
+			<ul class="sub_menu">
+				<li data-list-name="s08_customerInput.html">
+					<button type="button"><span>입력</span></button>
+				</li>
+				<li data-list-name="s10_noticeList_nhlife.html">
+					<button type="button"><span>공지사항</span></button>
+				</li>
+				<li data-list-name="s12_setting_mobile.html">
+					<button type="button"><span>설정</span></button>
+				</li>
+			</ul>
+			<ul class="sub_menu">
+				<li data-list-name="s11_store_nhlife.html">
+					<button type="button"><span>조직도</span></button>
+				</li>
+				<li data-list-name="s13_certCenter_mobile.html">
+					<button type="button"><span>문서뷰어</span></button>
+				</li>
+				<li data-list-name="s11_store_view_nhlife.html">
+					<button type="button"><span>업무</span></button>
+				</li>
+			</ul>
+
+		</div>
+	</section>
+	<!--// scroll 영역 -->
+</div>
+
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + "px");
+	$('.sub_menu>li').css('height', $('.sub_menu>li').width() + "px");
+
+	// 페이지 이동
+	$("[data-list-name] button").click(function(){
+		var paramObj = {};
+		if($(this).children().html() == "메인"){
+			paramObj.page ="main";
+		}else{
+			paramObj.page ="navigation";
+		}
+
+		var $this = $(this);
+		$this.parent().addClass('on');
+		setTimeout(function(){
+			$this.parent().removeClass('on')
+			M.page.html($this.parent().attr('data-list-name'),{
+				action:"NEW_SCR",
+				orient:"PORT",
+				param : paramObj
+			});
+		},200);
+	});
+
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

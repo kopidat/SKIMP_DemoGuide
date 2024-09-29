@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>페이지 인디게이터</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+
+	<div class="page_over">
+		<ul class="page_indicator" data-instance-class='flick-content'>
+			<li>
+				<div class="indicatorT">
+					<p>첫번째 제목</p>
+					<nav>
+						<ol>
+							<li class="on" title="선택">1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="indicator_con">첫번째 내용</div>
+			</li>
+			<li>
+				<div class="indicatorT">
+					<p>두번째 제목</p>
+					<nav>
+						<ol>
+							<li>1</li>
+							<li class="on" title="선택">2</li>
+							<li>3</li>
+							<li>4</li>
+							<li>5</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="indicator_con">두번째 내용</div>
+			</li>
+			<li>
+				<div class="indicatorT">
+					<p>세번째 제목</p>
+					<nav>
+						<ol>
+							<li>1</li>
+							<li>2</li>
+							<li class="on" title="선택">3</li>
+							<li>4</li>
+							<li>5</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="indicator_con">세번째 내용</div>
+			</li>
+			<li>
+				<div class="indicatorT">
+					<p>네번째 제목</p>
+					<nav>
+						<ol>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li class="on" title="선택">4</li>
+							<li>5</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="indicator_con">네번째 내용</div>
+			</li>
+			<li>
+				<div class="indicatorT">
+					<p>다섯번째 제목</p>
+					<nav>
+						<ol>
+							<li>1</li>
+							<li>2</li>
+							<li>3</li>
+							<li>4</li>
+							<li class="on" title="선택">5</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="indicator_con">다섯번째 내용</div>
+			</li>
+		</ul>
+	</div>
+
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript" src="../../js/libs/jquery/plugins/jquery.plugin.mpui-drag.js"></script>
+<script type="text/javascript">
+M.onReady(function(){
+	// 컨텐츠 높이값 지정
+	$("#container").css('height', $('body').height() - $("#header").height() + 'px');
+
+	var contentWidth = parseInt($(window).width()),
+		contentLength = $("[data-instance-class='flick-content']>li").size();
+
+	// ul, li 넓이값 지정
+	$("[data-instance-class='flick-content']").css('width', contentWidth * contentLength + "px");
+	$("[data-instance-class='flick-content']>li").css('width', contentWidth+'px');
+
+
+	var _startX,
+		_endX,
+		_index = 0,
+		contentLeft = 0;
+
+	$("[data-instance-class='flick-content']").drag({
+		horizon:false,
+		left:(parseInt($("[data-instance-class='flick-content']").css('width')) - contentWidth) * -1 + "px",
+		right:0,
+		onStart:function(evt, mp){
+			_startX = parseInt($("[data-instance-class='flick-content']").css('left'));
+		},
+		onMove:function(evt,mp){
+
+		},
+		onEnd:function(evt,mp){
+			_endX = parseInt($("[data-instance-class='flick-content']").css('left'));
+			if(_startX > _endX){		// 좌 ->우
+				if(_index < contentLength-1){
+					$("[data-instance-class='flick-content']").animate({
+						left : contentLeft - contentWidth + "px"
+					}, function(){
+						contentLeft = parseInt($("[data-instance-class='flick-content']").css('left'))
+					});
+					_index++;
+				}
+			}else if(_startX < _endX){	// 우 -> 좌
+				if(_index>0){
+					$("[data-instance-class='flick-content']").animate({
+						left : contentLeft + contentWidth + "px"
+					}, function(){
+						contentLeft = parseInt($("[data-instance-class='flick-content']").css('left'))
+					});
+					_index--
+				}
+			}
+		}
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</html>

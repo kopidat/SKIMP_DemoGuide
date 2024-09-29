@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SamplePassCodeViewController">
+            <connections>
+                <outlet property="indicator1" destination="Qxr-CF-rS1" id="RXa-MX-HPB"/>
+                <outlet property="indicator2" destination="UpA-xU-S1n" id="GUF-Qr-1dS"/>
+                <outlet property="indicator3" destination="hT0-3x-9gx" id="idB-Vl-3nr"/>
+                <outlet property="indicator4" destination="uLi-c6-W8G" id="dZb-W4-eMi"/>
+                <outlet property="indicatorView" destination="I3O-Wt-aOr" id="eb2-fg-Whh"/>
+                <outlet property="indicatorView1" destination="3ht-Kz-xey" id="jUE-on-tqO"/>
+                <outlet property="indicatorView2" destination="gdf-fX-g4R" id="mpz-8X-Bgg"/>
+                <outlet property="indicatorView3" destination="iAG-ki-u2p" id="XtM-mx-8NJ"/>
+                <outlet property="indicatorView4" destination="F6R-ei-S7T" id="saT-Hv-j0k"/>
+                <outlet property="labelMessage" destination="ili-EE-RNU" id="Zxi-xN-NbH"/>
+                <outlet property="view" destination="DXZ-Wg-a3s" id="gZ2-yO-r6e"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="DXZ-Wg-a3s">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="암호를 입력해 주십시오" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ili-EE-RNU">
+                    <rect key="frame" x="30" y="51" width="260" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="7kb-Uj-OeQ"/>
+                        <constraint firstAttribute="width" constant="260" id="eiZ-48-9cf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" red="0.16470588235294117" green="0.25882352941176467" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I3O-Wt-aOr">
+                    <rect key="frame" x="48" y="103" width="224" height="47"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ht-Kz-xey">
+                            <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
+                            <subviews>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passcode_indicator_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qxr-CF-rS1">
+                                    <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Qxr-CF-rS1" firstAttribute="centerY" secondItem="3ht-Kz-xey" secondAttribute="centerY" id="CDb-Ct-A9J"/>
+                                <constraint firstItem="Qxr-CF-rS1" firstAttribute="centerX" secondItem="3ht-Kz-xey" secondAttribute="centerX" id="SNK-ee-f9N"/>
+                                <constraint firstItem="Qxr-CF-rS1" firstAttribute="height" secondItem="3ht-Kz-xey" secondAttribute="height" id="URS-n0-vnM"/>
+                                <constraint firstAttribute="width" secondItem="3ht-Kz-xey" secondAttribute="height" multiplier="1:1" id="ewy-hD-Njg"/>
+                                <constraint firstItem="Qxr-CF-rS1" firstAttribute="width" secondItem="3ht-Kz-xey" secondAttribute="width" id="o01-iw-1u0"/>
+                            </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdf-fX-g4R">
+                            <rect key="frame" x="59" y="0.0" width="47" height="47"/>
+                            <subviews>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passcode_indicator_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="UpA-xU-S1n">
+                                    <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="UpA-xU-S1n" firstAttribute="height" secondItem="gdf-fX-g4R" secondAttribute="height" id="HHF-91-KcY"/>
+                                <constraint firstAttribute="width" secondItem="gdf-fX-g4R" secondAttribute="height" multiplier="1:1" id="N4o-vo-fPh"/>
+                                <constraint firstItem="UpA-xU-S1n" firstAttribute="width" secondItem="gdf-fX-g4R" secondAttribute="width" id="TL9-SO-0uq"/>
+                                <constraint firstItem="UpA-xU-S1n" firstAttribute="centerX" secondItem="gdf-fX-g4R" secondAttribute="centerX" id="fa3-7F-dRk"/>
+                                <constraint firstItem="UpA-xU-S1n" firstAttribute="centerY" secondItem="gdf-fX-g4R" secondAttribute="centerY" id="mpS-ve-5Ld"/>
+                            </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAG-ki-u2p">
+                            <rect key="frame" x="118" y="0.0" width="47" height="47"/>
+                            <subviews>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passcode_indicator_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="hT0-3x-9gx">
+                                    <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="hT0-3x-9gx" firstAttribute="centerX" secondItem="iAG-ki-u2p" secondAttribute="centerX" id="5qj-jv-td7"/>
+                                <constraint firstItem="hT0-3x-9gx" firstAttribute="height" secondItem="iAG-ki-u2p" secondAttribute="height" id="Bfn-Si-vJe"/>
+                                <constraint firstItem="hT0-3x-9gx" firstAttribute="centerY" secondItem="iAG-ki-u2p" secondAttribute="centerY" id="K3N-hw-vOA"/>
+                                <constraint firstAttribute="width" secondItem="iAG-ki-u2p" secondAttribute="height" multiplier="1:1" id="OgB-JM-q8Z"/>
+                                <constraint firstItem="hT0-3x-9gx" firstAttribute="width" secondItem="iAG-ki-u2p" secondAttribute="width" id="fEv-XF-vfZ"/>
+                            </constraints>
+                        </view>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F6R-ei-S7T">
+                            <rect key="frame" x="177" y="0.0" width="47" height="47"/>
+                            <subviews>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passcode_indicator_active.png" translatesAutoresizingMaskIntoConstraints="NO" id="uLi-c6-W8G">
+                                    <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="uLi-c6-W8G" firstAttribute="centerY" secondItem="F6R-ei-S7T" secondAttribute="centerY" id="1oJ-zf-ESl"/>
+                                <constraint firstItem="uLi-c6-W8G" firstAttribute="height" secondItem="F6R-ei-S7T" secondAttribute="height" id="Msv-Fi-gW2"/>
+                                <constraint firstAttribute="width" secondItem="F6R-ei-S7T" secondAttribute="height" multiplier="1:1" id="QTq-NU-h6d"/>
+                                <constraint firstItem="uLi-c6-W8G" firstAttribute="centerX" secondItem="F6R-ei-S7T" secondAttribute="centerX" id="dgD-xx-8Gj"/>
+                                <constraint firstItem="uLi-c6-W8G" firstAttribute="width" secondItem="F6R-ei-S7T" secondAttribute="width" id="ooX-Sl-nVz"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="iAG-ki-u2p" firstAttribute="centerY" secondItem="I3O-Wt-aOr" secondAttribute="centerY" id="2LW-HF-6DB"/>
+                        <constraint firstItem="F6R-ei-S7T" firstAttribute="centerY" secondItem="I3O-Wt-aOr" secondAttribute="centerY" id="6E6-AQ-0dn"/>
+                        <constraint firstItem="iAG-ki-u2p" firstAttribute="width" secondItem="3ht-Kz-xey" secondAttribute="width" id="EaT-1i-0Ea"/>
+                        <constraint firstItem="gdf-fX-g4R" firstAttribute="leading" secondItem="3ht-Kz-xey" secondAttribute="trailing" constant="12" id="FUI-ig-YMb"/>
+                        <constraint firstItem="3ht-Kz-xey" firstAttribute="width" secondItem="I3O-Wt-aOr" secondAttribute="width" multiplier="1:4" constant="-9" id="Npm-Zt-KT3"/>
+                        <constraint firstAttribute="height" secondItem="3ht-Kz-xey" secondAttribute="height" id="VfK-Zu-deG"/>
+                        <constraint firstItem="3ht-Kz-xey" firstAttribute="leading" secondItem="I3O-Wt-aOr" secondAttribute="leading" id="Zao-Pa-6fn"/>
+                        <constraint firstItem="gdf-fX-g4R" firstAttribute="centerY" secondItem="I3O-Wt-aOr" secondAttribute="centerY" id="awM-Vc-dyT"/>
+                        <constraint firstItem="F6R-ei-S7T" firstAttribute="leading" secondItem="iAG-ki-u2p" secondAttribute="trailing" constant="12" id="bCK-LS-3Jx"/>
+                        <constraint firstItem="F6R-ei-S7T" firstAttribute="width" secondItem="3ht-Kz-xey" secondAttribute="width" id="ccz-tL-c4T"/>
+                        <constraint firstItem="iAG-ki-u2p" firstAttribute="leading" secondItem="gdf-fX-g4R" secondAttribute="trailing" constant="12" id="j8a-Pi-OVS"/>
+                        <constraint firstItem="3ht-Kz-xey" firstAttribute="centerY" secondItem="I3O-Wt-aOr" secondAttribute="centerY" id="lTY-w0-w7c"/>
+                        <constraint firstItem="gdf-fX-g4R" firstAttribute="width" secondItem="3ht-Kz-xey" secondAttribute="width" id="wQP-fV-DtK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvH-69-DCQ">
+                    <rect key="frame" x="37" y="160" width="246" height="280"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Trz-eE-l8g">
+                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d66-lE-PZa">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="d66-lE-PZa" secondAttribute="height" multiplier="1:1" id="Slk-Du-KdR"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_1.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="Bnm-kL-5V1"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Trz-eE-l8g" secondAttribute="height" multiplier="1:1" id="1z3-ur-hsa"/>
+                                <constraint firstItem="d66-lE-PZa" firstAttribute="centerX" secondItem="Trz-eE-l8g" secondAttribute="centerX" id="2vQ-h7-SNL"/>
+                                <constraint firstItem="d66-lE-PZa" firstAttribute="width" secondItem="Trz-eE-l8g" secondAttribute="width" constant="-12" id="FNM-Kr-e0v"/>
+                                <constraint firstItem="d66-lE-PZa" firstAttribute="centerY" secondItem="Trz-eE-l8g" secondAttribute="centerY" id="nnh-tP-Bl5"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibd-vW-aeW">
+                            <rect key="frame" x="88" y="0.0" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0AO-gv-N5a">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="0AO-gv-N5a" secondAttribute="height" multiplier="1:1" id="lgl-Is-Eb1"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_2.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="XJO-7y-2FQ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="height" multiplier="1:1" id="5rB-lU-OVV"/>
+                                <constraint firstItem="0AO-gv-N5a" firstAttribute="centerX" secondItem="Ibd-vW-aeW" secondAttribute="centerX" id="Hoc-DC-iAN"/>
+                                <constraint firstItem="0AO-gv-N5a" firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="width" constant="-12" id="buQ-4q-utv"/>
+                                <constraint firstItem="0AO-gv-N5a" firstAttribute="centerY" secondItem="Ibd-vW-aeW" secondAttribute="centerY" id="fKR-Ui-6hC"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pZZ-J5-IEL">
+                            <rect key="frame" x="176" y="0.0" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxW-Wr-QBX">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="mxW-Wr-QBX" secondAttribute="height" multiplier="1:1" id="4db-qs-Ol7"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_3.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="wTQ-SV-xpz"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="mxW-Wr-QBX" firstAttribute="width" secondItem="pZZ-J5-IEL" secondAttribute="width" constant="-12" id="DxH-eD-Dew"/>
+                                <constraint firstItem="mxW-Wr-QBX" firstAttribute="centerY" secondItem="pZZ-J5-IEL" secondAttribute="centerY" id="dhX-lr-CgM"/>
+                                <constraint firstAttribute="width" secondItem="pZZ-J5-IEL" secondAttribute="height" multiplier="1:1" id="gbK-Hn-xqK"/>
+                                <constraint firstItem="mxW-Wr-QBX" firstAttribute="centerX" secondItem="pZZ-J5-IEL" secondAttribute="centerX" id="uDB-Jb-PAa"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t2q-5Z-YXs">
+                            <rect key="frame" x="0.0" y="70" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xGY-VG-Fdv">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="xGY-VG-Fdv" secondAttribute="height" multiplier="1:1" id="xe0-L8-N5P"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_4.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="u6Z-xP-BSY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="t2q-5Z-YXs" secondAttribute="height" id="ED7-4h-UYn"/>
+                                <constraint firstItem="xGY-VG-Fdv" firstAttribute="centerY" secondItem="t2q-5Z-YXs" secondAttribute="centerY" id="HpS-jM-nCR"/>
+                                <constraint firstItem="xGY-VG-Fdv" firstAttribute="width" secondItem="t2q-5Z-YXs" secondAttribute="width" constant="-12" id="ZCO-i8-mhv"/>
+                                <constraint firstItem="xGY-VG-Fdv" firstAttribute="centerX" secondItem="t2q-5Z-YXs" secondAttribute="centerX" id="ayC-wE-Omb"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tgj-1Z-S3M">
+                            <rect key="frame" x="88" y="70" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmF-yU-1oH">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="qmF-yU-1oH" secondAttribute="height" multiplier="1:1" id="bdX-gH-Zy3"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_5.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="BSr-OT-iy4"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="qmF-yU-1oH" firstAttribute="width" secondItem="Tgj-1Z-S3M" secondAttribute="width" constant="-12" id="3gJ-nr-C9h"/>
+                                <constraint firstItem="qmF-yU-1oH" firstAttribute="centerY" secondItem="Tgj-1Z-S3M" secondAttribute="centerY" id="60g-zq-wKH"/>
+                                <constraint firstItem="qmF-yU-1oH" firstAttribute="centerX" secondItem="Tgj-1Z-S3M" secondAttribute="centerX" id="XGT-Gf-8Si"/>
+                                <constraint firstAttribute="width" secondItem="Tgj-1Z-S3M" secondAttribute="height" multiplier="1:1" id="sZc-kC-kbv"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwx-la-dAf">
+                            <rect key="frame" x="176" y="70" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LD-jd-lbE">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="1LD-jd-lbE" secondAttribute="height" multiplier="1:1" id="4Si-v7-hjE"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_6.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="tEb-t3-Ed6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="1LD-jd-lbE" firstAttribute="centerX" secondItem="Nwx-la-dAf" secondAttribute="centerX" id="Vin-gi-Arh"/>
+                                <constraint firstItem="1LD-jd-lbE" firstAttribute="centerY" secondItem="Nwx-la-dAf" secondAttribute="centerY" id="m6C-3W-9yd"/>
+                                <constraint firstItem="1LD-jd-lbE" firstAttribute="width" secondItem="Nwx-la-dAf" secondAttribute="width" constant="-12" id="p3F-w0-WLh"/>
+                                <constraint firstAttribute="width" secondItem="Nwx-la-dAf" secondAttribute="height" multiplier="1:1" id="y2q-4L-4Di"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afT-dE-gKA">
+                            <rect key="frame" x="0.0" y="140" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSD-Zk-uat">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="JSD-Zk-uat" secondAttribute="height" multiplier="1:1" id="zR7-Mu-2ym"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_7.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="576-wl-9sJ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="afT-dE-gKA" secondAttribute="height" id="BHi-3C-pZa"/>
+                                <constraint firstItem="JSD-Zk-uat" firstAttribute="centerX" secondItem="afT-dE-gKA" secondAttribute="centerX" id="PIQ-rZ-wYx"/>
+                                <constraint firstItem="JSD-Zk-uat" firstAttribute="width" secondItem="afT-dE-gKA" secondAttribute="width" constant="-12" id="dQL-GP-aG2"/>
+                                <constraint firstItem="JSD-Zk-uat" firstAttribute="centerY" secondItem="afT-dE-gKA" secondAttribute="centerY" id="gqn-I2-4LZ"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nt6-MW-8qo">
+                            <rect key="frame" x="88" y="140" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-6L-f2a">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="QgG-6L-f2a" secondAttribute="height" multiplier="1:1" id="Vn8-3q-Q8H"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_8.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="ZT8-CC-BMV"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="QgG-6L-f2a" firstAttribute="centerY" secondItem="Nt6-MW-8qo" secondAttribute="centerY" id="7iB-5U-C78"/>
+                                <constraint firstAttribute="width" secondItem="Nt6-MW-8qo" secondAttribute="height" multiplier="1:1" id="LzG-N3-56W"/>
+                                <constraint firstItem="QgG-6L-f2a" firstAttribute="width" secondItem="Nt6-MW-8qo" secondAttribute="width" constant="-12" id="TJE-bh-Xe1"/>
+                                <constraint firstItem="QgG-6L-f2a" firstAttribute="centerX" secondItem="Nt6-MW-8qo" secondAttribute="centerX" id="Y0i-h3-VyB"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b86-Si-B95">
+                            <rect key="frame" x="176" y="140" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UkY-mM-u2k">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="UkY-mM-u2k" secondAttribute="height" multiplier="1:1" id="ihH-oh-Cos"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_9.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="dyu-2L-XHr"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="UkY-mM-u2k" firstAttribute="centerY" secondItem="b86-Si-B95" secondAttribute="centerY" id="6BW-zU-pno"/>
+                                <constraint firstAttribute="width" secondItem="b86-Si-B95" secondAttribute="height" multiplier="1:1" id="oMF-Zq-kRi"/>
+                                <constraint firstItem="UkY-mM-u2k" firstAttribute="centerX" secondItem="b86-Si-B95" secondAttribute="centerX" id="t3y-tp-Y5B"/>
+                                <constraint firstItem="UkY-mM-u2k" firstAttribute="width" secondItem="b86-Si-B95" secondAttribute="width" constant="-12" id="ulv-Co-Btj"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YW7-oW-jDq">
+                            <rect key="frame" x="0.0" y="210" width="70" height="70"/>
+                            <subviews>
+                                <button hidden="YES" opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lys-ry-vf1">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="lys-ry-vf1" secondAttribute="height" multiplier="1:1" id="TIq-3b-OMM"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="V5x-eS-Tyx"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="lys-ry-vf1" firstAttribute="centerY" secondItem="YW7-oW-jDq" secondAttribute="centerY" id="K8E-3b-Pxr"/>
+                                <constraint firstAttribute="width" secondItem="YW7-oW-jDq" secondAttribute="height" id="T6e-nm-ntQ"/>
+                                <constraint firstItem="lys-ry-vf1" firstAttribute="width" secondItem="YW7-oW-jDq" secondAttribute="width" constant="-12" id="uLV-gc-sxK"/>
+                                <constraint firstItem="lys-ry-vf1" firstAttribute="centerX" secondItem="YW7-oW-jDq" secondAttribute="centerX" id="ysE-SV-Rbx"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEY-Jf-mrg">
+                            <rect key="frame" x="88" y="210" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygw-of-udd">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="Ygw-of-udd" secondAttribute="height" multiplier="1:1" id="Vyg-bV-Ta9"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_0.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="wPQ-Gh-T6U"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Ygw-of-udd" firstAttribute="centerY" secondItem="wEY-Jf-mrg" secondAttribute="centerY" id="EZD-Dt-Cub"/>
+                                <constraint firstAttribute="width" secondItem="wEY-Jf-mrg" secondAttribute="height" multiplier="1:1" id="M7N-E2-nxl"/>
+                                <constraint firstItem="Ygw-of-udd" firstAttribute="width" secondItem="wEY-Jf-mrg" secondAttribute="width" constant="-12" id="WCB-SU-jhh"/>
+                                <constraint firstItem="Ygw-of-udd" firstAttribute="centerX" secondItem="wEY-Jf-mrg" secondAttribute="centerX" id="vjO-VV-LT7"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Lh-w0-15n">
+                            <rect key="frame" x="176" y="210" width="70" height="70"/>
+                            <subviews>
+                                <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oQd-6d-4oA">
+                                    <rect key="frame" x="6" y="6" width="58" height="58"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="oQd-6d-4oA" secondAttribute="height" multiplier="1:1" id="fRf-sz-vls"/>
+                                    </constraints>
+                                    <state key="normal" image="passcode_button_delete.png"/>
+                                    <connections>
+                                        <action selector="onTouchDownPassButton:" destination="-1" eventType="touchDown" id="8UY-ek-5sH"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="oQd-6d-4oA" firstAttribute="centerX" secondItem="5Lh-w0-15n" secondAttribute="centerX" id="HTM-gZ-vaO"/>
+                                <constraint firstItem="oQd-6d-4oA" firstAttribute="centerY" secondItem="5Lh-w0-15n" secondAttribute="centerY" id="hlp-Fu-0H7"/>
+                                <constraint firstAttribute="width" secondItem="5Lh-w0-15n" secondAttribute="height" multiplier="1:1" id="qmG-4D-MWr"/>
+                                <constraint firstItem="oQd-6d-4oA" firstAttribute="width" secondItem="5Lh-w0-15n" secondAttribute="width" constant="-12" id="xdl-HH-r7J"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="246" id="047-aV-Bnx"/>
+                        <constraint firstItem="YW7-oW-jDq" firstAttribute="width" secondItem="wEY-Jf-mrg" secondAttribute="width" id="1w9-tl-CuL"/>
+                        <constraint firstItem="Tgj-1Z-S3M" firstAttribute="top" secondItem="Ibd-vW-aeW" secondAttribute="bottom" id="2Y6-FL-mnO"/>
+                        <constraint firstAttribute="trailing" secondItem="b86-Si-B95" secondAttribute="trailing" id="3wj-BM-dKS"/>
+                        <constraint firstItem="Nt6-MW-8qo" firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="width" id="4HC-dv-BRU"/>
+                        <constraint firstItem="Nwx-la-dAf" firstAttribute="centerY" secondItem="Tgj-1Z-S3M" secondAttribute="centerY" id="4I4-lN-bgv"/>
+                        <constraint firstItem="t2q-5Z-YXs" firstAttribute="leading" secondItem="ZvH-69-DCQ" secondAttribute="leading" id="5Gk-mg-1RG"/>
+                        <constraint firstItem="pZZ-J5-IEL" firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="width" id="6G5-z3-hag"/>
+                        <constraint firstItem="Trz-eE-l8g" firstAttribute="centerY" secondItem="Ibd-vW-aeW" secondAttribute="centerY" id="7YH-ET-nNA"/>
+                        <constraint firstItem="b86-Si-B95" firstAttribute="width" secondItem="Nt6-MW-8qo" secondAttribute="width" id="Gcf-5S-xwH"/>
+                        <constraint firstItem="wEY-Jf-mrg" firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="width" id="IHj-Ks-wVf"/>
+                        <constraint firstAttribute="trailing" secondItem="Nwx-la-dAf" secondAttribute="trailing" id="J8p-zu-f2t"/>
+                        <constraint firstItem="afT-dE-gKA" firstAttribute="centerY" secondItem="Nt6-MW-8qo" secondAttribute="centerY" id="Jwt-xt-kWw"/>
+                        <constraint firstItem="Nt6-MW-8qo" firstAttribute="centerX" secondItem="ZvH-69-DCQ" secondAttribute="centerX" id="K91-IL-8Ji"/>
+                        <constraint firstItem="t2q-5Z-YXs" firstAttribute="width" secondItem="Tgj-1Z-S3M" secondAttribute="width" id="KGd-4L-SV3"/>
+                        <constraint firstItem="afT-dE-gKA" firstAttribute="width" secondItem="Nt6-MW-8qo" secondAttribute="width" id="O0l-Ld-p6q"/>
+                        <constraint firstItem="Ibd-vW-aeW" firstAttribute="top" secondItem="ZvH-69-DCQ" secondAttribute="top" id="O4s-DC-wvU"/>
+                        <constraint firstItem="t2q-5Z-YXs" firstAttribute="centerY" secondItem="Tgj-1Z-S3M" secondAttribute="centerY" id="Po8-CM-wuP"/>
+                        <constraint firstAttribute="trailing" secondItem="5Lh-w0-15n" secondAttribute="trailing" id="QQj-ES-6cg"/>
+                        <constraint firstItem="Ibd-vW-aeW" firstAttribute="centerX" secondItem="ZvH-69-DCQ" secondAttribute="centerX" id="SQr-Vz-yTI"/>
+                        <constraint firstItem="Nt6-MW-8qo" firstAttribute="top" secondItem="Tgj-1Z-S3M" secondAttribute="bottom" id="SXK-Kc-BVi"/>
+                        <constraint firstItem="wEY-Jf-mrg" firstAttribute="centerX" secondItem="ZvH-69-DCQ" secondAttribute="centerX" id="WP3-i1-jFS"/>
+                        <constraint firstItem="Tgj-1Z-S3M" firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="width" id="aMt-iS-9rw"/>
+                        <constraint firstItem="YW7-oW-jDq" firstAttribute="centerY" secondItem="wEY-Jf-mrg" secondAttribute="centerY" id="aff-ts-f4q"/>
+                        <constraint firstItem="b86-Si-B95" firstAttribute="centerY" secondItem="Nt6-MW-8qo" secondAttribute="centerY" id="apB-Tp-Fds"/>
+                        <constraint firstItem="wEY-Jf-mrg" firstAttribute="top" secondItem="Nt6-MW-8qo" secondAttribute="bottom" id="czH-K1-eid"/>
+                        <constraint firstAttribute="width" secondItem="ZvH-69-DCQ" secondAttribute="height" multiplier="246:280" id="fhS-6J-dcV"/>
+                        <constraint firstItem="afT-dE-gKA" firstAttribute="leading" secondItem="ZvH-69-DCQ" secondAttribute="leading" id="gf9-Uy-n1t"/>
+                        <constraint firstAttribute="trailing" secondItem="pZZ-J5-IEL" secondAttribute="trailing" id="ghy-gx-GyU"/>
+                        <constraint firstItem="Tgj-1Z-S3M" firstAttribute="centerX" secondItem="ZvH-69-DCQ" secondAttribute="centerX" id="gnF-Rm-YOS"/>
+                        <constraint firstItem="Ibd-vW-aeW" firstAttribute="width" secondItem="ZvH-69-DCQ" secondAttribute="width" multiplier="1:3" constant="-12" id="jXH-t7-2iS"/>
+                        <constraint firstItem="YW7-oW-jDq" firstAttribute="leading" secondItem="ZvH-69-DCQ" secondAttribute="leading" id="jqz-LR-Mtr"/>
+                        <constraint firstItem="Trz-eE-l8g" firstAttribute="leading" secondItem="ZvH-69-DCQ" secondAttribute="leading" id="lF5-zw-ldu"/>
+                        <constraint firstItem="5Lh-w0-15n" firstAttribute="centerY" secondItem="wEY-Jf-mrg" secondAttribute="centerY" id="mm1-fx-EkA"/>
+                        <constraint firstItem="5Lh-w0-15n" firstAttribute="width" secondItem="wEY-Jf-mrg" secondAttribute="width" id="oSd-Qs-hJ9"/>
+                        <constraint firstItem="Trz-eE-l8g" firstAttribute="width" secondItem="Ibd-vW-aeW" secondAttribute="width" id="sP6-S0-ZWz"/>
+                        <constraint firstItem="pZZ-J5-IEL" firstAttribute="centerY" secondItem="Ibd-vW-aeW" secondAttribute="centerY" id="zc7-jy-Pgy"/>
+                        <constraint firstItem="Nwx-la-dAf" firstAttribute="width" secondItem="Tgj-1Z-S3M" secondAttribute="width" id="zwO-Ox-9CZ"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passcode_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="K0Y-pZ-iaB">
+                    <rect key="frame" x="130" y="-14" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="o3J-hF-z8t"/>
+                        <constraint firstAttribute="width" constant="60" id="uhy-84-9yr"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="I3O-Wt-aOr" firstAttribute="top" secondItem="ili-EE-RNU" secondAttribute="bottom" constant="20" id="4fa-lf-MOi"/>
+                <constraint firstItem="ili-EE-RNU" firstAttribute="top" secondItem="K0Y-pZ-iaB" secondAttribute="bottom" constant="5" id="8HR-BU-NgL"/>
+                <constraint firstItem="ili-EE-RNU" firstAttribute="centerX" secondItem="DXZ-Wg-a3s" secondAttribute="centerX" id="8SV-Ch-l0t"/>
+                <constraint firstItem="K0Y-pZ-iaB" firstAttribute="centerX" secondItem="DXZ-Wg-a3s" secondAttribute="centerX" id="RRP-eG-jDg"/>
+                <constraint firstItem="ZvH-69-DCQ" firstAttribute="top" secondItem="I3O-Wt-aOr" secondAttribute="bottom" multiplier="17:16" id="TNm-io-tpH"/>
+                <constraint firstItem="I3O-Wt-aOr" firstAttribute="width" secondItem="ZvH-69-DCQ" secondAttribute="width" constant="-22" id="bcc-IY-IOp"/>
+                <constraint firstItem="I3O-Wt-aOr" firstAttribute="centerX" secondItem="DXZ-Wg-a3s" secondAttribute="centerX" id="cB8-Nc-Chn"/>
+                <constraint firstItem="ZvH-69-DCQ" firstAttribute="centerY" secondItem="DXZ-Wg-a3s" secondAttribute="centerY" multiplier="5:4" id="iYV-aw-t8F"/>
+                <constraint firstItem="ZvH-69-DCQ" firstAttribute="centerX" secondItem="DXZ-Wg-a3s" secondAttribute="centerX" id="nt8-FT-HJX"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="-63" y="152"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="passcode_button_0.png" width="120" height="120"/>
+        <image name="passcode_button_1.png" width="120" height="120"/>
+        <image name="passcode_button_2.png" width="120" height="120"/>
+        <image name="passcode_button_3.png" width="120" height="120"/>
+        <image name="passcode_button_4.png" width="120" height="120"/>
+        <image name="passcode_button_5.png" width="120" height="120"/>
+        <image name="passcode_button_6.png" width="120" height="120"/>
+        <image name="passcode_button_7.png" width="120" height="120"/>
+        <image name="passcode_button_8.png" width="120" height="120"/>
+        <image name="passcode_button_9.png" width="120" height="120"/>
+        <image name="passcode_button_delete.png" width="120" height="120"/>
+        <image name="passcode_indicator_active.png" width="100" height="100"/>
+        <image name="passcode_logo.png" width="180" height="180"/>
+    </resources>
+</document>

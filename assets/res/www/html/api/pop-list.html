@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+<button data-function>List 선택 Popup (SINGLE)</button>
+<pre>
+M.pop.list({
+    title : 'title',
+    message : 'message',
+    button : ['button0', 'button1', 'button2'],
+    list : [{ title : 'row0', value : 'value0'},
+            { title : 'row1', value : 'value1'},
+            { title : 'row2', value : 'value2'},
+            { title : 'row3', value : 'value3'},
+            { title : 'row4', value : 'value4'}],
+    mode : 'SINGLE',
+    selected : 2,
+}, function (buttonIdx, rowInfo, setting){
+	M.tool.log( buttonIdx, rowInfo );
+	alert( buttonIdx + ", " + JSON.stringify( rowInfo ) );
+});
+</pre>
+
+<button data-function>List 선택 Popup (MUILTI)</button>
+<pre>
+M.pop.list({
+    title : 'title',
+    message : 'message',
+    button : ['button0', 'button1', 'button2'],
+    list : [{ title : 'row0', value : 'value0'},
+            { title : 'row1', value : 'value1'},
+            { title : 'row2', value : 'value2'},
+            { title : 'row3', value : 'value3'},
+            { title : 'row4', value : 'value4'}],
+    mode : 'MULTI',
+    selected : [0, 2],
+}, function (buttonIdx, rowInfo, setting){
+	M.tool.log( buttonIdx, rowInfo );
+	alert( buttonIdx + ", " + JSON.stringify( rowInfo ) );
+});
+</pre>
+
+
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title>서명관리</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <h1>서명관리</h1>
+            <button type="button" onclick="return false;" data-button="back" class="tbtn_l tbtn_prev" id="btn_back">이전</button>
+            <button type="button" class="tbtn_home" title="홈">홈</button>
+        </header>
+
+        <section class="content bge" id="content">
+            <div>
+                <div class="app-search ac s2">				
+                    <input type="text" class="input01" title="검색어" placeholder="검색어를 입력하세요.">
+                    <button class="btn-company">저장하기</button>
+                </div> 
+            </div>
+            <div class="sign-box">
+                <div class="sign"></div>
+            </div>
+        </section>
+        <div class="refresh-box">
+            <button></button>
+        </div>
+    </div>
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=KR"></script>
+<script type="text/javascript">
+M.onReady(function(){
+	initialize();
+	
+	$("#tbtn_prev").click(function(){
+		M.page.back();
+	});
+	
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+function initialize() {
+	var mapOptions = {
+		center: new google.maps.LatLng(M.data.param('lat'), M.data.param('lng')),
+		zoom: 17,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeControl : false,
+		disableDefaultUI : true
+	};
+
+	// 지점 이름 및 주소, 전화번호 세팅
+	$('#store_name').html(M.data.param('store_name'));
+	$('#address').html(M.data.param('address'));
+	$('#tel').html(M.data.param('tel'));
+
+	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	$('#wrapper').css('height', $(window).height() - $('#NH_header').height() + 'px');
+	$('#map_canvas').css('height', $(window).height() - $('#NH_header').outerHeight() - $('.view_type1').outerHeight() - 6  + "px");
+	
+	
+}
+
+</script>
+</body>
+</html>

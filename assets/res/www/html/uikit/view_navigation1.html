@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		/* ===== view_menu3 ===== */
+		#footer p{position:absolute;bottom:0;left:0;z-index:98;width:100%;height:4.5rem;line-height:4.4rem;border-top:2px solid #068485;background-color:#f7f8f9;}
+		.edit_menu button{cursor:pointer;}
+		.edit_menu{position:relative;top:0;width:100%;height:100%;padding-top:0;padding-bottom:4.5rem;}
+		.edit_menu .m_mbox{position:relative;width:100%;height:100%;}
+		.edit_menu .m_mbox li button.dimed span, .edit_menu .conbox3 li.dimed button span{color:#333 !important;}
+		.edit_menu .conbox1_2 li button.dimed{background:#fff;}
+		/* main 1단 */
+		.edit_menu .conbox1{position:relative;z-index:10;width:100%;height:58%;}
+		.edit_menu .conbox1 li{display:block;width:100%;height:100%;}
+		.edit_menu .conbox1 li.conbox1_2{display:block;width:100%;height:100%;margin:0;padding:0;line-height:1.0;background-color:#67917a;}
+		.edit_menu .conbox1 .conbox1_2 p.setting{display:block;width:100%;height:20%;vertical-align:middle;border-left:1px solid #d9dadb;background:#fff url('../../img/icon_setting.png') no-repeat 90% center;background-size:2rem;}
+		.edit_menu .conbox1 .conbox1_2 p.setting button{display:block;width:100%;height:100%;padding:0 0 0 10px;font-size:.9rem;color:#333 !important;text-align:left !important;background-color:transparent;}
+		.edit_menu .conbox1 .conbox1_2 ul{display:block;width:100%;height:80%;margin:0;padding:0;line-height:1.0;}
+		.edit_menu .conbox1 .conbox1_2 ul li{display:block;width:100%;height:100%;background-position:0 0;background-size:40%;}
+		.edit_menu .conbox1 .conbox1_2 ul li:nth-child(1){position:relative !important;width:100%;height:50% !important;background-color:#97c13c !important;}
+		.edit_menu .conbox1 .conbox1_2 ul li:nth-child(2){position:relative !important;width:100%;height:50% !important;background-color:#67917a !important;}
+		.edit_menu .conbox1 .conbox1_2 ul li button{display:block;width:100%;height:100%;margin:0;padding:0;background-color:transparent;}
+		.edit_menu .conbox1 .conbox1_2 ul li button span{position:absolute;right:10px;bottom:1.2rem;margin:0;padding:0;color:#fff !important;font-size:1.2rem;text-align:right;line-height:1.0;}
+		/* promotion_img */
+		.edit_menu .promotion {overflow:hidden;position:relative; width:100%;height:100%; background:url('../../img/bg_dashboard.png') repeat; }
+		.edit_menu .promotion .visual { position:absolute; width:100%; height:100%; text-align:center; }
+		.edit_menu .promotion .visual img { height:100%;  }
+		/* main 2단 */
+		.edit_menu .conbox2{width:100%;height:24%;}
+		.edit_menu .conbox2 li{position:relative !important;z-index:10;width:100%;height:100%;border-left:1px solid #34aecc;background-position:0 0;background-size:40%;}
+		.edit_menu .conbox2 li:nth-child(1){background-color:#f49244 !important;}
+		.edit_menu .conbox2 li:nth-child(2){background-color:#34aecc !important;}
+		.edit_menu .conbox2 li:nth-child(3){background-color:#5374b9 !important;}
+		.edit_menu .conbox2 li:first-child{border-left:0 none !important;}
+		.edit_menu .conbox2 li button{position:relative !important;display:block;width:100%;height:100%;margin:0;padding:0;background-color:transparent;}
+		.edit_menu .conbox2 li button span{position:absolute;right:10px;bottom:1.2rem;margin:0;padding:0;color:#fff !important;font-size:1.2rem;text-align:right;line-height:1.0;}
+		/* main 3단 */
+		.edit_menu .conbox3{width:100%;height:18%;}
+		.edit_menu .conbox3 li{position:relative !important;z-index:10;width:100%;height:100%;border-left:1px solid #d9dadb;background-color:#f2f2f2;}
+		.edit_menu .conbox3 li:first-child{border-left:0 none !important;}
+		.edit_menu .conbox3 li button{display:block;width:100%;height:100%;margin:0;padding:0;background-color:transparent;}
+		.edit_menu .conbox3 li button span{position:absolute;right:10px;bottom:.5rem;margin:0;padding:0;color:#646464 !important;font-size:1.2rem;text-align:right;line-height:1.0;}
+		.edit_menu .conbox3 .event{background:url('../../img/icon_smenu_event.png') no-repeat 5px 5px;background-size:2.5rem;}
+		.edit_menu .conbox3 .app{background:url('../../img/icon_smenu_app.png') no-repeat 5px 5px;background-size:2.5rem;}
+		.edit_menu .conbox3 .mweb{background:url('../../img/icon_smenu_mweb.png') no-repeat 5px 5px;background-size:2.5rem;}
+		/* 메뉴아이콘 */
+		.edit_menu .smenu3_1{background:url('../../img/icon_smenu3_1.png');}
+		.edit_menu .smenu3_2{background:url('../../img/icon_smenu3_2.png');}
+		.edit_menu .smenu3_3{background:url('../../img/icon_smenu3_3.png');}
+		.edit_menu .smenu3_4{background:url('../../img/icon_smenu3_4.png');}
+		.edit_menu .smenu3_5{background:url('../../img/icon_smenu3_5.png');}
+		/* 메뉴삭제 */
+		.edit_menu .del{background:url('../../img/btn_menu_edit.png') no-repeat right 0 !important;background-size:4rem !important;}
+		.edit_menu .add button{font-size:0;text-indent:-20000px;}
+		.edit_menu .menu button{background-repeat:no-repeat;background-size:4rem 4rem;}
+		/* 메뉴설정없음 */
+		.edit_menu .nomenu{width:100%;height:100%;margin:0 !important;padding:0 !important;line-height:1 !important;background:url('../../img/bg_no_menu.png') no-repeat center center !important;background-size:7rem !important;}
+		.edit_menu_txt{color:#218f9f;text-align:center !important;line-height:45px;}
+		/* ---------- #footer ---------- */
+		#footer{position:fixed;bottom:0;left:0;z-index:98;width:100%;height:4.5rem;display:-webkit-box;-webkit-box-align:center;-webkit-box-pack:center;border-top:2px solid #218f9f;background-color:#f7f8f9;}
+		#footer ul{width:100%;height:100%;-webkit-column-count:5;-webkit-column-gap:1px;-webkit-column-rule:1px solid #d9dadb;}
+		#footer li{display:block;height:100%;}
+		#footer li button{display:block;width:100%;height:100%;margin:0;padding:2.8rem 0 0;text-align:center;}
+		#footer li:nth-of-type(1) button{background:url('../../img/sample/icon_footer01.png') no-repeat center .8rem;background-size:2rem 2rem;}
+		#footer li:nth-of-type(2) button{background:url('../../img/sample/icon_footer02.png') no-repeat center .8rem;background-size:2rem 2rem;}
+		#footer li:nth-of-type(3) button{background:url('../../img/sample/icon_footer03.png') no-repeat center .8rem;background-size:2rem 2rem;}
+		#footer li:nth-of-type(4) button{background:url('../../img/sample/icon_footer04.png') no-repeat center .8rem;background-size:2rem 2rem;}
+		#footer li.login button{background:url('../../img/sample/icon_footer05.png') no-repeat center .8rem;background-size:2rem 2rem;}
+		#footer li.logout button{background:url('../../img/sample/icon_footer06.png') no-repeat center .8rem;background-size:2rem 2rem;}
+		#footer li button span{font-size:.9rem;}
+		#footer li button:hover span{color:blue;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>대시보드</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+<div id="container">
+
+	<!-- view_menu3 -->
+		<div class="edit_menu">
+			<div class="m_mbox">
+				<ul class="conbox1 hbox jc">
+					<li class="flex promotion">
+						<div class="visual"><img src="../../img/icon_dashboard_main.png" border="0" /></div>
+					</li>
+					<li class="conbox1_2 flex2">
+						<p class="setting" id="menuSetting"><button type="button">메뉴설정</button></p>
+						<ul>
+							<li class="menu"><button type="button" class="smenu3_1"><span>메뉴1</span></button></li>
+							<li class="menu"><button type="button" class="smenu3_2"><span>메뉴2</span></button></li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="conbox2 hbox jc">
+					<li class="menu flex"><button type="button" class="smenu3_3"><span>메뉴3</span></button></li>
+					<li class="menu flex"><button type="button" class="smenu3_4"><span>메뉴4</span></button></li>
+					<li class="menu flex"><button type="button" class="smenu3_5"><span>메뉴5</span></button></li>
+				</ul>
+				<ul class="conbox3 hbox jc">
+					<li class="flex"><button type="button" class="event"><span>고정메뉴1</span></button></li>
+					<li class="flex"><button type="button" class="app"><span>고정메뉴2</span></button></li>
+					<li class="flex"><button type="button" class="mweb"><span>고정메뉴3</span></button></li>
+				</ul>
+			</div>
+		</div>
+		<footer id="footer">
+			<ul>
+				<li><button type="button"><span>홈</span></button></li>
+				<li><button type="button"><span>찾기</span></button></li>
+				<li><button type="button"><span>고객센터</span></button></li>
+				<li><button type="button"><span>전체메뉴</span></button></li>
+				<li class="login"><button type="button"><span>로그인</span></button></li>
+			</ul>
+		</footer>
+	<!--// view_menu3 -->
+
+</div>
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$("#container").css('height', $('body').height() - $("#header").height() + 'px');
+	
+	var $visual = $(".flex .visual");
+	var $img = $(".flex .visual img");
+		
+	if ( $visual.width() < $img.width() ) {
+		$img.css({
+			width:"100%",
+			height:"auto"
+		});
+	};
+	
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

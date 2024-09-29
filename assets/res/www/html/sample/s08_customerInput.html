@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nds_salesmng_morpheus_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script>
+		function layer_open(el) {
+			var $href = $(this).attr('href');
+			var temp = $('#' + el);	
+			if(this) {
+				$('#' + el).fadeIn();
+				$('#' + el).css("visibility","inherit");
+				$('#' + el).find('.pop-layer').removeClass('layerclose');
+				$('body').addClass('over_-h');
+
+			} else {
+				temp.fadeIn();
+				$('#' + el).css("visibility","over_-h");
+				}
+
+
+			
+			$('.popup-layer .close, li button.btn-account').click(function() {
+				$(this).parents('.popup-layer').find('.pop-layer').addClass('layerclose');
+				$(this).parents('.popup-layer').fadeOut();
+				$('body').removeClass('over_-h');
+				return false;
+			});
+		};
+	</script>
+</head>
+<body id="bodyId" style="margin-top:0px;">
+	<header id="header">
+		<!-- Tap시 class="on"추가, 비활성시 버튼태그에 disabled 옵션 추가 -->
+		<button type="button" class="btn_back">이전</button>
+		<h1>입력</h1>
+	</header>
+	<p class="cbtn_r" style="top: 1rem;">
+		<button type="button" class="cbtn_close innovation" data-instance-class="menu-close">메뉴보기</button>
+	</p>
+
+	<section id="content" class="search-box">
+		
+		<div id="wrapper">
+			<div>
+				<table class="basic">
+					<colgroup>
+						<col style="width:35%;">
+						<col>
+					</colgroup>
+					<tbody id="tbodyId">
+						<tr>
+							<th>주문일자</th>
+							<td><input type="date" class="text w100p"></td>
+						</tr>
+						<tr>
+							<th>거래처 코드</th>
+							<td>
+								<div class="input_wrap" style="margin:0">
+									<input type="tel" id="accountCd" maxLength="7" placeholder="ex:1020200" class="text w100p" title="거래처 코드" />
+									<button type="button" class="btn_search" id="searchBtn">찾기</button>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>거래처 명</th>
+							<td id="accountNm"></td>
+						</tr>
+						<tr>
+							<th>납품처 코드</th>
+							<td><span class="select w100p" onclick="layer_open('layer100'); return false;">선택1</span></td> 
+						</tr>						
+						<tr>
+							<th>자가차</th>
+							<td>
+								<div class="radio_group">
+									<label for="radio1" class="radio-box">
+										<input type="radio" class="radio" name="group"  id="radio1" checked />
+										<span>예</span>
+									</label>
+								</div>
+								<div class="radio_group">
+									<label for="radio1" class="radio-box">
+										<input type="radio" class="radio" name="group"  id="radio1" />
+										<span>아니오</span>
+									</label>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>예약시간</th>
+							<td>
+								<div class="input_wrap">
+									<input type="time" class="text w100p">
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>예약번호</th>
+							<td><input type="tel" id="reserveNumber" placeholder="예약번호입력(01~10)" maxLength="2" class="text w100p" title="예약번호" /></td>
+						</tr>
+						<!-- <tr>
+							<th>여신</th>
+							<td>30,000,000원</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+		<!-- 콤보박스 선택 - 단일 -->
+<div class="popup-layer" id="layer100">        
+	<div class="pop-table bottom">
+		<div class="pop-bottom">
+			<div class="bg"></div>
+			<div class="pop-layer">
+				<div class="m_box">	
+					<div class="pop-header">
+						<button type="button" class="close">닫기</button>
+					</div>	
+							  
+					<div class="content max-h">
+						<div class="account-target bdt20">
+							<ul>
+								<li><button class="btn-account">선택리스트 1</button></li>
+								<li><button class="btn-account">선택리스트 2</button></li>
+								<li><button class="btn-account">선택리스트 3</button></li>
+								<li><button class="btn-account">선택리스트 4</button></li>
+								<li><button class="btn-account">선택리스트 5</button></li>
+								<li><button class="btn-account">선택리스트 6</button></li>
+								<li><button class="btn-account">선택리스트 7</button></li>
+								<li><button class="btn-account">선택리스트 8</button></li>
+							</ul>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../../js/ui/sample/iscroll.js"></script>
+<script type="text/javascript">
+var pageHeight,
+	dateObj = new Date(),
+	tempMonth = '',
+	tempDate = '',
+	tempHours = '',
+	tempMinute = '',
+	paramDate = '';
+	
+M.onReady(function(evt){
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+	
+	tempMonth = dateObj.getMonth()+1 < 10 ? '0' + (dateObj.getMonth()+1) : dateObj.getMonth()+1;
+	tempDate = dateObj.getDate() < 10 ? '0' + dateObj.getDate() : dateObj.getDate();
+	tempHours = dateObj.getHours() < 10 ? '0' + dateObj.getHours() : dateObj.getHours();
+	tempMinute = dateObj.getMinutes() < 10 ? '0' + dateObj.getMinutes() : dateObj.getMinutes();
+	
+	document.querySelector('#orderDate').innerHTML = dateObj.getFullYear() + '/' + tempMonth + '/' + tempDate;
+	paramDate = dateObj.getFullYear() + '' + tempMonth + '' + tempDate;
+	
+	pageHeight = window.innerHeight, // 실제 화면 높이
+	loaded();
+	
+	// 거래처 검색 버튼 클릭시
+	$("#searchBtn").click(function () {
+		$('#searchBtn').addClass("on");
+		setTimeout(function(){
+			$('#searchBtn').removeClass("on");
+			console.log($("#accountCd").val());
+			if($("#accountCd").val().length < 7){
+				alert("거래처 코드를 7자리로 입력해주세요");
+				return;
+			}else{
+				 $("#accountNm").html("이마트죽전점");
+			}
+		}, 200);
+	});
+	
+	// 다음 버튼 클릭시
+	$(".btn_next").click(function () {
+		$('.btn_next').addClass("on");
+		setTimeout(function(){
+			$('.btn_next').removeClass("on");
+			if($('#accountCd').val().length < 7){
+				alert('거래처 코드를 입력해주세요.');
+				return;
+			}
+			
+			if($('#customerCd').html() == "선택"){
+				alert('납품처 코드를 선택해 주세요');
+				return;
+			}
+			
+			if($('#reserveDate').val() == ''){
+				alert('예약시간을 입력해주세요.');
+				return;
+			}else{
+				if($('#reserveDate').val().length<2){
+					alert('예약시간을 두자리로 입력해주세요');
+					$('#reserveDate').val('');
+					return;
+				}
+				
+				if(Number($('#reserveDate').val()) >24){
+					alert('예약시간은 01~24까지만 입력 가능합니다.');
+					$('#reserveDate').val('');
+					return;
+				}
+			}
+	
+			if($('#reserveNumber').val() == ''){
+				alert('예약번호을 입력해주세요.');
+				return;
+			}else{
+				if($('#reserveNumber').val().length<2){
+					alert('예약번호을 두자리로 입력해주세요');
+					$('#reserveNumber').val('');
+					return;
+				}
+				
+				if(Number($('#reserveNumber').val()) >10){
+					alert('예약번호는 01~10까지만 입력 가능합니다.');
+					$('#reserveNumber').val('');
+					return;
+				}
+			}
+			
+			alert("다음 버튼 스텝으로 이동합니다.");
+		}, 200);
+	});
+}).onRestore(function(evt){
+	
+}).onHide(function(evt){
+	
+}).onResume(function(evt){
+	
+}).onPause(function(evt){
+	
+}).onDestroy(function(evt){
+	
+}).onBack(function(evt){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+/**
+ * 스크롤 객체 생성
+ */
+var myScroll;
+function loaded() {
+	bodyHeightSet();
+	if(myScroll == undefined || myScroll == ""){
+		myScroll = new iScroll('wrapper', {
+			useTransform: true,
+			onBeforeScrollStart: function (e) {
+			var target = e.target;
+			while (target.nodeType != 1) target = target.parentNode;
+			if (target.tagName != 'SELECT' && target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' && target.tagName != 'A')
+			    e.preventDefault();
+			},
+			onScrollStart:function(e){
+				var target = e.target;
+				while (target.nodeType != 1) target = target.parentNode;
+				if (target.tagName != 'INPUT')
+				    $('#bodyId').css('marginTop', '0px');
+				    $("#reserveDate").blur();
+				    $("#reserveNumber").blur();
+			}
+		});
+	}
+}
+
+/**
+ * 스크롤 높이 계산
+ */
+function bodyHeightSet() {
+	var scrollObj = document.getElementById("wrapper");
+	var header = document.getElementById("header");
+	var headerHeight = 0; // 해더 높이
+	var finalHeight = 0; // 최종적인 스크롤 영역 높이
+
+	if (header != undefined)
+		headerHeight = header.offsetHeight;
+
+	finalHeight = pageHeight - headerHeight // 해더, 제외영역 빼는
+	
+	scrollObj.style.height = finalHeight + "px";
+}
+
+// 주문일자 버튼 클릭시 DatePicker
+// var orderDate = document.querySelector('#orderDate');
+// document.querySelector('#orderDate').addEventListener('click', function(){
+// 	M.pop.date({
+//         type      : 'YMD',
+//         initDate  : orderDate.innerHTML.substring(0,4) + '' + orderDate.innerHTML.substring(5,7) + '' + orderDate.innerHTML.substring(8,10),
+//         startDate : '19790101',
+//         endDate   : '21001231'
+//     },function(value){
+// 	    	document.querySelector('#orderDate').innerHTML = value.yyyy + '/' + value.MM + '/' + value.dd;
+// 	    	paramDate = value.yyyy + '' + value.MM + '' + value.dd;
+//     });
+// }, false);
+
+// 이전 버튼 클릭시
+$(".btn_back").click(function () {
+	$('.btn_back').addClass("on");
+	setTimeout(function(){
+		$('.btn_back').removeClass("on");
+		M.page.back();
+	}, 200);
+});
+
+// 거래처 직접 입력시
+$('#accountCd').keyup(function(){
+	if($('#accountCd').val().length == 7){
+		customerList();
+	}else{
+		$('#accountNm').html('');
+		$('#customerCd').html('선택');
+		$('#customerCd').unbind('click', customerClick);
+		$('#customerCd').addClass('disabled');
+		$('#customerNm').html('');
+		$('#factoryCd').html('');
+		$('#factoryNm').html('');
+	}
+});
+$('#accountCd').blur(function(){
+	$('#header').css('position', 'absolute');
+	window.scrollTo(0,0);
+	$('#header').css('position', 'fixed');
+});
+
+// 납품처 코드 조회
+function customerList(){
+	$("#accountNm").html("이마트죽전점");
+	$('#customerCd').html('선택');
+	$('#customerNm').html('');
+	$('#customerCd').unbind("click").bind('click', customerClick);
+	$('#customerCd').removeClass('disabled');
+}
+
+// 납품처 코드 선택시
+var customerIdx = 0;
+function customerClick(){
+	var $this = $(this);
+	M.pop.list({
+		'list' : [
+			{title:'이마트죽전점', value:'1020200'},
+			{title:'이마트산본점', value:'1020201'}
+		],
+		'selected' : customerIdx
+	}, function(buttonIndex, value){
+		
+		customerIdx = value.index;
+
+		$('#customerCd').html(value.title);
+		$('#customerNm').html(value.value);
+		if (value.index == 0){
+			$('#factoryCd').html("1112222");
+			$('#factoryNm').html("코스트코양재점");
+		}
+		else {
+			$('#factoryCd').html("3334444");
+			$('#factoryNm').html("코스트코일산점");
+		}
+	});
+}
+
+// 예약시간 focus시
+$("#reserveDate").focus(function(){
+	if(wnIf.device == DT_IOS){
+		return;
+	}
+	$('html').unbind('click', resetFunc);
+	setTimeout(function(){
+		$('#bodyId').css('marginTop', -($('#tbodyId>tr:eq(0)').height()*4) + 'px');
+	}, 100);
+});
+
+// 예약시간 blur시
+$("#reserveDate").blur(function(){
+	if(wnIf.device == DT_IOS){
+		$('#header').css('position', 'absolute');
+		window.scrollTo(0,0);
+		$('#header').css('position', 'fixed');
+		return;
+	}
+	$('html').bind('click', resetFunc);
+});
+
+// 예약번호 focus시
+$("#reserveNumber").focus(function(){
+	if(wnIf.device == DT_IOS){
+		return;
+	}
+	$('html').unbind('click', resetFunc);
+	setTimeout(function(){
+		$('#bodyId').css('marginTop', -($('#tbodyId>tr:eq(0)').height()*5) + 'px');
+	}, 100);
+});
+
+// 예약번호 blur시
+$("#reserveNumber").blur(function(){
+	if(wnIf.device == DT_IOS){
+		$('#header').css('position', 'absolute');
+		window.scrollTo(0,0);
+		$('#header').css('position', 'fixed');
+		return;
+	}
+	$('html').bind('click', resetFunc);
+});
+
+function resetFunc(){
+	$('#bodyId').css('marginTop', '0px');
+}
+</script>
+</body>
+</html>

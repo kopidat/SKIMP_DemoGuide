@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		.animated{-webkit-transition: all 500ms;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>컨텐츠뷰</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<!-- scroll 영역 -->
+	<section id="scroll">
+		<div>
+
+			<ul class="sub_list">
+				<li class="down"><button type="button" data-instance-class="accordion-handler">리스트 뷰</button>
+					<ul class="sub_list_menu" data-instance-class="accordion-content">
+						<li data-list-name="view_content1.html"><button type="button">텍스트 리스트 뷰</button></li>
+					</ul>
+				</li>
+				<li data-list-name="view_content3.html"><button type="button">그룹 리스트 뷰</button></li>
+				<li data-list-name="view_content5.html"><button type="button">펼침/닫힘 리스트 뷰</button></li>
+				<li data-list-name="view_content6.html"><button type="button">맵 뷰</button></li>
+			</ul>
+
+		</div>
+	</section>
+	<!--// scroll 영역 -->
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + "px");
+	
+	// 페이지 이동
+	$("[data-list-name]").click(function(){
+		M.page.html($(this).attr('data-list-name'),{
+			action:"NEW_SCR",
+			orient:"PORT"
+		});
+	});
+	
+	var tmpArr = [];
+	var tmpSelected = null;
+	$("[data-instance-class='accordion-handler']").next().each(function(index, element){
+		tmpArr.push($(element).height() + 'px');
+		$(element).css('height', '0px');
+		$(element).addClass('animated');
+		$(element).parent().removeClass('on');
+	});
+	
+	$("[data-instance-class='accordion-handler']").click(function(){
+		$("[data-instance-class='accordion-handler']").next().each(function(index, element){
+			$(element).css('height', '0px');
+		});
+		
+		if(tmpSelected != $("[data-instance-class='accordion-handler']").index(this)){
+			$(this).next().css({
+				'height': tmpArr[$("[data-instance-class='accordion-handler']").index(this)]
+			});
+			$("[data-instance-class='accordion-handler']").next().each(function(index, element){
+				$(element).parent().addClass('down');
+			});
+			$(this).parent().removeClass('down');
+			$(this).parent().addClass('on');
+			tmpSelected = $("[data-instance-class='accordion-handler']").index(this);
+		}else{
+			$(this).next().css({
+				'height': '0px'
+			});
+			$(this).parent().removeClass('on');
+			$(this).parent().addClass('down');
+			tmpSelected = null;
+		}
+	});
+	
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

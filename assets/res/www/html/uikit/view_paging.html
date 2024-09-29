@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>페이지네이션</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<p class="cbtn_r">
+		<button type="button" class="cbtn_info" data-instance-class="info-btn">도움말보기</button>
+	</p>
+	<!-- scroll 영역 -->
+	<section id="scroll"><div>
+
+			<div class="list_over animated" style="visibility:hidden;">
+				<ul class="paging_list"><!-- 이동1 -->
+					<li>
+						<h2>글 제목1-1</h2>
+					</li>
+					<li>
+						<h2>글 제목1-2</h2>
+					</li>
+					<li>
+						<h2>글 제목1-3</h2>
+					</li>
+					<li>
+						<h2>글 제목1-4</h2>
+					</li>
+					<li>
+						<h2>글 제목1-5</h2>
+					</li>
+				</ul>
+				<ul class="paging_list"><!-- 이동2 -->
+					<li>
+						<h2>글 제목2-1</h2>
+					</li>
+					<li>
+						<h2>글 제목2-2</h2>
+					</li>
+					<li>
+						<h2>글 제목2-3</h2>
+					</li>
+					<li>
+						<h2>글 제목2-4</h2>
+					</li>
+					<li>
+						<h2>글 제목2-5</h2>
+					</li>
+				</ul>
+			</div>
+
+			<p class="paging">
+				<button type="button" class="page_prev" id="page_prev" disabled="disabled">이전</button>
+				<span class="page_no"><em>1</em> / 2</span>
+				<button type="button" class="page_next" id="page_next">다음</button>
+			</p>
+
+
+	</div></section>
+	<!--// scroll 영역 -->
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>페이지네이션 </h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>제공되는 리스트의 개수가 많은 경우 제공되며, [<][>]버튼으로 이전/다음 페이지 이동이 가능합니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+	$('.paging_list').css('width', $('body').width() + "px");
+	$('.list_over').css('width', $('body').width() * 2 + "px");
+	$('.list_over').css('visibility', 'visible');
+	var contWidth = $('body').width();
+
+	$('#page_prev').click(function(){
+		$('.list_over').css('marginLeft', "0px");
+		$('#page_next').removeAttr('disabled');
+		$('#page_prev').attr('disabled', 'disabled');
+		$('.page_no').html("<em>1</em> / 2");
+	});
+
+	$('#page_next').click(function(){
+		$('.list_over').css('marginLeft', -(contWidth) + "px");
+		$('#page_prev').removeAttr('disabled');
+		$('#page_next').attr('disabled', 'disabled');
+		$('.page_no').html("<em>2</em> / 2");
+	});
+
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

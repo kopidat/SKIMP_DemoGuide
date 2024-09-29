@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+
+<button data-function>Database 생성</button>
+<pre>
+M.db.create('test', function(status, name){
+	M.tool.log(status, name);
+	alert( status + ", " + name );
+});
+</pre>
+
+<button data-function>Database 열기</button>
+<pre>
+M.db.open('test', function(status, name){
+	M.tool.log(status, name);
+	alert( status + ", " + name );
+});
+</pre>
+
+<button data-function>Database 삭제</button>
+<pre>
+M.db.remove('test', function(status, name){
+	M.tool.log(status, name);
+	alert( status + ", " + name );
+});
+</pre>
+
+<button data-function>Database 닫기</button>
+<pre>
+M.db.close('test', function(status, name){
+	M.tool.log(status, name);
+	alert( status + ", " + name );
+});
+</pre>
+
+
+<button data-function>Database 실행 (Create)</button>
+<pre>
+var query = 'CREATE TABLE books (id INTEGER PRIMARY KEY, title varchar(255) not null, author varchar(255) not null )'
+M.db.execute('test', query, function(status, result, name){
+	M.tool.log(status, result, name);
+	alert( status + ", " + JSON.stringify(result) + ", " + name );
+});
+</pre>
+
+<button data-function>Database 실행 (Insert)</button>
+<pre>
+var query = 'INSERT INTO books (title, author) values ("제목1", "작가1")';
+M.db.execute('test', query, function(status, result, name){
+	M.tool.log(status, result, name);
+	alert( status + ", " + JSON.stringify(result) + ", " + name );
+});
+</pre>
+
+<button data-function>Database 실행 (Select)</button>
+<pre>
+var query = 'SELECT * FROM books';
+M.db.execute('test', query, function(status, result, name){
+	M.tool.log(status, result, name);
+	alert( status + ", " + JSON.stringify(result) + ", " + name );
+});
+</pre>
+
+
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

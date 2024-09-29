@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>기본 입력박스</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<p class="cbtn_r">
+		<button type="button" class="cbtn_menu" data-instance-class="sample-btn">샘플보기</button>
+	</p>
+	<section id="scroll"><div>
+	<!-- scroll 영역 -->
+
+			<div id="control" class="br_t1 control_6">
+				<section>
+					<h3>단일 입력박스</h3>
+					<p class="input_wrap">
+						<input type="text" id="inputId" class="text width100" placeholder="입력내용" title="단일 입력박스" />
+						<button type="button" class="input_del none" data-instance-class="delete">글삭제</button>
+					</p>
+				</section>
+
+				<section>
+					<h3>다중 입력박스</h3>
+					<p class="group_input">
+						<input type="tel" class="tel" title="다중 입력박스1" value="000" /><span class="slash">-</span>
+						<input type="tel" class="tel" title="다중 입력박스2" /><span class="slash">-</span>
+						<input type="tel" class="tel" title="다중 입력박스3" />
+					</p>
+				</section>
+
+				<section>
+					<h3>텍스트 영역 입력박스</h3>
+					<p class="input_wrap">
+						<textarea class="textarea" data-instance-class="textArea" placeholder="입력내용"  title="텍스트 영역 입력박스"></textarea>
+						<button type="button" class="input_del none" data-instance-class="delete">글삭제</button>
+					</p>
+				</section>
+			</div>
+
+	<!--// scroll 영역 -->
+	</div></section>
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+
+	$("#inputId").keyup(function(){
+		if($(this).val().length > 0){
+			$("[data-instance-class='delete']").removeClass('none');
+		}else{
+			$("[data-instance-class='delete']").addClass('none');
+		}
+	})
+
+	$("[data-instance-class='delete']").click(function(){
+		$("#inputId").val("");
+		$(this).addClass('none');
+	});
+
+	$("[data-instance-class='delete']").click(function(){
+		$("[data-instance-class='textArea']").val("");
+		$(this).addClass('none');
+	});
+
+	$("[data-instance-class='textArea']").keyup(function(){
+		if($(this).val().length > 0){
+			$("[data-instance-class='delete']").removeClass('none');
+		}else{
+			$("[data-instance-class='delete']").addClass('none');
+		}
+		$("[data-instance-class='text_number']").html("("+$(this).val().length +"/140)");
+	});
+
+	// 샘플페이지 링크
+	$("[data-instance-class='sample-btn']").click(function(){
+		M.page.html('../sample/s08_customerInput.html',{
+			action:"NEW_SCR",
+			orient:"PORT",
+			param: {"page":"navigation"}
+		})
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

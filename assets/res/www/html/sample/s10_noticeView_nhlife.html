@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nhlife_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		/* content btn */
+		.cbtn_r{position:absolute;top:2rem;right:.9rem;z-index:999;}
+		.cbtn_menu{width:3.9rem;height:3.9rem;font-size:0;text-indent:-200000px;background:url('../../img/cbtn_menu.png') no-repeat 0 0;background-size:100%;}
+		.cbtn_info{width:3.9rem;height:3.9rem;font-size:0;text-indent:-200000px;background:url('../../img/cbtn_info.png') no-repeat 0 0;background-size:100%;}
+		.tbtn_l{top:.5rem;}
+		.notice_con{font-size:1.4rem;}
+		.notice_tit h2{line-height:1.4;}
+	</style>
+</head>
+<body>
+<!-- <p class="cbtn_r"> -->
+<!-- 	<button type="button" class="cbtn_info">정보보기</button> -->
+<!-- 	<button type="button" class="cbtn_menu">메뉴보기</button> -->
+<!-- </p> -->
+
+<!-- header -->
+<header id="header">
+	<button type="button" id="tbtn_prev" class="btn_back" data-instance-class="btnPrev">목록</button>
+	<h1>공지사항 상세</h1>
+</header>
+
+<!-- container -->
+<div id="wrapper">
+	<div class="container scroller">
+	<!-- iscroll_area -->
+
+		<div class="notice_view">
+			<div class="notice_tit">
+				<p class="date">2013.07.05</p>
+				<h2>[입찰]책임준비금 적정성 검증 및 확인보험계리사 업무 위탁</h2>
+			</div>
+			<div class="notice_con">
+				공지사항 내용이 들어가는 자리
+			</div>
+		</div>
+
+	<!--// iscroll_area -->
+	</div>
+</div>
+<!--// container -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$("[data-instance-class='btnPrev']").click(function(){
+		// 페이지 이동
+		M.page.back();
+	})
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1 class="fs_small">텍스트 + 아이콘 리스트 뷰</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<!-- 아이콘 + 텍스트 리스트 뷰 -->
+			<div id="view_con2">
+				<ul class="icon_list">
+					<li>
+						<p><span class="list_icon bg_c01"><em>Icon</em></span></p>
+						<dl>
+							<dt>제목(타이틀)</dt>
+							<dd>간략내용이 들어가는 자리입니다.<br />간략내용이 들어가는 자리입니다.</dd>
+						</dl>
+					</li>
+					<li>
+						<p><span class="list_icon bg_c02"><em>Icon</em></span></p>
+						<dl>
+							<dt>제목(타이틀)</dt>
+							<dd>간략내용이 들어가는 자리입니다.<br />간략내용이 들어가는 자리입니다.</dd>
+						</dl>
+					</li>
+					<li>
+						<p><span class="list_icon bg_c03"><em>Icon</em></span></p>
+						<dl>
+							<dt>제목(타이틀)</dt>
+							<dd>간략내용이 들어가는 자리입니다.<br />간략내용이 들어가는 자리입니다.</dd>
+						</dl>
+					</li>
+					<li>
+						<p><span class="list_icon bg_c04"><em>Icon</em></span></p>
+						<dl>
+							<dt>제목(타이틀)</dt>
+							<dd>간략내용이 들어가는 자리입니다.<br />간략내용이 들어가는 자리입니다.</dd>
+						</dl>
+					</li>
+					<li>
+						<p><span class="list_icon bg_c01"><em>Icon</em></span></p>
+						<dl>
+							<dt>제목(타이틀)</dt>
+							<dd>간략내용이 들어가는 자리입니다.<br />간략내용이 들어가는 자리입니다.</dd>
+						</dl>
+					</li>
+				</ul>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

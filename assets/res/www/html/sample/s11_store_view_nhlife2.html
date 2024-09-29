@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi">
+	<title>업무</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+
+        <!-- header -->
+        <header id="header">
+            <h1>업무</h1>
+            <button type="button" onclick="return false;" data-button="back" class="tbtn_l tbtn_prev" id="btn_back">이전</button>
+            <button type="button" class="tbtn_home" title="홈">홈</button>
+        </header>
+
+        <section class="content" id="content">
+            <div class="app-top">
+                <div class="app-total2">전체 <em>4</em>건</div>
+                <div class="flex">
+                    <button>
+                        <span>요청</span>
+                        05
+                    </button>
+                    <button>
+                        <span>요청</span>
+                        12
+                    </button>
+                    <button>
+                        <span>요청</span>
+                        11
+                    </button>
+                    <button>
+                        <span>요청</span>
+                        03
+                    </button>
+                </div>
+            </div>
+            <div class="application-list">
+                <ul>
+                    <li>
+                        <p class="so-title"><span>000000</span><span>F-sv-s</span></p>
+                        <p class="title">FCC동력 PSV Resetting 작업</p>
+                        <p class="team"><span>발급팀 : 동력 1팀</span><span>수행팀: 장치 1팀</span></p>
+                        <button class="btn-request">발급요청</button>
+                    </li>
+                    <li>
+                        <p class="so-title"><span>000000</span><span>F-sv-s</span></p>
+                        <p class="title">FCC동력 PSV Resetting 작업</p>
+                        <p class="team"><span>발급팀 : 동력 1팀</span><span>수행팀: 장치 1팀</span></p>
+                        <button class="btn-issuing">발급중</button>
+                    </li>
+                    <li>
+                        <p class="so-title"><span>000000</span><span>F-sv-s</span></p>
+                        <p class="title">FCC동력 PSV Resetting 작업</p>
+                        <p class="team"><span>발급팀 : 동력 1팀</span><span>수행팀: 장치 1팀</span></p>
+                        <button class="btn-completed">발급완료</button>
+                    </li>
+                    <li>
+                        <p class="so-title"><span>000000</span><span>F-sv-s</span></p>
+                        <p class="title">FCC동력 PSV Resetting 작업</p>
+                        <p class="team"><span>발급팀 : 동력 1팀</span><span>수행팀: 장치 1팀</span></p>
+                        <button class="btn-completed">발급완료</button>
+                    </li>
+                    <li>
+                        <p class="so-title"><span>000000</span><span>F-sv-s</span></p>
+                        <p class="title">FCC동력 PSV Resetting 작업</p>
+                        <p class="team"><span>발급팀 : 동력 1팀</span><span>수행팀: 장치 1팀</span></p>
+                        <button class="btn-completed">발급완료</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&region=KR"></script>
+<script type="text/javascript">
+M.onReady(function(){
+	initialize();
+	
+	$("#tbtn_prev").click(function(){
+		M.page.back();
+	});
+	
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+function initialize() {
+	var mapOptions = {
+		center: new google.maps.LatLng(M.data.param('lat'), M.data.param('lng')),
+		zoom: 17,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeControl : false,
+		disableDefaultUI : true
+	};
+
+	// 지점 이름 및 주소, 전화번호 세팅
+	$('#store_name').html(M.data.param('store_name'));
+	$('#address').html(M.data.param('address'));
+	$('#tel').html(M.data.param('tel'));
+
+	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	$('#wrapper').css('height', $(window).height() - $('#NH_header').height() + 'px');
+	$('#map_canvas').css('height', $(window).height() - $('#NH_header').outerHeight() - $('.view_type1').outerHeight() - 6  + "px");
+	
+	
+}
+
+</script>
+</body>
+</html>

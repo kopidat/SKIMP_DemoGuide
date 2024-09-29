@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body class="view">
+
+	<header id="header" class="header">
+		<h1 class="flie">
+            <span>SKI표준문서</span>
+            <em>.hwp</em>
+        </h1> 
+		<button type="button" class="tbtn_close" data-instance-class="popup_close"><span>닫기</span></button>
+	</header>
+	<div class="paging">
+        <button class="btn-prev">prev</button>
+        <span class="number">00/00</span>
+        <button class="btn-next">next</button>            
+    </div>            
+    <div class="content h100p" id="content">
+        <!-- 필요 없으면 삭제 하세요 -->
+        <div class="view">
+            <div class="a" id="idx1"><img src="../../img/preview01.png" alt=""></div>
+            <div class="a" id="idx2"><img src="../../img/bot-icon-group.png" alt=""></div>
+            <div class="a" id="idx3"><img src="../../img/preview02.png" alt=""></div>
+            <div class="a" id="idx4"><img src="../../img/preview03.png" alt=""></div>
+            <div class="a" id="idx5"><img src="../../img/preview04.png" alt=""></div>
+            <div class="a" id="idx6"><img src="../../img/preview04.png" alt=""></div>
+            <div class="a" id="idx7"><img src="../../img/preview04.png" alt=""></div>
+            <div class="a" id="idx8"><img src="../../img/preview04.png" alt=""></div>
+            <div class="a" id="idx9"><img src="../../img/preview04.png" alt=""></div>
+            <div class="a" id="idx10"><img src="../../img/preview04.png" alt=""></div>
+        </div>           
+        
+    </div>
+
+
+
+
+
+<script type="text/javascript">
+M.onReady(function(evt){
+	$("#managerCertPage").click(function(){
+		M.page.html("s13_certList_mobile.html",{
+			action:"NEW_SCR",
+			orient:"PORT"
+		});
+	});
+	
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+}).onRestore(function(evt){
+	
+}).onHide(function(evt){
+	
+}).onResume(function(evt){
+	
+}).onPause(function(evt){
+	
+}).onDestroy(function(evt){
+	
+}).onBack(function(evt){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

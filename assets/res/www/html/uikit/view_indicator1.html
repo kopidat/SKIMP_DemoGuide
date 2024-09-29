@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+		.paging_list{width:100%;}
+		.paging_list li{padding:.8rem 1rem;border-bottom:1px solid #c0c0c0;background:url('../../img/btn_next.png') no-repeat 98% 50%;background-size:1.5rem;cursor:pointer;}
+		.paging_list li h2{display:block;width:90%;font-size:1.5rem;color:#000;line-height:1.4;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>인뎁스 인디게이터</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div>
+				<ul class="paging_list">
+					<li>
+						<h2>글 제목이 들어가는 자리입니다.</h2>
+					</li>
+					<li>
+						<h2>글 제목이 들어가는 자리입니다.</h2>
+					</li>
+					<li>
+						<h2>글 제목이 들어가는 자리입니다.</h2>
+					</li>
+					<li>
+						<h2>글 제목이 들어가는 자리입니다.</h2>
+					</li>
+					<li>
+						<h2>글 제목이 들어가는 자리입니다.</h2>
+					</li>
+				</ul>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

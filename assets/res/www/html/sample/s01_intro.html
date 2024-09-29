@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nhlife_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+
+<body>
+
+<div id="intro" class="hbox jc">
+	<p class="cbtn_r">
+		<button type="button" class="cbtn_close" data-instance-class="menu-close">메뉴닫기</button>
+	</p>
+	<div class="flex">
+		<div class="intro-wrap">
+			<div class="logo">logo</div>
+			<div class="logo-title">APP Store</div>
+		</div>
+		<div class="progress">                    
+            <div class="bar animation">                        
+                <span style="width: 60%;"></span>
+            </div>                    
+            <div class="resource-txt">리소스 업데이트 중입니다.<br>잠시만 기다려주세요.</div>
+            <span class="version">Ver.1.0.0</span>
+        </div>
+		
+	</div>
+</div>
+
+<script type="text/javascript">
+M.onReady(function(){
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

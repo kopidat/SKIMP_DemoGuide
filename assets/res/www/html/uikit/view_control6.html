@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>트윗박스</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<p class="cbtn_r" style="top:-0.5px">
+		<button type="button" class="cbtn_info" data-instance-class="info-btn">도움말보기</button>
+	</p>
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div id="control" class="control_6">
+				<h3>트윗박스</h3>
+				<p class="input_wrap">
+					<textarea class="textarea"  data-instance-class="textArea" placeholder="140자까지 입력 가능합니다." maxLength=140></textarea>
+					<button type="button" class="input_del none" data-instance-class="delete">글삭제</button>
+				</p>
+				<p class="textarea_desc" data-instance-class="text_number">140</p>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>트윗박스</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>입력 글자수를 제한하고자 하는 경우 제공되며, 입력한 글자수를 계산하여 남은 글자수가 표시됩니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').css('height', $('body').height() - $('#header').height() + 'px');
+	
+	$("[data-instance-class='delete']").click(function(){
+		$("[data-instance-class='textArea']").val("");
+		$(this).addClass('none');
+	});
+	
+	$("[data-instance-class='textArea']").keyup(function(){
+		if($(this).val().length > 0){
+			$("[data-instance-class='delete']").removeClass('none');
+		}else{
+			$("[data-instance-class='delete']").addClass('none');
+		}
+		$("[data-instance-class='text_number']").html(140 - $(this).val().length);
+	});
+	
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

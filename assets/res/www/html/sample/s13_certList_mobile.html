@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/mobile_style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body class="setBg">
+
+<header id="header">
+	<div class="setHeader popHeader">
+		<h1>공인인증서 관리</h1>
+		<button type="button" class="btnClose" data-button="back"><span>닫기</span></button>
+	</div>
+</header>
+
+<div id="popArea01">
+	<ul class="certifyBox administrate">
+		<li>
+			<h2>홍길동(123456712345678)</h2>
+			<p>증권 / 보험용 / SignKorea</p>
+			<p>만료일 : 2014.12.11</p>
+			<div class="certifyBtn"><button type="button" class="btn on">비밀번호 변경</button><button type="button" class="btn">삭제</button></div>
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+M.onReady(function(evt){
+	$(".btnClose").click(function(){
+		M.page.back();
+	});
+}).onRestore(function(evt){
+	
+}).onHide(function(evt){
+	
+}).onResume(function(evt){
+	
+}).onPause(function(evt){
+	
+}).onDestroy(function(evt){
+	
+}).onBack(function(evt){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

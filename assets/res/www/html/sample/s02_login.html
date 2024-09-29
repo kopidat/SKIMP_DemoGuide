@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/nds_salesmng_morpheus_style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+
+<body id="bodyId">
+	<section>
+		<p class="cbtn_r">
+			<button type="button" class="cbtn_close innovation" data-instance-class="menu-close">메뉴닫기</button>
+		</p>
+		<div class="wrapper login">            
+			<div class="content" id="content">
+				<div class="tb-box">
+					<div class="tb-cell">
+						<div class="login-logo">
+							<div class="logo">SK innovation</div>
+							<div class="logo-title">APP Store</div>
+						</div> 
+						<div class="login-box">
+							<div class="login-wrap">                     
+								<ul>
+									<li class="id">
+										<label>
+											<input type="text" title="아이디" placeholder="아이디를 입력해주세요.">
+										</label>
+									</li>
+									<li class="pw">
+										<label>
+											<input type="password" title="비밀번호" placeholder="비밀번호를 입력해주세요.">
+										</label>                        
+									</li>
+								</ul> 
+								<div class="btn-box login">
+									<!-- disabled 아이디패스 미입력시 -->
+									<button class="btn-confirm w100p">로그인</button>
+								</div>                                     
+							</div>
+							
+							
+							<div class="copy">Ⓒ 2021 SK Innovation All Rights Reserved.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+<script type="text/javascript">
+M.onReady(function(){
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+	
+	var loginId = document.querySelector('#loginId'),				// 로그인 id
+		loginPw = document.querySelector('#loginPw');			// 로그인 pw
+
+	// 로그인 버튼 클릭시	
+	$("#loginBtn").click(function () {
+		$('#loginBtn').addClass("on");
+		setTimeout(function(){
+			$('#loginBtn').removeClass("on");
+			if(loginId.value == null || loginId.value == ""){
+				alert('사번을 입력해주세요.');
+				return;
+			}
+			
+			if(loginPw.value == null || loginPw.value == ""){
+				alert('비밀번호를 입력해주세요.');
+				return;
+			}
+			
+			alert('로그인에 성공했습니다.');
+		}, 200);
+	});
+		
+	$(loginId).blur(function(){
+		window.scrollTo(0,0);
+	});
+	
+	$(loginPw).blur(function(){
+		window.scrollTo(0,0);
+	});
+}).onRestore(function(){
+	
+}).onHide(function(){
+	
+}).onResume(function(){
+	
+}).onPause(function(){
+	
+}).onDestroy(function(){
+	
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

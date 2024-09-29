@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Guide App</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <script type="text/javascript" src="../../js/mcore.min.js"></script>
+    <script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+
+<button data-function>Resource Update</button>
+<pre>
+M.net.res.update({
+    finish : function(status, info, option) {
+        console.log('** finish',status, JSON.stringify(info, null, 4));
+        
+        switch (status) {
+            // 리소스 업데이트 성공
+            case 'SUCCESS':
+            // 리소스 업데이트 성공 & Refresh
+            case 'SUCCESS_AND_REFRESH':
+                M.page.html('net-res-update.html');
+                break;
+                
+            // 앱 권장 업데이트
+            case 'RECOMMENDED_APP_UPDATING' :  
+                if(confirm('업데이트된 앱이 있습니다.\n업데이트 하시겠습니까?')) {
+                    var appUrl = info.app_version_info.download_market_url;
+                    M.apps.browser(appUrl);
+                } else {
+                    M.page.html('net-res-update.html');
+                }
+                break;
+
+            // 앱 강제 업데이트
+            case 'FORCED_APP_UPDATING' :
+                if(confirm('설치된 앱이 낮은 버전입니다.\n업데이트 하시겠습니까?')) {
+                    var appUrl = info.app_version_info.download_market_url;
+                    M.apps.browser(appUrl);
+                } else {
+                    M.sys.exit();
+                }
+                break;
+
+            // 라이센스 체크 에러
+            case 'LICENSE_IS_NOT_EXISTENCE':
+            // 라이센스 무결성 회손
+            case 'BROKEN_INTEGRITY_OF_LICENSE':
+            // 라이센스 기간 만료
+            case 'EXPIRED_LICENSE':
+                if (confirm("라이센스 오류 입니다.\n\n다시 시도하시겠습니까?")) {
+                    M.net.res.retry();
+                } else {
+                    M.sys.exit();
+                }
+                break;
+
+            // 설치 메모리 부족
+            case 'INSUFFICIENT_MEMORY':
+                if (confirm("프로그램을 설치 할 수 있는 메모리가 부족합니다.\n\n다시 시도하시겠습니까?")) {
+                    M.net.res.retry();
+                } else {
+                    M.sys.exit();
+                }
+                break;
+
+            // 외장 메모리 카드 사용 오류
+            case 'EXT_MEM_NOT_AVAIL':
+                if (confirm("외장 메모리 카드를 사용 할수 없습니다. 외장 메모리카드를 확인해주시기 바랍니다.\n\n다시 시도하시겠습니까?")) {
+                    M.net.res.retry();
+                } else {
+                    M.sys.exit();
+                }
+                break;
+                
+            // UNDEFINED ERROR
+            default:
+                if (confirm("프로그램 초기화 및 리소스 업데이트 중 에러가 발생하였습니다.\n\n다시 시도하시겠습니까?")) {
+                    M.net.res.retry();
+                } else {
+                    M.sys.exit();
+                }
+                break;
+        }
+    },
+    
+    progress : function(total, read, remain, percent, option) {
+        // TODO : progress
+        console.log('** progress', total, read, remain, percent);
+    },
+    error : function(errCode, errMsg, option) {
+        console.error("** error : ", errCode, errMsg);
+
+        if (confirm("프로그램 초기화 및 리소스 업데이트 중 에러가 발생하였습니다.\n\n다시 시도하시겠습니까?")) {
+            M.net.res.retry();
+        } else {
+            M.sys.exit();
+        }
+    }
+});
+</pre>
+
+<button data-function>Reset Resource Version</button>
+<pre>
+M.net.res.reset();
+</pre>
+
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

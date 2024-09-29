@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+	<div class="wrapper">
+		<header id="header">
+			<h1>커스텀 팝업</h1>
+			<button type="button" class="tbtn_l tbtn_prev">이전</button>
+			<button type="button" class="tbtn_home" title="홈">홈</button>
+		</header>
+		<section class="content bge" id="content">
+			<div>
+				<p style="margin-top:10%;text-align:center;"><button type="button" class="dbtn" data-instance-class="popup_open">커스텀 팝업 보기</button></p>
+			</div>
+		</section>
+	</div>
+
+
+<div class="layer_shadow" style="display:none;" data-instance-class="popup">
+	<div id="layer_con1" class="layerPop hbox jc" data-instance-class="cust-cont">
+		<div class="flex width100">
+			<header>
+				<h1>커스텀 팝업</h1>
+				<button type="button" class="close" data-instance-class="popup_close">닫기</button>
+			</header>
+			<div class="layer_container">
+				<ul class="liType1">
+					<li class="on" data-instance-class="menu"><button type="button">메뉴 01</button></li>
+					<li data-instance-class="menu"><button type="button">메뉴 02</button></li>
+					<li data-instance-class="menu"><button type="button">메뉴 03</button></li>
+					<li data-instance-class="menu"><button type="button">메뉴 04</button></li>
+					<li data-instance-class="menu"><button type="button">메뉴 05</button></li>
+					<li data-instance-class="menu"><button type="button">메뉴 06</button></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>커스텀팝업</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>어플리케이션에서 별도로 제작하여 제공하는 팝업입니다. 메뉴 이동, 내용 확인 등 기능 및 조회 팝업의 경우 제공되며, 모든  디바이스에 동일하게 적용됩니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript">
+var selectIdx = 0;
+M.onReady(function(){
+	var $custcont = $("[data-instance-class='cust-cont']");
+	$("[data-instance-class='popup_open']").click(function(){
+		$custcont.css('marginTop', ($("body").height()-265)/2);
+		$("[data-instance-class='popup']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+
+	$("[data-instance-class='popup_close']").click(function(){
+		$("[data-instance-class='popup']").fadeOut("slow");
+	});
+	$("[data-instance-class='menu']").click(function(){
+		$("[data-instance-class='menu']:eq(" + selectIdx + ")").removeClass('on');
+		$("[data-instance-class='menu']:eq(" + $(this).index() + ")").addClass('on');
+		selectIdx = $(this).index();
+		$("[data-instance-class='popup']").fadeOut("slow");
+	})
+
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

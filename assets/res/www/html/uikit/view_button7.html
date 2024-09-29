@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>체크박스 버튼</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div class="radioCon">
+				<ul class="board_list">
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-all"><span>전체선택</span></label><!-- 부분선택 시 class="check_all" 추가한다. -->
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-unit" /><span>선택1</span></label>
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-unit" /><span>선택2</span></label>
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-unit" /><span>선택3</span></label>
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-unit" /><span>선택4</span></label>
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-unit" /><span>선택5</span></label>
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" data-instance-class="checkbox-unit" /><span>선택6</span></label>
+					</li>
+					<li>
+						<label class="check-box"><input type="checkbox" class="checkbox" disabled checked  /><span>선택 불가능</span></label>
+					</li>
+				</ul>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	var checkedLength = 0;
+	
+	$(".board_list li").bind("click", function( event ) {
+		var $element = $(this);
+		var $input = $element.find("input").first();
+		
+		if(event.target.type =="checkbox"){
+			return true;
+		}
+		/*
+		
+		if ( $input.attr("checked") ) {
+			$input.removeAttr("checked");
+		}
+		else {
+			$input.attr("checked", "checked");
+		}
+		*/
+		
+		$input.trigger("click");
+	});
+
+	// 전체 선택 및 해제
+	$("[data-instance-class='checkbox-all']").change(function(){
+		if($("[data-instance-class='checkbox-unit']").size() == checkedLength){
+			$("[data-instance-class='checkbox-all']").removeAttr('checked');
+			$("[data-instance-class='checkbox-unit']").each(function(){
+				$(this).removeAttr('checked');
+			});
+			checkedLength = 0;
+		}else{
+			$("[data-instance-class='checkbox-all']").attr('checked', "checked");
+			$("[data-instance-class='checkbox-unit']").each(function(element, index){
+				this.checked = "checked"
+			});
+			checkedLength = $("[data-instance-class='checkbox-unit']").size();
+		}
+		$("[data-instance-class='checkbox-all']").removeClass('check_all');
+	});
+
+	// 개별 선택
+	$("[data-instance-class='checkbox-unit']").click(function(e){
+		if($(this).is(":checked") == true){
+			checkedLength ++;
+		}else{
+			checkedLength --;
+		}
+
+		if(checkedLength > 0){
+			$("[data-instance-class='checkbox-all']").addClass('check_all');
+		}else{
+			$("[data-instance-class='checkbox-all']").removeClass('check_all');
+		}
+
+		if($("[data-instance-class='checkbox-unit']").size() == checkedLength){
+			$("[data-instance-class='checkbox-all']").attr('checked', true);
+			$("[data-instance-class='checkbox-all']").removeClass('check_all');
+		}else{
+			$("[data-instance-class='checkbox-all']").attr('checked', false);
+		}
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

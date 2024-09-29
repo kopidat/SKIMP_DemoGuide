@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<div id="main">
+	<header>
+		<h1><img src="../../img/hilogo-color.png" alt="Brand" /></h1>
+		<p class="guide-txt">Guide App</p>
+		<!-- <p class="tbtn_r">
+			<button type="button" class="tbtn_menu">전체  ssds메뉴</button>
+		</p> -->
+	</header>
+	<!--// Header End -->
+
+	<ul id="list">
+		<li class="uikit" data-list-move="../uikit/sub_main.html">
+			<h2>UI Kit</h2>
+			<p class="h2_desc">SKIMP에서 제공하는 컴포넌트를 확인 할 수 있습니다.</p>
+		</li>
+		<li class="sample" data-list-move="../sample/sub_main.html">
+			<h2>Sample</h2>
+			<p class="h2_desc">SKIMP로 구현한 샘플 이미지가 제공됩니다.</p>
+		</li>
+		<li class="api" data-list-move="../api/main.html">
+			<h2>API</h2>
+			<p class="h2_desc">SKIMP에서 제공하는 API 정보를 확인 할 수 있습니다.</p>
+		</li>
+	</ul>
+</div>
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+M.onReady(function(){
+	$("[data-list-move]").click(function(){
+		M.page.html($(this).attr('data-list-move'), {
+			action:"NEW_SCR",
+			orient:"PORT"
+		})
+	});
+});
+
+var isClick = false;
+M.onBack(function(){
+	if(isClick == false){
+		isClick = true;
+		if(confirm('종료하시겠습니까?')){
+			M.sys.exit();
+		}else{
+			setTimeout(function(){
+				isClick = false;
+			},500);
+		}
+	}
+});
+
+M.onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header id="header">
+			<h1 class="fs_small">상단 고정영역</h1>
+			<button type="button" class="tbtn_l tbtn_prev">이전</button>
+			<button type="button" class="tbtn_home" title="홈">홈</button>
+		</header>
+		<section class="content bge" id="content">
+			<div id="list">	
+				<ul class="main_list">
+					<li class="on">
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+					<li>
+						<h4>제목(타이틀)</h4>
+						<p>컨텐츠가 들어가는 영역입니다.</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<!-- 하단고정영역 -->
+		<div class="btn-footer">
+			<button class="btn-work-application">작업요청</button>
+			<button class="btn-matters-progress">진행사항</button>
+			<button class="btn-permission-breakdown">허가내역</button>
+		</div>
+	</div>
+
+
+
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+<script type="text/javascript" src="../../js/mcore.min.js"></script>
+<script type="text/javascript" src="../../js/libs/jquery/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="../../js/libs/instance/instance.ui.min.js"></script>
+<script type="text/javascript" src="../../js/ui/common/allmenu.js"></script>
+<script type="text/javascript" src="../../js/ui/common/common.js"></script>
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').height($('body').height()- $('#header').height() - $('#scroll_fixed1').height() - $('#scroll_fixed2').height());
+	$('#scroll').instance( UIScroll );
+});
+
+M.onRestore(function(){
+
+});
+
+M.onHide(function(){
+
+});
+
+M.onResume(function(){
+
+});
+
+M.onPause(function(){
+
+});
+
+M.onDestroy(function(){
+
+});
+
+M.onBack(function(){
+	M.page.back();
+});
+
+M.onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>슬라이더</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+			<div id="control">
+				<h3>슬라이더</h3>
+				<div class="slider_wrap">
+					<span class="noL">0</span>
+					<div class="bar"><div class="bar_on" style="width:0%;" data-instance-class="slider-percent"></div><button type="button" class="bar_btn" data-instance-class="slider-handler">0</button></div>
+					<span class="noR">100</span>
+				</div>
+			</div>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript" src="../../js/libs/jquery/plugins/jquery.plugin.mpui-drag.js"></script>
+<script type="text/javascript">
+M.onReady(function(){
+	$("[data-instance-class='slider-handler']").drag({
+		horizon:false,
+		left:"0px",
+		right:maxWidth+"px",
+
+		onStart : function(e){
+
+		},
+		onMove : function(e){
+			var nowPercent = parseInt(handler.style.left)/parseInt(maxWidth)*100;
+			percent.style.width = nowPercent + "%";
+// 			$("[data-instance-class='now_percent']").html(Math.floor(nowPercent));
+			$("[data-instance-class='slider-handler']").html(Math.floor(nowPercent));
+		},
+		onEnd : function(e){
+
+		}
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+var handler =document.querySelector("[data-instance-class='slider-handler']"),
+	percent =document.querySelector("[data-instance-class='slider-percent']"),
+	handlerWIdth = handler.clientWidth,
+	maxWidth = document.querySelector('.bar').clientWidth - handlerWIdth;
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 버튼 클릭시 이미지 -->
+    <item android:state_pressed="true"
+        android:drawable="@drawable/close" />
+    <!-- 버튼 선택시 이미지 -->
+    <item android:state_selected="true"
+        android:drawable="@drawable/close" />
+    <!-- 기본이미지 -->
+    <item android:drawable="@drawable/close" />
+</selector>
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    &lt;!&ndash; 버튼 클릭시 이미지 &ndash;&gt;-->
+<!--    <item android:state_pressed="true" -->
+<!--          android:drawable="@drawable/btn_corp_title_close_p" />-->
+<!--    &lt;!&ndash; 버튼 선택시 이미지 &ndash;&gt;-->
+<!--    <item android:state_selected="true" -->
+<!--          android:drawable="@drawable/btn_corp_title_close_p" />-->
+<!--    &lt;!&ndash; 기본이미지 &ndash;&gt;-->
+<!--    <item android:drawable="@drawable/btn_corp_title_close_n" />-->
+<!--</selector>-->

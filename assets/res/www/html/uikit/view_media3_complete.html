@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>Voice List</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+		녹음이 완료되었습니다.
+		</div>
+	</section>
+</div>
+
+<script type="text/javascript">
+M.media.info({
+    media : "VOICE",
+    path  : "/voicelist",
+}, function(status, result) {
+    if (status == 'SUCCESS') {
+    		alert(JSON.stringify(result));
+//         var dirs = result.dir;
+//         for ( var i = 0; i < dirs.length; i++) {
+//             var dir = dirs[i];
+//             var dir_name    = dir.name;
+//             var dir_filecnt = dir.subFileCnt;
+//             // TODO : media directory handle code here
+//             ${cursor}
+//         }
+//         var files = result.files;
+//         for ( var i = 0; i < files.length; i++) {
+//             var file = files[i];
+//             var file_name = file.name;
+//             var file_path = file.path;
+//             var file_size = file.size;
+//             var file_startDate = file.startDate;
+//             var file_endDate   = file.endDate;
+//             var file_duration  = file.duration;
+//             // TODO: media file handle code here
+//         }
+    }
+});
+M.onReady( function() {
+	
+	var result = M.file.list({
+		'path': '/voicelist'
+	});
+
+	M.tool.log(result);
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<style type="text/css">
+	.layerPoll{position:absolute;top:2rem;left:-5rem;z-index:99;display:inline-block;padding:1.8rem 1.3rem 0 1.3rem;color:#222;font-size:1.2rem;}
+	.layerPoll .poll_txt{position:relative;margin-bottom:2rem;padding:0 6.85rem 0 4.2rem;}
+	.layerPoll .poll_txt p{position:relative;padding:1.5rem 2rem 1.5rem 1rem;line-height:1.4;border-radius:.3rem;border:1px solid #d4aa00;background:#fff8a1;}
+	.layerPoll .poll_txt p:before{content:'';position:absolute;top:-.6rem;left:3rem;z-index:99;width:1rem;height:.75rem;background:url('../../img/bg_chat_rush.png') no-repeat;background-size:1rem .75rem;}
+	.layerPoll .poll_txt span{position:absolute;bottom:0;font-size:.9rem;right:1.4rem;}
+	.layerPoll .poll_txt button{position:absolute;top:.3rem;right:.3rem;width:2rem;height:2rem;font-size:0;text-indent:-20000px;background:url('../../img/icon08.png') no-repeat 50% 50%;background-size:1.5rem 1.5rem;}
+	</style>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>레이어 팝업</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<p class="cbtn_r">
+		<button type="button" class="cbtn_info" data-instance-class="info-btn">도움말보기</button>
+	</p>
+	<p style="margin-top:10%;text-align:center;"><button type="button" class="dbtn" data-instance-class="popup_open">레이어 팝업 보기</button></p>
+</div>
+<!-- container End -->
+
+
+<!-- 레이어팝업: Start -->
+<div id="layerPoll" class="layerPoll" style="display:none;">
+	<div class="poll_txt">
+		<p>
+			클릭하시면 UI Kit 메뉴를 보실 수 있는 <br />화면으로 이동합니다.
+			<button type="button" data-instance-class="popup_close">닫기</button>
+		</p>
+	</div>
+</div>
+<!-- 레이어팝업: End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>레이어팝업</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>현재 보이는 페이지 위에 레이어 된 형태의 팝업으로 팝업을 닫을 수 있는 [X]버튼이 함께 제공됩니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#container').css('height', $('body').height() - $('#header').height() + 'px');
+
+	$("[data-instance-class='popup_open']").click(function(){
+		$('#layerPoll').fadeIn('slow');
+	});
+
+	$("[data-instance-class='popup_close']").click(function(){
+		$('#layerPoll').fadeOut('slow');
+	});
+
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

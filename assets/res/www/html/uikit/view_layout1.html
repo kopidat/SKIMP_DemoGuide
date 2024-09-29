@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1 class="fs_small">iscroll 고정 레이아웃</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home" title="홈">홈</button>
+		<button type="button" class="tbtn_menu" title="전체메뉴">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<!-- container Start -->
+<div id="container">
+	<!-- 상단고정영역 -->
+	<header id="scroll_fixed1" class="samp_header">
+		<h1>상단 고정영역</h1>
+	</header>
+
+	<section id="scroll">
+		<div id="list">
+		<!-- scroll 영역 -->
+
+			<ul class="main_list">
+				<li class="on">
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+				<li>
+					<h4>제목(타이틀)</h4>
+					<p>컨텐츠가 들어가는 영역입니다.</p>
+				</li>
+			</ul>
+
+		<!--// scroll 영역 -->
+		</div>
+	</section>
+
+	<!-- 하단고정영역 -->
+	<footer id="scroll_fixed2" class="samp_footer">
+		<p>하단 고정영역</p>
+	</footer>
+</div>
+<!--// container End -->
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript" src="../../js/ui/sample/iscroll.js"></script>
+<script type="text/javascript">
+M.onReady(function(){
+	$('#scroll').height($('body').height()- $('#header').height() - $('#scroll_fixed1').height() - $('#scroll_fixed2').height())
+	var myScroll = new iScroll("scroll");
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

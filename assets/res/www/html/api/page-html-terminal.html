@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+<button data-function>결과 보기</button>
+<pre>
+alert(readyEvent);
+M.tool.log(readyEvent);
+</pre>
+
+<button data-function>뒤로 가기</button>
+<pre>
+M.page.back();
+</pre>
+
+<button data-function>STACK</button>
+<pre>
+M.tool.log( M.info.stack() );
+</pre>
+
+<button data-function>MORE PAGE</button>
+<pre>
+M.page.html('page-html-terminal.html');
+</pre>
+
+<button data-function>CLEAR_TOP</button>
+<pre>
+M.page.html('page-html.html', {action:'CLEAR_TOP'});
+</pre>
+
+<button data-function>CLEAR_TOP2</button>
+<pre>
+M.page.html('page-html-terminal.html', {action:'CLEAR_TOP'});
+</pre>
+
+<div class="terminate-page" style="display:none;">
+	<button data-function>페이지 삭제하기</button>
+	<pre>
+	M.page.remove('');
+	</pre>
+</div>
+			
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+var readyEvent;
+
+M.onReady(function(e){
+	readyEvent = e;
+	
+	if ( M.data.param("terminate-page") ) {
+		$(".terminate-page").show().find("pre").html( "M.page.remove('" + M.data.param("terminate-page") + "');" );
+	}
+});
+
+</script>
+</body>
+</html>

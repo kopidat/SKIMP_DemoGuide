@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+<button data-function>Document Viewer1(use Google View)</button>
+<pre>
+var remote_url = 'http://research.google.com/archive/bigtable-osdi06.pdf';
+var result = M.plugin('viewer.doc').gview(remote_url);
+if(result.status != 'SUCCESS') {
+	// TODO : url이 유효하지 않은경우
+	console.log(result.message);
+}
+</pre>
+
+<button data-function>Document Viewer2(download & local view)</button>
+<pre>
+var remote_url = 'http://research.google.com/archive/bigtable-osdi06.pdf';
+M.net.http.download(remote_url, {
+	finish : function(status, header, fileinfo, setting) {
+		// TODO : upload finished code here.
+		console.log(status, JSON.stringify(header, null, 4), JSON.stringify(fileinfo, null, 4), setting);
+		if (status == 200) {
+			// NOTICE : download 받은 pdf 파일을 viewer로 연다.
+			var localpath = fileinfo.fullpath;
+			var result = M.plugin('viewer.doc').open(localpath);
+			if( result.status != 'SUCCESS' ) {
+				// TODO : case1) 파일을 찾을 수 없는 경우
+				// TODO : case2) 열수없는 확장자인 경우(iOS only)
+			}
+		}
+		else if( status == -1 )  {
+			// TODO : 데이터 통신을 못한경우
+		}
+		else {
+			// TODO : 404, 500 error 등
+		}
+	},
+	progress : function(total, current, setting) {
+		// TODO : web download progress event code here.
+		console.log(total, current);
+	}
+});
+</pre>
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script>
+		$(window).ready(function(event){
+			// 공지사항
+			var allAccordion = $('.notice-list > dl > dd').hide();
+			$('.notice-list > dl > dt').click(function() {
+				if($(this).next().css('display') != 'block'){			
+					allAccordion.slideUp();
+					$(this).next().slideDown();
+					$(this).addClass('active').parent().siblings('dl').find('dt.active').removeClass('active');
+				}else {
+					$(this).next().slideUp();
+					$(this).removeClass('active');
+				}
+				return false;
+			});
+
+			/* 네비게이션 */	
+			var $btnNavi = $('.side-menu'),
+				$allMenu = $('.all_menu'),
+				allMenuW = $allMenu.width(), 
+				$menuClose = $('.menu_close'),
+				menu_1dep = $('.menu_1dep > li'),
+				$menu_1depA = menu_1dep.find('>a');
+			
+			$btnNavi.on('click', function(){
+				$allMenu.show().stop().animate({'left':0});
+				$('body').append('<div class="dimm100"></div>');
+				$('html, body').css('overflow-y','hidden');
+				$menuClose.on('click', function(){
+					$allMenu.stop().animate({'left':-allMenuW+'px'}, function(){
+						$allMenu.hide();
+						$('body .dimm100').remove();
+						$('html, body').css('overflow-y','auto');
+					});
+				});
+			});
+
+			$menu_1depA.on('click', function(){
+				var $this = $(this);
+				var swich = false;
+				if(!($this.parent().hasClass('on'))){
+					menu_1dep.removeClass('on');
+					$this.parent().addClass('on');
+					swich = true;
+				}else{
+					$this.parent().removeClass('on');
+					swich = false;
+				}
+			});
+
+			/* 네비게이션 안에 메뉴 */
+			$(".all_menu .menu > li > button").click(function(){
+			$(this).addClass('on');
+			$(this).parent().siblings().children('button').removeClass('on');
+			});
+
+		
+		});
+
+	</script>
+</head>
+<body class="view-navigation3">
+
+
+<div id="container" class="main-innovation">
+
+	<!-- container -->
+	<div id="scroller">
+		<div>
+		<!-- iscroll_area -->
+
+			
+			<div class="home vbox cc" id="home">
+				
+					<button type="button" class="btn_menu" id="btn_menu"><span class="none">메뉴</span></button>
+					<button type="button" class="btn_sear"><span class="none">검색</span></button>
+					<button type="button" class="btn_bran"><span class="none">지점</span></button>
+					<button type="button" class="btn_site"><span class="none">사이트맵</span></button>
+
+
+				<section class="home_box flex innovation">
+					<div class="home-logo">
+						<h1>
+							<span class="logo">SK innovation</span>
+							<span class="app-title">모바일서비스</span>
+						</h1>
+						<button class="side-menu"><span>&nbsp;</span></button>
+					</div>
+					<div class="innovation-content">
+						
+						<div class="main-btn">
+							<button class="work-permit">작업하가<br>시스템</button>
+							<button class="heat-tracking">열교환기<br>추적시스템</button>
+							<button class="app-push">APP<br>알림 서비스</button>
+						</div>
+						<div class="notice-list">
+							<h3 class="notice-title">공지사항</h3>
+							<dl>
+								<dt>
+									<h3 class="file">공지사항 제목입니다.</h3>
+									<p class="date">2021.04.19</p>
+								</dt>
+								<dd>
+									<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+									<div class="btn-list">
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+									</div>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<h3 class="file">공지사항 제목입니다. 공지사항 제목입니다. 공지사항 제목입니다.</h3>
+									<p class="date">2021.04.19</p>
+								</dt>
+								<dd>
+									<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+									<div class="btn-list">
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+									</div>
+								</dd>
+							</dl>
+							<dl>
+								<dt>
+									<h3>공지사항 제목입니다.</h3>
+									<p class="date">2021.04.19</p>
+								</dt>
+								<dd>
+									<div class="notice-content">내용이 표시됩니다.<br>관리자가 업로드한 내용 표시됩니다.</div>
+									<div class="btn-list">
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+										<button class="btn-file w100p">붙임1.첨부파일 명은 1줄만 노출합니다.pdf</button>
+									</div>
+								</dd>
+							</dl>
+							
+						</div>
+					</div>
+					<div class="btn-footer">
+						<button class="btn-work-application">작업요청</button>
+						<button class="btn-matters-progress">진행사항</button>
+						<button class="btn-permission-breakdown">허가내역</button>
+					</div>
+				</section>
+			</div>
+
+
+<!--// iscroll_area -->
+		</div>
+	</div>
+	<!--// container -->
+
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+
+<!-- 사이드메뉴 -->
+<div class="all_menu">
+	<div class="menu_top">
+		<span class="txt">로그인</span>
+		<button class="setting"></button>
+		<button class="menu_close">닫기</button>
+	</div>
+	<div class="side-animate">               
+		
+		<ul class="menu">
+			<li>
+				<button class="on">Level 1</button>
+				<ul>
+					<li><button>Level 1-1</button></li>
+					<li><button>Level 1-2</button></li>
+					<li><button>Level 1-3</button></li>
+					<li><button>Level 1-4</button></li>
+					<li><button>Level 1-5</button></li>
+					<li><button>Level 1-6</button></li>
+					<li><button>Level 1-7</button></li>
+					<li><button>Level 1-7</button></li>
+					<li><button>Level 1-8</button></li>
+					<li><button>Level 1-9</button></li>
+					<li><button>Level 1-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 2</button>
+				<ul>
+					<li><button>Level 2-1</button></li>
+					<li><button>Level 2-2</button></li>
+					<li><button>Level 2-3</button></li>
+					<li><button>Level 2-4</button></li>
+					<li><button>Level 2-5</button></li>
+					<li><button>Level 2-6</button></li>
+					<li><button>Level 2-7</button></li>
+					<li><button>Level 2-7</button></li>
+					<li><button>Level 2-8</button></li>
+					<li><button>Level 2-9</button></li>
+					<li><button>Level 2-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 3</button>
+				<ul>
+					<li><button>Level 3-1</button></li>
+					<li><button>Level 3-2</button></li>
+					<li><button>Level 3-3</button></li>
+					<li><button>Level 3-4</button></li>
+					<li><button>Level 3-5</button></li>
+					<li><button>Level 3-6</button></li>
+					<li><button>Level 3-7</button></li>
+					<li><button>Level 3-7</button></li>
+					<li><button>Level 3-8</button></li>
+					<li><button>Level 3-9</button></li>
+					<li><button>Level 3-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 4</button>
+				<ul>
+					<li><button>Level 4-1</button></li>
+					<li><button>Level 4-2</button></li>
+					<li><button>Level 4-3</button></li>
+					<li><button>Level 4-4</button></li>
+					<li><button>Level 4-5</button></li>
+					<li><button>Level 4-6</button></li>
+					<li><button>Level 4-7</button></li>
+					<li><button>Level 4-7</button></li>
+					<li><button>Level 4-8</button></li>
+					<li><button>Level 4-9</button></li>
+					<li><button>Level 4-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 5</button>
+				<ul>
+					<li><button>Level 5-1</button></li>
+					<li><button>Level 5-2</button></li>
+					<li><button>Level 5-3</button></li>
+					<li><button>Level 5-4</button></li>
+					<li><button>Level 5-5</button></li>
+					<li><button>Level 5-6</button></li>
+					<li><button>Level 5-7</button></li>
+					<li><button>Level 5-7</button></li>
+					<li><button>Level 5-8</button></li>
+					<li><button>Level 5-9</button></li>
+					<li><button>Level 5-10</button></li>
+				</ul>
+			</li>
+			<li>
+				<button>Level 6</button>
+				<ul>
+					<li><button>Level 6-1</button></li>
+					<li><button>Level 6-2</button></li>
+					<li><button>Level 6-3</button></li>
+					<li><button>Level 6-4</button></li>
+					<li><button>Level 6-5</button></li>
+					<li><button>Level 6-6</button></li>
+					<li><button>Level 6-7</button></li>
+					<li><button>Level 6-7</button></li>
+					<li><button>Level 6-8</button></li>
+					<li><button>Level 6-9</button></li>
+					<li><button>Level 6-10</button></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>커스텀 메뉴</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>메뉴를 고정으로 제공하지 않고, 사용자가 원하는 메뉴로 등록 및 편집이 가능한 기능입니다. </p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(){
+	$('#container').css('height', $('body').height() - $('#header').height() + "px");
+
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn('slow');
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut('slow');
+	});
+
+	$("[data-custom-menu]").on("click", menufn);
+
+	function menufn(){
+		if($(this).attr('data-custom-menu') == "nomenu"){	 //  메뉴가 없는 경우
+			var $this = $(this);
+			M.pop.list({
+				'list' : [
+					{title: '설정메뉴1', value: 'smenu3_1'},
+					{title: '설정메뉴2', value: 'smenu3_2'},
+					{title: '설정메뉴3', value: 'smenu3_3'},
+					{title: '설정메뉴4', value: 'smenu3_4'},
+					{title: '설정메뉴5', value: 'smenu3_5'}
+				],
+				'selected' : 0
+			}, function(value){
+				if(value.status == "SUCCESS"){
+					$this.attr('data-custom-menu', 'menu');
+					$this.removeClass("nomenu add");
+					$this.addClass("menu del");
+					$this.children().html('');
+					$this.children().attr('data-menu',"smenu3_" +  (value.selectedIdx + 1));
+					$this.children().addClass("smenu3_" +  (value.selectedIdx + 1));
+					$this.children().html("<span>설정메뉴"+(value.selectedIdx + 1)+"</span>");
+				}
+			});
+		}else{	// 메뉴가 있는 경우
+			if(confirm("메뉴를 삭제하시겠습니까?")){
+				$(this).attr('data-custom-menu', 'nomenu');
+				$(this).removeClass("menu del");
+				$(this).addClass("nomenu add");
+				$(this).children().removeClass($(this).children().attr('data-menu'));
+				$(this).children().html('메뉴추가');
+			}
+		}
+	}
+}).onRestore(function(){
+
+}).onHide(function(){
+
+}).onResume(function(){
+
+}).onPause(function(){
+
+}).onDestroy(function(){
+
+}).onBack(function(){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

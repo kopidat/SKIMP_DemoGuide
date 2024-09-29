@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/mobile_style.css" >
+	<link rel="stylesheet" type="text/css" href="../../css/sample.css">
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+
+    <script>
+        $(window).ready(function(){
+        $('.login-simple input[type=checkbox]').click(function() {
+            if($(this).is(':checked')) {
+                $('.simple-auth').show();
+            } else {
+                $('.simple-auth').hide();
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+
+
+
+
+<header id="header" data-header="quick">
+	<button type="button" onclick="return false;" data-button="back" class="btn_back" id="btn_back">이전</button>
+	<h1>설정</h1>
+</header>
+
+<div class="content setInfo" id="content">
+    <div class="login-simple">
+        <dl>
+            <dt>간편로그인  사용</dt>
+            <dd>
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </dd>
+        </dl>                
+    </div>
+    <div class="simple-auth">
+        <dl>
+            <dt>생체인증 사용<em class="un-used">(미사용)</em></dt>
+            <dd><label class="radio-box"><input type="radio" name="radio1" class="radio" checked><span></span></label></dd>
+        </dl>
+        <dl>
+            <dt>패턴인증 사용</dt>
+            <dd><label class="radio-box"><input type="radio" name="radio1" class="radio"><span></span></label></dd>
+        </dl>
+        <ul class="hide">
+            <li><button class="btn-simple w100p">패턴인증 변경</button></li>
+        </ul>
+        <dl class="pdt30">
+            <dt>핀번호 사용</dt>
+            <dd><label class="radio-box"><input type="radio" name="radio1" class="radio"><span></span></label></dd>
+        </dl>
+        <ul>
+            <li><button class="btn-simple w100p">핀번호 변경</button></li>
+        </ul>                
+    </div>            
+</div>
+
+<script type="text/javascript">
+M.onReady(function(evt){
+	// uikit 링크
+	$("[data-instance-class='menu-info']").click(function(){
+		var stackInfo = M.info.stack();
+		if(stackInfo.length > 1 && stackInfo[stackInfo.length-2].key.indexOf('view_content3.html') > -1){
+			M.page.back();
+		}else{
+			M.page.html("../uikit/view_content3.html",{
+				action : "NEW_SCR",
+				orient : "PORT"
+			});
+		}
+	});
+	
+	// 메뉴닫기
+	$("[data-instance-class='menu-close']").click(function(){
+		M.page.back();
+	});
+}).onRestore(function(evt){
+	
+}).onHide(function(evt){
+	
+}).onResume(function(evt){
+	
+}).onPause(function(evt){
+	
+}).onDestroy(function(evt){
+	
+}).onBack(function(evt){
+	M.page.back();
+}).onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+</script>
+</body>
+</html>

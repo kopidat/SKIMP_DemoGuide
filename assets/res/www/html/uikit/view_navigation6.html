@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	</style>
+
+	<script>
+		$(function(){ 
+		//탭메뉴
+			$('.tabScrollMenu > button').click(function(){
+				if($(this).hasClass == 'active'){
+					return;
+				}else{
+					$('.tabScrollMenu > button').removeClass('active');
+					$(this).addClass('active');
+				}
+			});
+			
+			$(".wrap_cons > .cons").hide();
+			$(".wrap_cons > .cons:first-of-type").show();
+			$(".tabScrollMenu > button:first-of-type").addClass('active');
+			$('.tabScrollMenu > button').click(function(){
+				var index = $('.tabScrollMenu > button').index(this);	
+				$('.wrap_cons > .cons:eq('+index+')').css('display','block').siblings('.wrap_cons > .cons').css('display','none');
+				
+			});
+		}); 
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<header id="header">
+            <h1>스크롤 탭</h1>
+            <button type="button" onclick="return false;" data-button="back" class="tbtn_l tbtn_prev" id="btn_back">이전</button>
+            <button type="button" class="tbtn_home" title="홈">홈</button>
+        </header>
+
+		<section class="content bge" id="content">
+			<div id="topInfoArea" class="hogaTopArea" data-header="move">
+				<div class="tabScrollMenu" data-tab="1" data-header="fixed">
+					<button type="button"><span>탭메뉴 1</span></button>
+					<button type="button"><span>탭메뉴 2</span></button>
+					<button type="button"><span>탭메뉴 3</span></button>
+					<button type="button"><span>탭메뉴 4</span></button>
+					<button type="button"><span>탭메뉴 5</span></button>
+					<button type="button"><span>탭메뉴 6</span></button>
+					<button type="button"><span>탭메뉴 7</span></button>				
+				</div>
+	
+				<!-- tab 클릭 시 class="on" 추가 해당 컨텐츠 보여짐 -->
+				<div class="wrap_cons">
+					<div class="cons on">
+						<h3 class="tab_tit">탭메뉴 1</h3>
+						컨텐츠 내용 1
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 2</h3>
+						컨텐츠 내용 2
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 3</h3>
+						컨텐츠 내용 3
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 4</h3>
+						컨텐츠 내용 4
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 5</h3>
+						컨텐츠 내용 5
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 6</h3>
+						컨텐츠 내용 6
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 7</h3>
+						컨텐츠 내용 7
+					</div>
+					<div class="cons">
+						<h3 class="tab_tit">탭메뉴 8</h3>
+						컨텐츠 내용 8
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<!-- 도움말 팝업: Start -->
+<div class="layer_shadow" data-instance-class="info-pop">
+	<div id="layer_con1" class="layerPop hbox jc">
+		<div class="flex width100" data-instance-class="info-cont">
+			<header>
+				<h1>스크롤 탭</h1>
+				<button type="button" class="close" data-instance-class="info-close">닫기</button>
+			</header>
+			<div class="layer_container2">
+				<p>한 화면에 표현 가능한 탭바의 개수보다 많은 경우 활용되며, 좌/우로 스크롤 시, 이전/다음 탭 메뉴를 볼 수 있습니다.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 도움말 팝업: End -->
+
+<script type="text/javascript" src="../../js/libs/jquery/plugins/jquery.plugin.mpui-drag.js"></script>
+<script type="text/javascript">
+
+M.onReady(function(){
+	$('#scroll').height( $('body').height()- $('#header').height() );
+	
+	var $btnPrev = $("[data-instance-class='btnPrev']"),
+		$btnNext = $("[data-instance-class='btnNext']"),
+		$menuItems = $("[data-instance-class='scroll_area']>li"),
+		$menuContainer = $("[data-instance-class='scroll_area']"),
+		containerWidth = $menuContainer.width(),
+		menuWidth = $menuItems.first().width(),
+		menuCount = $menuItems.length,
+		currentIndex = -1,
+		blockIndex = 0,
+		blockCount = 2,
+		startX = 0,
+		moveX = 0,
+		endX = 0,
+		moveAnimation = function( index, block, animated ) {
+			console.log( "moveAnimation", arguments );
+			
+			var wasIndex = currentIndex;
+			currentIndex = index;
+			
+			if ( wasIndex != currentIndex ) {
+				$("[data-instance-class='scroll_area']>li").removeClass('default');
+				$("[data-instance-class='scroll_area']>li:eq(" + currentIndex + ")").addClass('default');
+			
+				$(".tab_con").removeClass('on');
+				$(".tab_con:eq(" + currentIndex +")").addClass('on');
+			};
+			
+			block = Math.max( 0, Math.min( block, blockCount - 1 ) );
+			
+			var wasBlock = blockIndex;
+			blockIndex = block;
+			
+			var css = {
+				left: -blockIndex * containerWidth
+			};
+			
+			var callback = function() {
+				if ( blockIndex == 0 ) {
+					$btnPrev.hide();
+					$btnNext.show();
+				}
+				else if ( blockIndex == blockCount - 1 ) {
+					$btnPrev.show();
+					$btnNext.hide();
+				}
+				else {
+					$btnPrev.show();
+					$btnNext.show();
+				};
+			};
+			
+			if ( animated == true ) {
+				$menuContainer.stop(true).animate( css, callback );
+			}
+			else {
+				$menuContainer.css( css );
+				callback();
+			};
+		};
+	$('.cbtn_r').css('top', $menuItems.height() + 10);
+	$('.cbtn_r').css('display', 'block');
+	
+	$menuItems.css({ width: menuWidth } );
+	$menuContainer.css({ width: (menuWidth * menuCount) });
+	
+	$menuContainer.drag({
+		horizon: false,
+		right: 0,
+		left: -containerWidth,
+
+		onStart:function(evt, mp){
+			startX = parseInt($menuContainer.css('left'));
+		},
+		onMove:function(evt, mp){
+			moveX = parseInt($menuContainer.css('left'));
+		},
+		onEnd:function(evt, mp){
+			endX = parseInt($menuContainer.css('left'));
+			
+			var idx = parseInt( $(evt.target).data("index") );
+			
+			if ( isNaN(idx) ) {
+				return;
+			}
+			
+			idx = idx - 1;
+			
+			var diff = Math.abs( startX - endX );
+			
+			//console.log( "diff", diff );
+			
+			if ( diff > 20 ) {
+				var block = blockIndex;
+				
+				if (startX > endX) {
+					block = block + 1;
+				}
+				else if(startX < endX){
+					block = block - 1;
+				}
+				
+				moveAnimation( currentIndex, block, true );
+			}
+			else {
+				
+				moveAnimation( idx, blockIndex, true );
+			};
+		}
+	});
+	
+	$btnPrev.click( function() {
+		moveAnimation( currentIndex, blockIndex - 1, true );
+	});
+	
+	$btnNext.click( function() {
+		moveAnimation( currentIndex, blockIndex + 1, true );
+	});
+	
+	moveAnimation(0, blockIndex, false);
+	
+	
+	
+	// 도움말 기능
+	$("[data-instance-class='info-btn']").click(function(){
+		$("[data-instance-class='info-pop']").css({
+			'visibility': 'visible'
+		}).hide().fadeIn();
+	});
+	$("[data-instance-class='info-close']").click(function(){
+		$("[data-instance-class='info-pop']").fadeOut();
+	});
+})
+
+.onRestore(function(){
+
+})
+
+.onHide(function(){
+
+})
+
+.onResume(function(){
+
+})
+
+.onPause(function(){
+
+})
+
+.onDestroy(function(){
+
+})
+
+.onBack(function(){
+	M.page.back();
+})
+
+.onKey(function(evt){
+	M.tool.log(evt.key, evt.events);
+	if (evt.key === 'home' && evt.events === 'keydown') {
+		WNLog('')
+	}
+});
+
+
+</script>
+</body>
+</html>

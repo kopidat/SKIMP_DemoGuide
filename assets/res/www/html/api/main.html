@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">Home</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+		
+	<ul class="api-list">
+		<li data-page="batch.html" class="batch-hidden"><button type="button">Batch Test</button></li>
+	
+		<li data-page="apps-browser.html"><button type="button">M.apps.browser : Browser 열기</button></li>
+		<li data-page="apps-remove.html"><button type="button">M.apps.remove : App 삭제(Android Only)</button></li>
+		<li data-page="apps-info.html"><button type="button">M.apps.info : App 정보 반환</button></li>
+		<li data-page="apps-install.html"><button type="button">M.apps.install : App 설치</button></li>
+		<li data-page="apps-open.html"><button type="button">M.apps.open : App 열기</button></li>
+		<li data-page="apps-store.html"><button type="button">M.apps.store : Store 열기</button></li>
+		
+		<li data-page="data-global.html"><button type="button">M.data.global : 전역변수 관리</button></li>
+		<li data-page="data-param.html"><button type="button">M.data.param : 매개변수 관리</button></li>
+		<li data-page="data-storage.html"><button type="button">M.data.storage : 전역저장소 관리</button></li>
+		
+		<li data-page="db.html"><button type="button">M.db : Database 관리</button></li>
+		
+		<li data-page="file.html"><button type="button">M.file : File 관리</button></li>
+		
+		<li data-page="info-app.html"><button type="button">M.info.app : App 정보</button></li>
+		<li data-page="info-device.html"><button type="button">M.info.device : Device 정보</button></li>
+		<li data-page="info-memory.html"><button type="button">M.info.memory : Memory 정보</button></li>
+		<li data-page="info-stack.html"><button type="button">M.info.stack : Stack 정보</button></li>
+		
+		<li data-page="media-camera.html"><button type="button">M.media.camera : Camera 촬영</button></li>
+		<li data-page="media-info.html"><button type="button">M.media.info : Media 정보 반환</button></li>
+		<li data-page="media-library.html"><button type="button">M.media.library : Library 정보 이용</button></li>
+		<li data-page="media-play.html"><button type="button">M.media.play : Media 재생</button></li>
+		<li data-page="media-record.html"><button type="button">M.media.record : 녹음</button></li>
+		<li data-page="media-removeLibrary.html"><button type="button">M.media.removeLibrary : Media 파일 삭제</button></li>
+		
+		<li data-page="net-http-send.html"><button type="button">M.net.http-send : HTTP 통신</button></li>
+		<li data-page="net-http-upload.html"><button type="button">M.net.http-upload : HTTP Upload</button></li>
+		<li data-page="net-http-download.html"><button type="button">M.net.http-download : HTTP Download</button></li>
+		
+		<li data-page="net-res-update.html"><button type="button">M.net.res-update : Resource Update</button></li>
+		
+		<li data-page="net-ftp-list.html"><button type="button">M.net.ftp-list : FTP List</button></li>
+		<li data-page="net-ftp-upload.html"><button type="button">M.net.ftp-upload : FTP Upload</button></li>
+		<li data-page="net-ftp-download.html"><button type="button">M.net.ftp-download : FTP Download</button></li>
+		
+		<li data-page="net-socket-send.html" class="disabled"><button type="button">M.net.socket-send : SOCKET 통신</button></li>
+		
+		<li data-page="page-html.html"><button type="button">M.page.html : 화면 이동</button></li>
+		<li data-page="page-native.html"><button type="button">M.page.native : Native 화면 이동</button></li>
+		<li data-page="page-replace.html"><button type="button">M.page.replace : 현재 화면 바꾸기</button></li>
+		<li data-page="page-remove.html"><button type="button">M.page.remove : 화면 삭제</button></li>
+		<li data-page="page-tab-html.html"><button type="button">M.page.tab.html : 탭 화면 이동</button></li>
+		<li data-page="page-tab-remove.html"><button type="button">M.page.tab.remove : 탭 화면 삭제</button></li>
+		
+		<li data-page="pop-date.html"><button type="button">M.pop.date : 날짜 선택 Popup</button></li>
+		<li data-page="pop-alert.html"><button type="button">M.pop.alert : Alert Popup</button></li>
+		<li data-page="pop-list.html"><button type="button">M.pop.list : List 선택 Popup</button></li>
+		<li data-page="pop-instance.html"><button type="button">M.pop.instance : Toste Popup</button></li>
+		
+		<li data-page="sec.html"><button type="button">M.sec : Source 암호화/복호화</button></li>
+		
+		<li data-page="sys-call.html"><button type="button">M.sys.call : 전화 걸기</button></li>
+		<li data-page="sys-exit.html"><button type="button">M.sys.exit : App 종료</button></li>
+		<li data-page="sys-flash.html"><button type="button">M.sys.flash : Camera Flash 호출</button></li>
+		<li data-page="sys-mail.html"><button type="button">M.sys.mail : Mail 보내기</button></li>
+		<li data-page="sys-sms.html"><button type="button">M.sys.sms : SMS 보내기</button></li>
+		<li data-page="sys-vibration.html"><button type="button">M.sys.vibration : 진동 호출</button></li>
+		
+		<li data-page="tool-log.html"><button type="button">M.tool.log : Log 출력</button></li>
+		
+		<li data-page="zip.html"><button type="button">M.zip : 파일 압축 및 압축 풀기</button></li>
+		
+		<li data-page="plugin-qr.html"><button type="button">M.plugin.qr : QR Reader Plugin</button></li>
+		<li data-page="plugin-viewer.html"><button type="button">M.plugin.viewer : Viewer Plugin</button></li>
+		<li data-page="plugin-drawing.html"><button type="button">M.plugin.drawing : Drawing Plugin</button></li>
+	</ul>
+	
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+M.onReady(function(e) {
+
+	$("#container [data-page] button").click(function(){
+		
+		var directPage = $(this).parent().attr('data-page');
+		if ( directPage.substr(0, 2) == "__" ) {
+			return;
+		};
+		
+		M.page.html(directPage,{
+			action:"NEW_SCR",
+			orient:"PORT"
+		});
+	});
+	
+	var developCheckCount = 0;
+	$("#header h1").click( function(e) {
+		if ( developCheckCount > 5 ) {
+			alert( 'You`re the Developer' );
+			$(".batch-hidden").removeClass("batch-hidden");
+		}
+		else {
+			developCheckCount ++;
+		}
+	});
+});
+</script>
+</body>
+</html>

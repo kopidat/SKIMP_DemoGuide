@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+	<title>Guide App</title>
+	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+	<script type="text/javascript" src="../../js/mcore.min.js"></script>
+	<script type="text/javascript" src="../../js/ui/api/common.js"></script>
+</head>
+<body>
+
+<!-- Header Start -->
+<header id="header">
+	<h1>API</h1>
+	<button type="button" class="tbtn_l tbtn_prev">이전</button>
+	<p class="tbtn_r">
+		<button type="button" class="tbtn_home">홈</button>
+		<button type="button" class="tbtn_menu">전체메뉴</button>
+	</p>
+</header>
+<!--// Header End -->
+
+<div id="container" class="submain api">
+	<section id="scroll">
+		<div>
+		<!-- scroll 영역 -->
+
+
+<button data-function>전역저장소 설정</button>
+<pre>
+M.data.storage('koo', 'kov');
+</pre>
+
+<button data-function>전역저장소 불러오기</button>
+<pre>
+var val = M.data.storage('koo');
+M.tool.log(typeof val, val);
+alert( (typeof val) + ", " + JSON.stringify(val) );
+</pre>
+
+<button data-function>전역저장소 설정(객체 형식)</button>
+<pre>
+M.data.storage({
+	'koo': 'kov',
+	'boo': 'bov',
+	'foo': 'fov',
+    'arrayKey' : ['1', '2', '3'],
+    'objectkey' : {'key': 'value'}
+});
+
+var val = M.data.storage('foo');
+M.tool.log(typeof val, val);
+alert( (typeof val) + ", " + JSON.stringify(val) );
+</pre>
+
+<button data-function>모든 전역저장소 가져오기</button>
+<pre>
+var result = M.data.storage();
+M.tool.log(result);
+alert( JSON.stringify(result) );
+</pre>
+
+<button data-function>특정 전역저장소 삭제</button>
+<pre>
+M.data.removeStorage('koo');
+
+var val = M.data.storage('koo');
+M.tool.log(typeof val, val);
+alert( (typeof val) + ", " + JSON.stringify(val) );
+</pre>
+
+<button data-function>모든 전역저장소 삭제</button>
+<pre>
+M.data.removeStorage();
+
+var result = M.data.storage();
+M.tool.log(result);
+alert( JSON.stringify(result) );
+</pre>
+
+		</div>
+	</section>
+</div>
+
+<!-- 전체메뉴 레이어팝업: Start -->
+<div id="popWrap" class="none"></div>
+<!--// 전체메뉴 레이어팝업: End -->
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
