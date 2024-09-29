@@ -1,0 +1,12 @@
+<resources>
+
+    <string name="mp_plugin_qrcode_msg_default_status">박스 안에 QR CODE를 위치시켜 주세요</string>
+    <string name="mp_plugin_qrcode_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
+    <string name="mp_plugin_qrcode_not_supported_flash">플래시 기능을 지원하지 않는 기기입니다.</string>
+	<string name="mp_plugin_qrcode_button_ok">OK</string>
+    <string name="mp_plugin_qrcode_button_cancel">취소</string>
+    <string name="mp_plugin_qrcode_button_on">온</string>
+    <string name="mp_plugin_qrcode_button_off">오프</string>
+
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="m_fingerprint_title">지문인증</string>
+    <string name="m_fingerprint_message">지문을 사용하여, 본인 인증을 하세요</string>
+    <string name="m_fingerprint_cancel">취소</string>
+    <string name="m_fingerprint_not_support">지문인식을 지원하지 않는 기기 입니다.</string>
+    <string name="m_fingerprint_not_regist_fingerprint">지문이 등록되지 않았습니다.</string>
+    <string name="m_fingerprint_unlock_screen">화면잠금이 되어 있지 않습니다.</string>
+    <string name="m_fingerprint_support">지문인식이 가능합니다.</string>
+</resources>

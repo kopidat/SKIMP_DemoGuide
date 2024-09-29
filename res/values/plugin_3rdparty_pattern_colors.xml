@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--그릴 경우 패턴 선 색상-->
+    <color name="pathColor">#FFCCCCCC</color>
+    <!--틀릴 경우 패턴 선 색상-->
+    <color name="erroPathColor">#FFFBCCD5</color>
+
+    <!--틀릴 경우 오류 텍스트 색상-->
+    <color name="pl_error_text_color">#FFEA002C</color>
+
+</resources>

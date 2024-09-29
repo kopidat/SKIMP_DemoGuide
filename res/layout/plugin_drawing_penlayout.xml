@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@android:color/white"
+	    android:orientation="horizontal" >
+	    
+         <Button
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center" 
+            android:drawableLeft="@drawable/cancel_btn_icon" 
+            android:padding="10dp"
+            android:layout_marginRight="1dp"
+            android:textSize="16sp"
+            android:textColor="@color/button_text_color"
+            android:textStyle="bold"
+            android:text="@string/cancel_label" 
+            android:background="@drawable/plugin_drawing_button_color" />
+        
+         <Button
+            android:id="@+id/option"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center" 
+            android:drawableLeft="@drawable/option_btn_icon" 
+            android:padding="10dp"
+            android:layout_marginRight="1dp"
+            android:textSize="16sp"
+            android:textColor="@color/button_text_color"
+            android:textStyle="bold"
+            android:text="@string/option_label" 
+            android:background="@drawable/plugin_drawing_button_color" />
+            
+         <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:gravity="center" 
+            android:drawableLeft="@drawable/save_btn_icon" 
+            android:padding="10dp"
+            android:textSize="16sp"
+            android:textColor="@color/button_text_color"
+            android:textStyle="bold"
+            android:text="@string/save_label" 
+            android:background="@drawable/plugin_drawing_button_color" />
+    </LinearLayout>
+
+</LinearLayout>

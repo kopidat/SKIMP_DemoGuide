@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="80dip"
+            android:layout_height="50dip"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/m_fingerprint_title"
+            android:textColor="@android:color/black"
+            android:textSize="15dip"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dip"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="40dip"
+                android:layout_height="40dip"
+                android:layout_gravity="center"
+                android:src="@drawable/plugin_thirdparty_fingerprint_40px" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/m_fingerprint_message"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="right"
+            android:padding="15dip"
+            android:text="@string/m_fingerprint_cancel"
+            android:textColor="#FF001AFF"
+            android:textSize="15dip" />
+    </LinearLayout>
+
+</LinearLayout>

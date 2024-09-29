@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100">
+
+    <include
+        layout="@layout/plugin_3rdparty_pattern_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="44.6"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/pin_logo">
+
+        <TextView
+            android:id="@+id/txt_pin_guide_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/pin_reg_new_title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/txt_pin_guide_text"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/pin_reg_new_guide"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textSize="16dp" />
+
+        <mcore.edu.demoGuide.pinlock.IndicatorDots
+            android:id="@+id/indicator_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pin_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="44dp"
+            app:dotDiameter="32dp"
+            app:dotSpacing="16dp"/>
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/pin_descript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/indicator_dots"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="간편 비밀번호가 일치하지 않습니다. (1/5)"
+            android:textColor="@android:color/black"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="55.4"
+        android:orientation="vertical"
+        android:gravity="center">
+        <mcore.edu.demoGuide.pinlock.PinLockView
+            android:id="@+id/pin_lock_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            app:keypadShowDeleteButton="true"
+            app:keypadTextColor="@android:color/black"
+            app:keypadTextSize="22sp"
+            app:keypadVerticalSpacing="2dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

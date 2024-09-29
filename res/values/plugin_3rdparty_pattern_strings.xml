@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2015 Zhang Hai <Dreaming.in.Code.ZH@Gmail.com>
+  ~ All Rights Reserved.
+-->
+
+<resources>
+    <string name="pl_cancel">취소</string>
+    <string name="pl_confirm">확인</string>
+    <string name="pl_confirm_pattern">확인을 위해 패턴을 다시 한 번 그려주세요.</string>
+    <string name="pl_continue">다음</string>
+    <string name="pl_draw_pattern">최소 4개 이상의 점을 연결해 주세요.</string>
+    <string name="pl_draw_pattern_to_unlock">잠금해제 패턴을 그리세요.</string>
+    <string name="pl_forgot_pattern">패턴 재 설정</string>
+    <string name="pl_pattern_confirmed">아래와 같은 잠금해제 패턴을 설정하였습니다.</string>
+    <string name="pl_pattern_recorded">패턴을 저장하였습니다.</string>
+    <string name="pl_pattern_too_short">패턴이 너무 단순합니다. 다시 시도해 주세요.</string>
+    <string name="pl_recording_pattern">패턴 입력이 완료되면 손가락을 떼세요.</string>
+    <string name="pl_redraw">다시 시도</string>
+    <string name="pl_wrong_pattern">다시 한 번 그려주세요. 일치하지 않습니다. (%d/5)</string>
+    <string name="pl_reg_title">패턴 등록</string>
+    <string name="pl_confirm_title">패턴 인증</string>
+	<string name="pl_pattern_drawing">사용중인 패턴을 그려주세요.</string>
+    <string name="pl_reset">패턴 재설정</string>
+    <string name="pl_retry_alert">다시 한 번 그려주세요. 일치하지 않습니다. (%d/5)</string>
+    <string name="pl_chg_auth_link"><u>로그인 방법 변경</u></string>
+
+    <string name="pl_reg_guide_title">패턴을 등록해 주세요.</string>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <color name="white">#fff</color>-->
+
+    <color name="greyish">#aaa8a8</color>
+    <color name="default_text_color">#ffffff</color>
+
+    <!--'로그인 방법 변경' 글자색-->
+    <color name="pin_chg_auth_color">#8dc035</color>
+    <color name="pin_chg_auth_press_color">#54731f</color>
+
+    <!--틀릴 경우 오류 텍스트 색상-->
+    <color name="pin_error_text_color">#FFEA002C</color>
+</resources>

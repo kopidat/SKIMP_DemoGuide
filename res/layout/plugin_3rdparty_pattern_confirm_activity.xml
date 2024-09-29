@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/plugin_3rdparty_pattern_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/pl_pattern_drawing"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+        <TextView
+
+            android:id="@+id/pl_message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="패턴이 일치하지 않습니다. (1/5)"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/pl_error_text_color"
+            android:textSize="16dp"
+            android:visibility="invisible" />
+
+        <!-- This FrameLayout is for proper divider drawing. -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp">
+
+            <mcore.edu.demoGuide.patternlock.PatternView
+                android:id="@+id/pl_pattern"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                app:arrowUpDrawable="@drawable/plugin_3rdparty_pattern_arrow_alpha"
+                app:circleDrawable="@drawable/plugin_3rdparty_pattern_circle_alpha"
+                app:circleDrawableDefault="@drawable/plugin_3rdparty_pattern_circle_default_alpha"
+                app:circleDrawableError="@drawable/plugin_3rdparty_pattern_circle_error_alpha" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pl_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/pl_left_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="@string/pl_cancel"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/pl_right_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:lineSpacingExtra="0sp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
